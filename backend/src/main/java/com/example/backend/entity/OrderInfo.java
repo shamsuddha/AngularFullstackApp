@@ -14,12 +14,11 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class OrderInfo {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
@@ -29,10 +28,10 @@ public class Order {
   private String receiverAddress;
   private Integer extraContactNumber;
 
-  @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "orderInfo", fetch = FetchType.LAZY)
   private List<OrderDetail> orderDetailList;
 
-  public Order(Long id) {
+  public OrderInfo(Long id) {
     this.id = id;
   }
 

@@ -13,7 +13,7 @@ export class UserInfo {  // FormGroup
 
   @prop()
   @minLength({ value: 3, message: 'Minimum 3 character required' })
-  @maxLength({ value: 10, message: 'Minimum 10 character allowed' })
+  @maxLength({ value: 10, message: 'Maximum 10 character allowed' })
   // @pattern({
   //   expression: {
   //     atLeastOneUpperCaseAndLowerCaseLatter: /(?=.*[a-z])(?=.*[A-Z])/gm,
