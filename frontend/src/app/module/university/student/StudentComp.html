@@ -1,0 +1,406 @@
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+  <button
+    class="navbar-toggler position-absolute d-md-none collapsed"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#sidebarMenu"
+    aria-controls="sidebarMenu"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input
+    class="form-control form-control-dark w-100"
+    type="text"
+    placeholder="Search"
+    aria-label="Search"
+  />
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="#">Sign out</a>
+    </div>
+  </div>
+</header>
+<div class="container-fluid">
+  <div class="row">
+    <nav
+      id="sidebarMenu"
+      class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    >
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [routerLink]="['/']">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['category']">
+              <span data-feather="shopping-cart"></span>
+              Comment
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['post']">
+              <span data-feather="users"></span>
+              Post
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['status']">
+              <span data-feather="bar-chart-2"></span>
+              Status
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['comment']">
+              <span data-feather="layers"></span>
+              Comment
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['department']">
+              <span data-feather="layers"></span>
+              Department
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['designation']">
+              <span data-feather="layers"></span>
+              Designation
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['student']">
+              <span data-feather="layers"></span>
+              Student
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['teacher']">
+              <span data-feather="layers"></span>
+              Teacher
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['course']">
+              <span data-feather="layers"></span>
+              Course
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['salary']">
+              <span data-feather="layers"></span>
+              Salary
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['leaveType']">
+              <span data-feather="layers"></span>
+              Leave Type
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['leave']">
+              <span data-feather="layers"></span>
+              Leave
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['brand']">
+              <span data-feather="layers"></span>
+              Brand
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['product']">
+              <span data-feather="layers"></span>
+              Product
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['order']">
+              <span data-feather="layers"></span>
+              Order
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['orderDetails']">
+              <span data-feather="layers"></span>
+              Order Detail
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['user']">
+              <span data-feather="file"></span>
+              User
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['role']">
+              <span data-feather="file"></span>
+              Role
+            </a>
+          </li>
+        </ul>
+        <h6
+          class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+        >
+          <span>Saved reports</span>
+          <a class="link-secondary" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Current month
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Last quarter
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Social engagement
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Year-end sale
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+      >
+        <h1 class="h2">Student</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Register Student</h4>
+          <form action="">
+            <div class="mb-3 mt-3">
+              <label for="firstName" class="form-label">First Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="Enter First Name"
+                name="firstName"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="lastName" class="form-label">Last Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Enter Last Name"
+                name="lastName"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="localAddress" class="form-label"
+                >Local Address:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="localAddress"
+                placeholder="Enter Local Address"
+                name="localAddress"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="permanentAddress" class="form-label"
+                >Permanent Address:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="permanentAddress"
+                placeholder="Enter Permanent Address"
+                name="permanentAddress"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="department" class="form-label"
+                >Select Department</label
+              >
+              <select class="form-control" name="department">
+                <option>Department 1</option>
+                <option>Department 2</option>
+                <option>Department 3</option>
+                <option>Department 4</option>
+              </select>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="courses" class="form-label">Select Courses</label>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="course1"
+                  name="course1"
+                  value="course1"
+                  checked
+                />
+                <label class="form-check-label">Course 1</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="course2"
+                  name="course2"
+                  value="course2"
+                  checked
+                />
+                <label class="form-check-label">Course 2</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="course3"
+                  name="course3"
+                  value="course3"
+                  checked
+                />
+                <label class="form-check-label">Course 3</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="course4"
+                  name="course4"
+                  value="course4"
+                  checked
+                />
+                <label class="form-check-label">Course 4</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="course5"
+                  name="course5"
+                  value="course5"
+                  checked
+                />
+                <label class="form-check-label">Course 5</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="course6"
+                  name="course6"
+                  value="course6"
+                  checked
+                />
+                <label class="form-check-label">Course 6</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="course7"
+                  name="course7"
+                  value="course7"
+                  checked
+                />
+                <label class="form-check-label">Course 7</label>
+              </div>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="user" class="form-label">Select User</label>
+              <select class="form-control" name="user">
+                <option>User 1</option>
+                <option>User 2</option>
+                <option>User 3</option>
+                <option>User 4</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Register Student
+            </button>
+          </form>
+        </div>
+        <div class="col-md-8">
+          <h4>All Students</h4>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>User Id</th>
+                <th>Email</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Present Address</th>
+                <th>Courses</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>user1@gmail.com</td>
+                <td>firstName 1</td>
+                <td>lastName 1</td>
+                <td>present address 1</td>
+                <td>course 1, course 2, course 3</td>
+                <td>
+                  <button class="btn btn-info mx-1">View</button>
+                  <button class="btn btn-secondary mx-1">Edit</button>
+                  <button class="btn btn-danger mx-1">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>user2@gmail.com</td>
+                <td>firstName 2</td>
+                <td>lastName 2</td>
+                <td>present address 2</td>
+                <td>course 1, course 2, course 3</td>
+                <td>
+                  <button class="btn btn-info mx-1">View</button>
+                  <button class="btn btn-secondary mx-1">Edit</button>
+                  <button class="btn btn-danger mx-1">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>user3@gmail.com</td>
+                <td>firstName 3</td>
+                <td>lastName 3</td>
+                <td>present address 3</td>
+                <td>course 1, course 2, course 3</td>
+                <td>
+                  <button class="btn btn-info mx-1">View</button>
+                  <button class="btn btn-secondary mx-1">Edit</button>
+                  <button class="btn btn-danger mx-1">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

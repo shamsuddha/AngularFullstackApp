@@ -1,0 +1,67 @@
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { UserInfo } from 'src/app/entity/UserInfo';
+import { UserInfoController } from '../../../controller/UserInfoController';
+import { RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { UserSearchDto } from 'src/app/dto/request/UserSearchDto';
+import { Address } from 'src/app/entity/Address';
+
+@Component({
+  selector: 'UserSetupComp',
+  templateUrl: './UserSetupComp.html',
+  styleUrls: ['./UserSetupComp.scss'],
+  //standalone: true
+})
+export class UserSetupComp implements OnInit {
+
+  // bread crumb items
+  breadCrumbItems!: Array<{}>;
+  title!: string;
+  userInfoFg: FormGroup = this.rxFormBuilder.formGroup(UserInfo);
+  addressListFa: FormArray = this.userInfoFg.get('addressList') as FormArray;
+  userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
+
+  constructor(
+    public userInfoController: UserInfoController,
+    public rxFormBuilder: RxFormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.search();
+    this.breadCrumbItems = [{ label: 'User' }, { label: 'User', active: true }];
+  }
+
+  fn1() {
+    this.userInfoFg.patchValue({
+      addressList: [new Address({ id: 1, name: 'name1' }),
+      new Address({ id: 2, name: 'name2' })]
+    })
+  }
+
+  save() {
+    this.userInfoController.save(this.userInfoFg.value).subscribe((e) => { });
+    this.search();
+  }
+
+  onUpdateClick(userInfo: UserInfo) {
+    this.userInfoFg.patchValue(userInfo);
+    //this.userInfoFg.patchValue({id:userInfo.id,name:userInfo.name});
+    console.log(this.userInfoFg.value);
+  }
+
+  update() {
+    this.userInfoController.update(this.userInfoFg.value).subscribe((e) => { });
+  }
+
+  delete(userInfo: UserInfo) {
+    this.userInfoController.delete(userInfo).subscribe((e) => { this.search(); });
+  }
+
+  search() {
+    this.userInfoList$ = this.userInfoController.search(new UserSearchDto({ idList: [] }));
+    /*.subscribe((e:Array<UserInfo>)=>{
+    console.log(e)
+  })*/
+  }
+}
