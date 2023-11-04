@@ -23,6 +23,9 @@ public class UserInfo {
   private String email;
   private Integer mobile;
 
+  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
+  private List<Order> orderList;
+
   public UserInfo(Long id) {
     this.id = id;
   }

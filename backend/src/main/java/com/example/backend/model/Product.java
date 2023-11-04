@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,8 +26,18 @@ public class Product {
 
     private String description;
 
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<OrderDetail> orderDetailList;
 
     public Product(Long id) {
         this.id = id;
     }
 }
+
+
+
+// id ,  name
+// 1     apple
+// 2     orange
+// 3     mango
+// 4     grape

@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "user_id": 101,
+    "orderDetailList": [
+      {
+        "id": 11,
+        "product_id": 1001,
+        "product_name": "product 1001",
+        "quantity": 3,
+        "unit": "kg",
+        "order_id": 1
+      },
+      {
+        "id": 12,
+        "product_id": 1002,
+        "product_name": "product 1002",
+        "order_id": 1,
+        "quantity": 2,
+        "unit": "liter"
+      }
+    ]
+  }
+]

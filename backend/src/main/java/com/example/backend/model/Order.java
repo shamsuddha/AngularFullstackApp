@@ -1,4 +1,5 @@
 package com.example.backend.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,17 +15,30 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        private String receiverAddress;
-        private int extraContactNumber;
-        @OneToMany(mappedBy = "order", fetch = FetchType.LAZY )
-        private List<OrderDetail> orderDetailList;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
 
-        public Order(Long id) {
-                this.id = id;
-        }
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  private UserInfo userInfo;
+
+  private String code;
+  private String receiverAddress;
+  private Integer extraContactNumber;
+
+  @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+  private List<OrderDetail> orderDetailList;
+
+  public Order(Long id) {
+    this.id = id;
+  }
 
 }
+
+// id ,  code  , user_id(fk)
+// 1     OR001 ,    1
+// 2     OR002 ,    2
+
