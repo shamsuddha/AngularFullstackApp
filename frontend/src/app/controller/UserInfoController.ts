@@ -2,7 +2,7 @@ import {Observable} from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {UserInfo} from "../entity/UserInfo";
-import { UserSearchDto } from "../module/hr/Component/Dto/request/UserSearchDto";
+import { UserSearchDto } from "../dto/request/UserSearchDto";
 
 
 @Injectable({providedIn: 'root'})
@@ -16,10 +16,7 @@ export class UserInfoController {
   }
 
   update(userInfo: UserInfo): Observable<UserInfo> {
-    return this.httpClient.put<UserInfo>(
-      'http://localhost:8080/user/update/123456',
-      userInfo
-    );
+    return this.httpClient.put<UserInfo>('http://localhost:8080/user/update/123456', userInfo);
   }
 
   delete(userInfo: UserInfo):Observable<boolean> {
@@ -28,9 +25,6 @@ export class UserInfoController {
   }
 
   search(userSearchDto: UserSearchDto): Observable<Array<UserInfo>> {
-    return this.httpClient.post<Array<UserInfo>>(
-      'http://localhost:8080/user/search',
-      userSearchDto
-    );
+    return this.httpClient.post<Array<UserInfo>>('http://localhost:8080/user/search', userSearchDto);
   }
 }

@@ -1,14 +1,6 @@
 import {
-  NumericValueType,
-  maxLength,
-  minLength,
-  numeric,
-  pattern,
-  prop,
-  propArray,
-  propObject,
-  required,
-  trim,
+  NumericValueType,  maxLength,  minLength,  numeric,  pattern,
+  prop,  propArray,  propObject,  required,  trim,
 } from '@rxweb/reactive-form-validators';
 import { Vehicle } from './Vehicle';
 import { Address } from './Address';
@@ -18,7 +10,6 @@ export class UserInfo {  // FormGroup
   @prop() id: number | null = null; // FormControl
   @propObject(Vehicle, { autoCreate: true }) vehicle: Vehicle | null = null; // FormGroup
   @propArray(Address, { createBlank: true }) addressList: Array<Address> = []; // FormArray
-
 
   @prop()
   @minLength({ value: 3, message: 'Minimum 3 character required' })
