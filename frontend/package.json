@@ -33,7 +33,7 @@
     "@fullcalendar/list": "^6.1.8",
     "@fullcalendar/timegrid": "^6.1.8",
     "@ng-bootstrap/ng-bootstrap": "^15.1.1",
-    "@ng-select/ng-select": "^11.0.1",
+    "@ng-select/ng-select": "^11.2.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@popperjs/core": "^2.11.8",

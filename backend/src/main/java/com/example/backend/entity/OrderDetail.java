@@ -22,12 +22,14 @@ public class OrderDetail {
   private Double quantity;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "order_id")
+  @JoinColumn(name = "orderInfo_id")
   private OrderInfo orderInfo;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "product_id")
   private Product product;
+
+
 
   public OrderDetail(Long id) {
     this.id = id;

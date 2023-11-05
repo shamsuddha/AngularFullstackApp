@@ -23,12 +23,13 @@ public class OrderInfo {
   private String receiverAddress;
   private Integer extraContactNumber;
 
-   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "user_id")
-  private UserInfo userInfo;
-
   @OneToMany(mappedBy = "orderInfo", fetch = FetchType.LAZY)
   private List<OrderDetail> orderDetailList;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "userInfo_id")
+  private UserInfo userInfo;
+
 
   public OrderInfo(Long id) {
     this.id = id;

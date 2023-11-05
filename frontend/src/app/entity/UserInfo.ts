@@ -27,12 +27,6 @@ export class UserInfo {  // FormGroup
   @prop() email: string | null = null;
   @prop() mobile: number | null = null;
 
-  //  @prop() roleList: Array<Role> = [];
-  //  @prop() postList: Array<Post> = [];
-  //  @prop() commentList: Array<Comment> = [];
-  //  @prop() productList: Array<Product> = [];
-  //  @prop() orderList: Array<Order> = [];
-  //  @prop() statusList: Array<Status> = [];
 
   constructor(o?: Partial<UserInfo>) {
     Object.assign(this, o);

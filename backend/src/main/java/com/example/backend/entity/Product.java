@@ -22,11 +22,14 @@ public class Product {
     private String name;
     private String code;
     private int price;
-
     private String description;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<OrderDetail> orderDetailList;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userInfo_id")
+    private UserInfo userInfo;
 
     public Product(Long id) {
         this.id = id;

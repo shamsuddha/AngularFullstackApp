@@ -1,14 +1,14 @@
+import { prop, propObject } from "@rxweb/reactive-form-validators";
 import { Category } from "./Category";
 import { Product } from "./Product";
 
 export class Brand {
 
-  id: number | null = null;
-  name: string | null = null;
-  code: string | null = null;
-  category: Category | null = null;
-  productList: Array<Product> | null = null;
-
+  @prop() id: number | null = null;
+  @prop() name: string | null = null;
+  @prop() code: string | null = null;
+  @propObject(Category, {autoCreate: true})category: Category | null = null;
+  
   constructor(o?: Partial<Brand>) {
     Object.assign(this, o);
   }

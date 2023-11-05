@@ -29,30 +29,12 @@ public class Brand{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String mobile;
-    private String email;
-
-    @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
-    private List<Category> categoryList;
-
-    @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
-    private List<Category> categoryList;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "product_id")
-  private Product product;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "product_id")
-  private Product product;
-
-
-
-
+    
 
     public Brand(Long id)
     {

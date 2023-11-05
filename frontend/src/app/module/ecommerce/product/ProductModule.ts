@@ -8,25 +8,25 @@ import { ProductDtoApiService } from "../Dto_Api_Services/ProductDtoApiService";
 
 @NgModule({
   declarations:
-  [
-    ProductComp
-  ],
+    [
+      ProductComp
+    ],
   imports:
-  [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ProductComp,
-      },
-    ]),
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    [
+      CommonModule,
+      RouterModule.forChild([
+        {
+          path: '',
+          component: ProductComp,
+        },
+      ]),
+      ReactiveFormsModule,
+      HttpClientModule,
+      FormsModule
+    ],
 
   providers: [
     ProductDtoApiService
   ],
 })
-export class ProductModule {}
+export class ProductModule { }

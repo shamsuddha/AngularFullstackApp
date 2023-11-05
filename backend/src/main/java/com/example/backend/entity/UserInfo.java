@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.List;
 
 @Entity
@@ -23,13 +22,14 @@ public class UserInfo {
   private String email;
   private Integer mobile;
 
-  @OneToMany(mappedBy = "userInfo", 
-  fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
+  private List<Product> productList;
+
+  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
   private List<OrderInfo> orderInfoList;
 
   public UserInfo(Long id) {
     this.id = id;
   }
-
 
 }
