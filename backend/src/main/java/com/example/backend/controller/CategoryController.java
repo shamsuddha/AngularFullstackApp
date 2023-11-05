@@ -1,7 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Category;
-import com.example.backend.repository.CategoryRepository;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
