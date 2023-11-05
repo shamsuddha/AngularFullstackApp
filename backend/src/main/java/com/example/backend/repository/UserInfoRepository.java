@@ -1,7 +1,8 @@
 package com.example.backend.repository;
 
-import com.example.backend.entiry.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.backend.entity.UserInfo;
 
 public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 }

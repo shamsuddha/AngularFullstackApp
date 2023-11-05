@@ -1,4 +1,4 @@
-package com.example.backend.entiry;
+package com.example.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,8 +23,9 @@ public class UserInfo {
   private String email;
   private Integer mobile;
 
-  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
-  private List<OrderInfo> orderList;
+  @OneToMany(mappedBy = "userInfo", 
+  fetch = FetchType.LAZY)
+  private List<OrderInfo> orderInfoList;
 
   public UserInfo(Long id) {
     this.id = id;

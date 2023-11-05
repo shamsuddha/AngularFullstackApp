@@ -1,7 +1,8 @@
 package com.example.backend.repository;
 
-import com.example.backend.entiry.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.backend.entity.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 }
