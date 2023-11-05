@@ -1,6 +1,6 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.UserInfo;
+import com.example.backend.entiry.UserInfo;
 import com.example.backend.repository.UserInfoRepository;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
