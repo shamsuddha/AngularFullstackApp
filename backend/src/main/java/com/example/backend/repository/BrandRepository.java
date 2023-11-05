@@ -1,5 +1,7 @@
 package com.example.backend.repository;
+import com.example.backend.model.Brand;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class BrandRepository {
+public interface BrandRepository extends JpaRepository<Brand, Long> {
   
 }

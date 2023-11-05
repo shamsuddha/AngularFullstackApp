@@ -1,7 +1,7 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.Order;
-import com.example.backend.repository.OrderRepository;
+import com.example.backend.model.OrderInfo;
+import com.example.backend.repository.OrderInfoRepository;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,29 +10,29 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
-public class OrderController {
+public class OrderInfoController {
 
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderInfoRepository orderInfoRepository;
 
     @PostMapping(value = "/save")
-    public @ResponseBody ResponseEntity<?> save(@RequestBody Order order) {
-        return new ResponseEntity<>(this.orderRepository.save(order), HttpStatus.OK);
+    public @ResponseBody ResponseEntity<?> save(@RequestBody OrderInfo orderInfo) {
+        return new ResponseEntity<>(this.orderInfoRepository.save(orderInfo), HttpStatus.OK);
     }
     @PutMapping(value = "/update/{id}")
     public @ResponseBody
-    ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody Order order) {
-        return new ResponseEntity<>(this.orderRepository.save(order), HttpStatus.OK);
+    ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody OrderInfo orderInfo) {
+        return new ResponseEntity<>(this.orderInfoRepository.save(orderInfo), HttpStatus.OK);
     }
     @DeleteMapping(value = "/delete/{id}")
     public @ResponseBody
     ResponseEntity<?> delete(@PathParam("id") Long id) {
-        this.orderRepository.delete(new Order(id));
+        this.orderInfoRepository.delete(new OrderInfo(id));
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
     @PostMapping(value = "/search")
     public @ResponseBody ResponseEntity<?> search() {
-        return new ResponseEntity<>(this.orderRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(this.orderInfoRepository.findAll(), HttpStatus.OK);
     }
 }
