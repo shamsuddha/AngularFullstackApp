@@ -28,6 +28,12 @@ public class UserInfo {
   @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
   private List<OrderInfo> orderInfoList;
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "role_id")
+  private Role role;
+
+
+
   public UserInfo(Long id) {
     this.id = id;
   }

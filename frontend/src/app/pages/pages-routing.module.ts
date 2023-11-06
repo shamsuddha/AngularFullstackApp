@@ -10,14 +10,14 @@ const routes: Routes = [
   {
     path: 'hr', loadChildren: () => import('../module/hr/HrModule').then(m => m.HrModule)
   },
-  {
-    path: 'user', loadChildren: () => import('../module/hr/user_setup/UserSetupModule').then(m => m.UserSetupModule)
-  },
+  // {
+  //   path: 'user', loadChildren: () => import('../module/hr/user_setup/UserSetupModule').then(m => m.UserSetupModule)
+  // },
   {
     path: 'social', loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
   },
   {
-    path: 'ecommerce', loadChildren: () => import('./extended/extended.module').then(m => m.ExtendedModule)
+    path: 'ecommerce', loadChildren: () => import('../module/ecommerce/EcommerceModule').then(m => m.EcommerceModule)
   },
   {
     path: 'form', loadChildren: () => import('./form/form.module').then(m => m.FormModule)

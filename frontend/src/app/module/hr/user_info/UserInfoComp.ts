@@ -8,16 +8,18 @@ import { UserSearchDto } from 'src/app/dto/request/UserSearchDto';
 import { Address } from 'src/app/entity/Address';
 
 @Component({
-  selector: 'UserSetupComp',
-  templateUrl: './UserSetupComp.html',
-  styleUrls: ['./UserSetupComp.scss'],
+  selector: 'UserInfoComp',
+  templateUrl: './UserInfoComp.html',
+  styleUrls: ['./UserInfoComp.scss'],
   //standalone: true
 })
-export class UserSetupComp implements OnInit {
+export class UserInfoComp implements OnInit {
 
-  // bread crumb items
+  //BreadCrumb Items
   breadCrumbItems!: Array<{}>;
   title!: string;
+  
+  // Form Items
   userInfoFg: FormGroup = this.rxFormBuilder.formGroup(UserInfo);
   addressListFa: FormArray = this.userInfoFg.get('addressList') as FormArray;
   userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();

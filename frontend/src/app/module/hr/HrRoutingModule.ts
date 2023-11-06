@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserSetupComp } from './user_setup/UserSetupComp';
-
+import { RoleComp } from './role/RoleComp';
+import { UserInfoComp } from './user_info/UserInfoComp';
 
 const routes: Routes = [
   {
-    path: 'user',
-    component: UserSetupComp
+    path: 'user_info',
+    component: UserInfoComp
+  },
+  {
+    path: 'role',
+    component: RoleComp
   }
-  // {
-  //   path: 'department',
-  //   component: DepartmentComp
-  // },
-  // {
-  //   path: 'designation',
-  //   component: DesignationComp
-  // }
-  
+
 ];
 
 @NgModule({

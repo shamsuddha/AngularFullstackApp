@@ -11,11 +11,11 @@
         </p>
       </div>
       <div class="card-body">
-        <form [formGroup]="userInfoFg">
+        <!-- <form [formGroupName] = "userInfoFg"> -->
           <div class="mb-4">
             <label class="form-label" for="name">Name</label>
             <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter your name" />
-            <!-- {{userInfoFg.controls['name'].errors | json}} -->
+            {{userInfoFg.controls['name'].errors | json}}
             <div *ngIf="userInfoFg.controls['name'].touched
                       && userInfoFg.controls['name'].errors?.['maxLength']" style="color: red">
               {{userInfoFg.controls['name'].errors?.maxLength.message}}
@@ -42,15 +42,15 @@
           <div></div>
           <button (click)="fn1()">fn1</button>
           <div formArrayName="addressList">
-            <div *ngFor="let item of addressListFa.controls; let index = index" [formGroupName]="index.toString()">
+            <!-- <div *ngFor="let item of addressListFa.controls; let index = index" [formGroupName]="index.toString()">
               <input formControlName="name" />
-            </div>
+            </div> -->
           </div>
-          {{userInfoFg.value['addressList'] | json}}
+          <!-- {{userInfoFg.value['addressList'] | json}} -->
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Submit
           </button>
-        </form>
+        <!-- </form> -->
       </div>
     </div>
   </div>
@@ -90,11 +90,8 @@
                   </button>
                 </td>
               </tr>
-
             </tbody>
-
           </table>
-
         </div>
       </div>
     </div>

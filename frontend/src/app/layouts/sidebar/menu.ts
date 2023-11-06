@@ -221,27 +221,13 @@ export const MENU: MenuItem[] = [
             {
                 id: 34,
                 label: 'Role',
-                link: '/account/email-verification',
-                subItems: [
-                    {
-                        id: 35,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 34
-                    },
-                    {
-                        id: 36,
-                        label: 'All Roles',
-                        link: '/apps/invoice-detail',
-                        parentId: 34
-                    }
-                ]
+                link: '/hr/role',
+                
             },
             {
-                id: 37,
+                id: 35,
                 label: 'User', 
-                link: 'user',
-                parentId: 15             
+                link: '/hr/user_info',                   
             }
         ]
     },
@@ -253,87 +239,29 @@ export const MENU: MenuItem[] = [
             {
                 id: 41,
                 label: 'Category',
-                link: '/pages/starter',
-                subItems: [
-                    {
-                        id: 42,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 41
-                    },
-                    {
-                        id: 43,
-                        label: 'All Categories',
-                        link: '/apps/invoice-detail',
-                        parentId: 41
-                    }
-                ]
-                
+                link: '/ecommerce/category',                
             },
             {
                 id: 44,
                 label: 'Brand',
-                link: '/pages/maintenance',
-                subItems: [
-                    {
-                        id: 45,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 44
-                    },
-                    {
-                        id: 46,
-                        label: 'All Brands',
-                        link: '/apps/invoice-detail',
-                        parentId: 44
-                    }
-                ]
-                
+                link: '/ecommerce/brand',                
             },
             {
                 id: 47,
                 label: 'Product',
-                link: '/pages/coming-soon',
-                subItems: [
-                    {
-                        id: 48,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 47
-                    },
-                    {
-                        id: 49,
-                        label: 'All Producsts',
-                        link: '/apps/invoice-detail',
-                        parentId: 47
-                    }
-                ]
+                link: '/ecommerce/product',     
                
             },
             {
                 id: 50,
                 label: 'Order',
-                link: '/pages/timeline',
-                subItems: [
-                    {
-                        id: 51,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 50
-                    },
-                    {
-                        id: 52,
-                        label: 'All Producsts',
-                        link: '/apps/invoice-detail',
-                        parentId: 50
-                    }
-                ]
+                link: '/ecommerce/order_info',
                 
-            },
+            },      
             {
                 id: 51,
                 label: 'Order Details',
-                link: '/pages/faqs',
+                link: '/ecommerce/order_detail',
                 parentId: 40
             },
         ]

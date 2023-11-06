@@ -3,13 +3,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { CommentComp } from "./CommentComp";
-import { BrandDtoApiService } from "../Dto_Api_Services/BrandDtoApiService";
+import { OrderInfoComp } from "./OrderInfoComp";
+import { OrderDtoApiService } from "../Dto_Api_Services/OrderDtoApiService";
 
 @NgModule({
   declarations:
   [
-    CommentComp
+    OrderInfoComp
   ],
   imports:
   [
@@ -17,7 +17,7 @@ import { BrandDtoApiService } from "../Dto_Api_Services/BrandDtoApiService";
     RouterModule.forChild([
       {
         path: '',
-        component: CommentComp,
+        component: OrderInfoComp,
       },
     ]),
     ReactiveFormsModule,
@@ -26,7 +26,7 @@ import { BrandDtoApiService } from "../Dto_Api_Services/BrandDtoApiService";
   ],
 
   providers: [
-    BrandDtoApiService
+    OrderDtoApiService
   ],
 })
-export class CommentModule {}
+export class OrderInfoModule {}

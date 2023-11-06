@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { BrandComp } from "./BrandComp";
-import { BrandDtoApiService } from "../Dto_Api_Services/BrandDtoApiService";
+import { NgSelectModule } from "@ng-select/ng-select";
 //import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
@@ -24,11 +24,11 @@ import { BrandDtoApiService } from "../Dto_Api_Services/BrandDtoApiService";
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-   // NgSelectModule
+    NgSelectModule
   ],
 
   providers: [
-    BrandDtoApiService
+   
   ],
 })
 export class BrandModule {}

@@ -48,7 +48,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ExtraspagesModule,
     ComponentsModule,
     ExtendedModule,
-    // LightboxModule,
+    //LightboxModule,
     FormModule,
     TablesModule,
     ChartModule,

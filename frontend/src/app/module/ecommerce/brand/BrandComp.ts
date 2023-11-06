@@ -13,7 +13,7 @@ export class BrandComp{
   brandDtoFg = new FormGroup({
     id: new FormControl<number | null>(null),
     name: new FormControl<string | null>(null),
-
+    
 
 
   });

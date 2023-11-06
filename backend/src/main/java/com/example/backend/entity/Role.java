@@ -1,24 +1,22 @@
 package com.example.backend.entity;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.List;
 
-@Entity
-@Table
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Role {
+import jakarta.persistence.*;
+
+
+public class Role{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<UserInfo> userInfoList;
 
-    public Role(Long id) {
-        this.id = id;
-    }
+    
+    
+
+
+
 }
