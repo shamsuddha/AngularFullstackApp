@@ -25,8 +25,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgSelectModule,
-    RxReactiveFormsModule 
+    NgSelectModule
 
   ],
 
