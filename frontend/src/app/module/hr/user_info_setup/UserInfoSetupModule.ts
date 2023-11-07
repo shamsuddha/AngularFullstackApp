@@ -3,29 +3,28 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { UserInfoComp } from './UserInfoComp';
+import { UserInfoSetupComp } from './UserInfoSetupComp';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 @NgModule({
-  declarations:
-  [
-    
+  declarations:  [
+    UserInfoSetupComp
   ],
-  imports:
-  [
+  imports:  [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: UserInfoComp,
-      },
-
+        component: UserInfoSetupComp,
+      }
     ]),
-    ReactiveFormsModule,
-    HttpClientModule,
     FormsModule,
-    NgSelectModule
+    ReactiveFormsModule,
+    RxReactiveFormsModule,
+    NgSelectModule,
+    HttpClientModule,
+    
 
   ],
 
@@ -33,4 +32,4 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     
   ],
 })
-export class UserInfoModule {}
+export class UserInfoSetupModule {}

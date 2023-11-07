@@ -8,12 +8,12 @@ import { UserSearchDto } from 'src/app/dto/request/UserSearchDto';
 import { Address } from 'src/app/entity/Address';
 
 @Component({
-  selector: 'UserInfoComp',
-  templateUrl: './UserInfoComp.html',
-  styleUrls: ['./UserInfoComp.scss'],
+  selector: 'UserInfoSetupComp',
+  templateUrl: './UserInfoSetupComp.html',
+  styleUrls: ['./UserInfoSetupComp.scss'],
   //standalone: true
 })
-export class UserInfoComp implements OnInit {
+export class UserInfoSetupComp implements OnInit {
 
   //BreadCrumb Items
   breadCrumbItems!: Array<{}>;
