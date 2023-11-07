@@ -29,7 +29,6 @@ public class OrderInfo {
   @JoinColumn(name = "userInfo_id")
   private UserInfo userInfo;
 
-
   public OrderInfo(Long id) {
     this.id = id;
   }

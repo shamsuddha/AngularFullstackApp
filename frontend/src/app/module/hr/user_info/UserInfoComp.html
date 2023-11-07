@@ -11,7 +11,7 @@
         </p>
       </div>
       <div class="card-body">
-        <!-- <form [formGroupName] = "userInfoFg"> -->
+        <form [formGroup] = "userInfoFg">
           <div class="mb-4">
             <label class="form-label" for="name">Name</label>
             <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter your name" />
@@ -50,7 +50,7 @@
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Submit
           </button>
-        <!-- </form> -->
+        </form>
       </div>
     </div>
   </div>

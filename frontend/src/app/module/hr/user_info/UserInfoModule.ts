@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { UserInfoComp } from './UserInfoComp';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 @NgModule({
   declarations:
@@ -24,7 +25,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgSelectModule  
+    NgSelectModule,
+    RxReactiveFormsModule 
 
   ],
 
