@@ -3,30 +3,32 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { ProductComp } from "./ProductComp";
-import { ProductDtoApiService } from "../Dto_Api_Services/ProductDtoApiService";
+import { ProductSetupComp } from "./ProductSetupComp";
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
-  declarations:
-    [
-      ProductComp
+  declarations: [
+      ProductSetupComp
     ],
-  imports:
-    [
+    
+  imports: [
       CommonModule,
       RouterModule.forChild([
         {
           path: '',
-          component: ProductComp,
+          component: ProductSetupComp,
         },
       ]),
+      FormsModule,
       ReactiveFormsModule,
+      RxReactiveFormsModule,
+      NgSelectModule,
       HttpClientModule,
-      FormsModule
     ],
 
   providers: [
-    ProductDtoApiService
+    
   ],
 })
-export class ProductModule { }
+export class ProductSetupModule { }

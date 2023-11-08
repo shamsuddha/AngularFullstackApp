@@ -3,13 +3,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { OrderDetailComp } from "./OrderDetailComp";
-import { OrderDetailDtoApiService } from "../Dto_Api_Services/OrderDetailDtoApiService";
+import { OrderDetailSetupComp } from "./OrderDetailSetupComp";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
   declarations:
   [
-    OrderDetailComp
+    OrderDetailSetupComp
   ],
   imports:
   [
@@ -17,16 +17,17 @@ import { OrderDetailDtoApiService } from "../Dto_Api_Services/OrderDetailDtoApiS
     RouterModule.forChild([
       {
         path: '',
-        component: OrderDetailComp,
+        component: OrderDetailSetupComp,
       },
     ]),
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
 
   providers: [
-    OrderDetailDtoApiService
+    
   ],
 })
-export class OrderDetailModule {}
+export class OrderDetailSetupModule {}

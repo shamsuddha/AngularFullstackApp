@@ -3,13 +3,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { OrderInfoComp } from "./OrderInfoComp";
-import { OrderDtoApiService } from "../Dto_Api_Services/OrderDtoApiService";
+import { OrderInfoSetupComp } from "./OrderInfoSetupComp";
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
   declarations:
   [
-    OrderInfoComp
+    OrderInfoSetupComp
   ],
   imports:
   [
@@ -17,16 +18,18 @@ import { OrderDtoApiService } from "../Dto_Api_Services/OrderDtoApiService";
     RouterModule.forChild([
       {
         path: '',
-        component: OrderInfoComp,
+        component: OrderInfoSetupComp,
       },
     ]),
+    FormsModule,
     ReactiveFormsModule,
+    RxReactiveFormsModule,
+    NgSelectModule,
     HttpClientModule,
-    FormsModule
   ],
 
   providers: [
-    OrderDtoApiService
+    
   ],
 })
-export class OrderInfoModule {}
+export class OrderInfoSetupModule {}

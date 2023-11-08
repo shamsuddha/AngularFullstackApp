@@ -3,30 +3,29 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { CategoryComp } from "./CategoryComp";
-import { CategoryDtoApiService } from "../Dto_Api_Services/CategoryDtoApiService";
+import { BrandSetupComp } from "./BrandSetupComp";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
-  declarations:
-  [
-    CategoryComp
+  declarations: [
+    BrandSetupComp
   ],
-  imports:
-  [
+  imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: CategoryComp,
+        component: BrandSetupComp,
       },
     ]),
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
 
   providers: [
-    CategoryDtoApiService
+
   ],
 })
-export class CategoryModule {}
+export class BrandSetupModule { }

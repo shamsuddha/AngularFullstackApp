@@ -3,12 +3,12 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 
 @Component({
-  selector: 'BrandComp',
-  templateUrl: './BrandComp.html',
-  styleUrls: ['./BrandComp.scss'],
+  selector: 'BrandSetupComp',
+  templateUrl: './BrandSetupComp.html',
+  styleUrls: ['./BrandSetupComp.scss'],
   //standalone: true
 })
-export class BrandComp{
+export class BrandSetupComp{
 
   brandDtoFg = new FormGroup({
     id: new FormControl<number | null>(null),

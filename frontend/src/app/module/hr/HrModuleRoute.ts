@@ -9,10 +9,13 @@ const routes: Routes = [
       {
         path: 'user-info-setup', loadChildren: () => import('./user_info_setup/UserInfoSetupModule')
           .then(m => m.UserInfoSetupModule)
+      },
+      {
+        path: 'role-setup', loadChildren: () => import('./role_setup/RoleSetupModule')
+          .then(m => m.RoleSetupModule)
       }
     ]
   }
-
 ];
 
 @NgModule({
