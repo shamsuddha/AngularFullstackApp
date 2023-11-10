@@ -32,6 +32,7 @@ public class UserInfo {
   @JoinColumn(name = "role_id")
   private Role role;
 
+
   public UserInfo(Long id) {
     this.id = id;
   }

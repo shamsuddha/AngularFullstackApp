@@ -12,15 +12,14 @@ import lombok.Setter;
 @Table
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class Role{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    
+
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
     private List<UserInfo> userInfoList;
 
@@ -28,4 +27,11 @@ public class Role{
     {
         this.id = id;
     }
+
+
+
+
+
+
+
 }
