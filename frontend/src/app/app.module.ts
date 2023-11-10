@@ -35,6 +35,7 @@ export function createTranslateLoader(http: HttpClient): any {
   ],
   imports: [
     MainModule,
+    AppRoutingModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -44,8 +45,7 @@ export function createTranslateLoader(http: HttpClient): any {
       }
     }),
     HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
+    BrowserModule,    
     PagesModule,
     LayoutsModule,
     BrowserAnimationsModule,
