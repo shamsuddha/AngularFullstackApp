@@ -1,0 +1,31 @@
+POST http://localhost:8080/role/save
+Content-Type: application/json
+
+{
+  "name": "admin",
+}
+###
+
+POST http://localhost:8080/role/search
+Content-Type: application/json
+
+{
+}
+###
+
+PUT http://localhost:8080/role/update/1
+Content-Type: application/json
+
+{
+  "id": 10,
+  "name": "user 55",
+  
+}
+
+###
+DELETE http://localhost:8080/role/delete/10000
+Content-Type: application/json
+
+{
+  "id": 2
+}

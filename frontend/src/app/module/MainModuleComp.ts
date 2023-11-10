@@ -9,6 +9,7 @@ export class MainModuleComp implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -10,7 +10,6 @@ import { MainModuleRoute } from "./MainModuleRoute";
   imports: [
     CommonModule,
     MainModuleRoute,
-
   ],
   providers: [
   

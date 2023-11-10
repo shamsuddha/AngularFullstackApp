@@ -21,16 +21,16 @@ public class UserInfo {
   private String name;
   private String email;
   private Integer mobile;
-
-  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
-  private List<Product> productList;
-
-  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
-  private List<OrderInfo> orderInfoList;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "role_id")
-  private Role role;
+//
+//  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
+//  private List<Product> productList;
+//
+//  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
+//  private List<OrderInfo> orderInfoList;
+//
+//  @ManyToOne(fetch = FetchType.LAZY)
+//  @JoinColumn(name = "role_id")
+//  private Role role;
 
 
   public UserInfo(Long id) {

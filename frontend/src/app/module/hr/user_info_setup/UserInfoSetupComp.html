@@ -11,7 +11,7 @@
         </p>
       </div>
       <div class="card-body">
-        <form [formGroup] = "userInfoFg">
+        <form [formGroup]="userInfoFg">
           <div class="mb-4">
             <label class="form-label" for="name">Name</label>
             <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter your name" />
@@ -31,21 +31,20 @@
           </div>
           <div class="mb-4">
             <label class="form-label" for="email">Email</label>
-            <input class="form-control form-control-sm" formControlName="email" type="email" id="email"
+            <input class="form-control" formControlName="email" type="email" id="email"
               placeholder="Enter your email" />
           </div>
           <div>
             <label class="form-label" for="mobile">Mobile</label>
             <input class="form-control form-control-lg" formControlName="mobile" type="text" id="mobile"
               placeholder="Enter mobile number" />
-          </div>
-          <div></div>
-          <button (click)="fn1()">fn1</button>
-          <div formArrayName="addressList">
-            <!-- <div *ngFor="let item of addressListFa.controls; let index = index" [formGroupName]="index.toString()">
+          </div>    
+
+          <!-- <div formArrayName="addressList">
+            <div *ngFor="let item of addressListFa.controls; let index = index" [formGroupName]="index.toString()">
               <input formControlName="name" />
-            </div> -->
-          </div>
+            </div>
+          </div> -->
           <!-- {{userInfoFg.value['addressList'] | json}} -->
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Submit

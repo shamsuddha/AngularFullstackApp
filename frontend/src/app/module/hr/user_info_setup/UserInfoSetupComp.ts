@@ -21,7 +21,7 @@ export class UserInfoSetupComp implements OnInit {
 
   // Form Items
   userInfoFg: FormGroup = this.rxFormBuilder.formGroup(UserInfo);
-  addressListFa: FormArray = this.userInfoFg.get('addressList') as FormArray;
+  ///addressListFa: FormArray = this.userInfoFg.get('addressList') as FormArray;
   userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
 
   constructor(
@@ -34,12 +34,12 @@ export class UserInfoSetupComp implements OnInit {
     this.breadCrumbItems = [{ label: 'User' }, { label: 'User', active: true }];
   }
 
-  fn1() {
-    this.userInfoFg.patchValue({
-      addressList: [new Address({ id: 1, name: 'name1' }),
-      new Address({ id: 2, name: 'name2' })]
-    })
-  }
+  // fn1() {
+  //   this.userInfoFg.patchValue({
+  //     addressList: [new Address({ id: 1, name: 'name1' }),
+  //     new Address({ id: 2, name: 'name2' })]
+  //   })
+  // }
 
   save() {
     this.userInfoController.save(this.userInfoFg.value).subscribe((e) => { });
@@ -61,7 +61,7 @@ export class UserInfoSetupComp implements OnInit {
   }
 
   search() {
-    this.userInfoList$ = this.userInfoController.search(new UserSearchDto({ idList: [] }));
+    this.userInfoList$ = this.userInfoController.search(new UserSearchDto({"idList": []}));
     /*.subscribe((e:Array<UserInfo>)=>{
     console.log(e)
   })*/

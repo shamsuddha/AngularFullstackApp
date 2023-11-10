@@ -20,8 +20,8 @@ public class Role{
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
-    private List<UserInfo> userInfoList;
+//    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+//    private List<UserInfo> userInfoList;
 
     public Role(Long id)
     {
