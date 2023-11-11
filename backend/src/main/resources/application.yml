@@ -49,10 +49,12 @@ logging:
     org:
       hibernate:
         SQL: DEBUG
+        orm:
+          jdbc:
+            bind: TRACE
         type:
           descriptor:
-            sql:
-              BasicBinder: TRACE
+            sql: TRACE
 #logging.level.org.springframework=TRACE
 
 
