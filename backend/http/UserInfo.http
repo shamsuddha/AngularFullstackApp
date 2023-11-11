@@ -7,8 +7,17 @@ Content-Type: application/json
   "mobile": 123456,
   "userInfoRoleList":
   {
+    
+    "userInfo_id":1,
     "role_id": 1,
-    "userInfo_id":1
+  },
+   {
+    "userInfo_id":1,
+    "role_id": 2,
+  },
+   {
+    "userInfo_id":1,
+    "role_id": 3,
   }
 }
 ###
@@ -18,8 +27,6 @@ Content-Type: application/json
 
 {
   "idList": []
-
-  
 }
 ###
 
@@ -31,12 +38,25 @@ Content-Type: application/json
   "name": "user 13",
   "email" : "email13@gmail13.com",
   "mobile": 13,
-  "userInfoRoleList":
+   "userInfoRoleList":
+  {
+    
+    "userInfo_id":1,
+    "role_id": 1,
+  },
+   {
+    "userInfo_id":1,
+    "role_id": 4,
+  },
+   {
+    "userInfo_id":1,
+    "role_id": 5,
+  }
 
 }
 
 ###
-DELETE http://localhost:8080/user/delete/13
+DELETE http://localhost:8080/user/delete/1000
 Content-Type: application/json
 
 {

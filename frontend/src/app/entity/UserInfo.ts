@@ -23,7 +23,6 @@ export class UserInfo {  // FormGroup
   @propArray(UserInfoRole)
   userInfoRoleList: Array<UserInfoRole> = [];
 
-
   constructor(o?: Partial<UserInfo>) {
     Object.assign(this, o);
   }

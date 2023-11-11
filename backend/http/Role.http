@@ -3,10 +3,18 @@ Content-Type: application/json
 
 {
   "name": "admin",
-  "userInfoRoleList": 
+    "userInfoRoleList": 
   {
+    "role_id":1,
     "userInfo_id":1,
-    "role_id":1
+  },
+  {
+    "role_id":1,
+    "userInfo_id":2,
+  },
+  {
+    "role_id":1,
+    "userInfo_id":3,
   }
 }
 

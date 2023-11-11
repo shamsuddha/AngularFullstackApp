@@ -30,32 +30,21 @@
             </div>
           </div>
           <div formArrayName="userInfoRoleListFa">
-
-
             <div>
-              <h5 class="font-size-14 mb-3"><i class="mdi mdi-arrow-right text-primary me-1"></i> Form Checkboxes
-              </h5>
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="formCheck1">
-                <label class="form-check-label" for="formCheck1">
-                  Form Checkbox
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="formCheck2" checked>
-                <label class="form-check-label" for="formCheck2">
-                  Form Checkbox checked
-                </label>
-              </div>
+              <h5 class="font-size-14 mb-3">                 
+                Select Users
+              </h5>              
             </div>
             <!--<div *ngFor="let item of vehicleListFa.controls; let index = index">-->
             <div *ngFor="let fg of toFaGfn(this.roleFg.get('userInfoRoleList'))
             .controls; let index = index">
-              <div [formGroupName]="index">
+              <div [formGroupName]="index" class="form-check mb-3">
+                <input formControlName="name" class="form-check-input" type="checkbox" id="formCheck1">
+                <label class="form-check-label" for="formCheck1">
+                  User 1
+                </label>
                 user_id: {{fg.value.id}}
                 role_id: {{fg.value.id}}
-                <input formControlName="vehicleName" />
-                <button (click)="delete(fg, index)">Del</button>
               </div>
             </div>
           </div>

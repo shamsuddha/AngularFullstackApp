@@ -38,14 +38,28 @@
             <label class="form-label" for="mobile">Mobile</label>
             <input class="form-control form-control-lg" formControlName="mobile" type="text" id="mobile"
               placeholder="Enter mobile number" />
-          </div>    
-
-          <!-- <div formArrayName="addressList">
-            <div *ngFor="let item of addressListFa.controls; let index = index" [formGroupName]="index.toString()">
-              <input formControlName="name" />
+          </div>  
+          
+          <div formArrayName="userInfoRoleList">
+            <label class="form-label" for="role">Select Roles</label>
+            <!-- <div *ngFor="let item of userInfoRoleListFa.controls; let index = index">-->
+              <div *ngFor="let fg of toFaGfn(this.userInfoFg.get('userInfoRoleList')).controls; let index = index">
+              <div [formGroupName]="index"> 
+                <input class="form-check-input" type="checkbox" id="formCheck1" formControlName="role_id">
+                <label class="form-check-label" for="formCheck1">
+                    Role 1
+                </label>      
+                <input class="form-check-input" type="checkbox" id="formCheck1" formControlName="role_id">
+                <label class="form-check-label" for="formCheck1">
+                    Role 2
+                </label>      
+                <input class="form-check-input" type="checkbox" id="formCheck1" formControlName="role_id">
+                <label class="form-check-label" for="formCheck1">
+                    Role 
+                </label>                              
+              </div>
             </div>
-          </div> -->
-          <!-- {{userInfoFg.value['addressList'] | json}} -->
+          </div>
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Submit
           </button>

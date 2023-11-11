@@ -20,7 +20,8 @@ export class UserInfoSetupComp implements OnInit {
 
   // Form Items
   userInfoFg: FormGroup = this.rxFormBuilder.formGroup(UserInfo);
-  ///addressListFa: FormArray = this.userInfoFg.get('addressList') as FormArray;
+  //userInfoRoleListFa: FormArray = this.userInfoFg.get('userInfoRoleList') as FormArray;
+  toFaGfn = toFaGfn;
   userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
 
   constructor(
@@ -55,7 +56,7 @@ export class UserInfoSetupComp implements OnInit {
     this.userInfoController.update(this.userInfoFg.value).subscribe((e) => { });
   }
 
-  delete(userInfo: UserInfo) {
+  delete(userInfo: UserInfo, id?:number) {
     this.userInfoController.delete(userInfo).subscribe((e) => { this.search(); });
   }
 
@@ -65,4 +66,10 @@ export class UserInfoSetupComp implements OnInit {
     console.log(e)
   })*/
   }
+
+
+}
+
+export const toFaGfn = (fa: any) => {
+  return fa as FormArray;
 }
