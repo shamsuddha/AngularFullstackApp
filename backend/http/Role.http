@@ -3,29 +3,36 @@ Content-Type: application/json
 
 {
   "name": "admin",
+  "userInfoRoleList": 
+  {
+    "userInfo_id":1,
+    "role_id":1
+  }
 }
-###
 
+###
 POST http://localhost:8080/role/search
 Content-Type: application/json
 
 {
-}
-###
-
-PUT http://localhost:8080/role/update/1
-Content-Type: application/json
-
-{
-  "id": 10,
-  "name": "user 55",
-  
+  "idList": []
 }
 
 ###
-DELETE http://localhost:8080/role/delete/10000
+PUT http://localhost:8080/role/update/1000
 Content-Type: application/json
 
 {
-  "id": 2
+  "id": 12,
+  "name": "user 60",
+  "userInfoRoleList": []
+}
+
+###
+DELETE http://localhost:8080/role/delete/1000
+Content-Type: application/json
+
+{
+  "id": 7,
+   
 }

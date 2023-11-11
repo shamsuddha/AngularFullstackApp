@@ -29,8 +29,8 @@ export class RoleSetupComp implements OnInit {
   ) { }
 
   ngOnInit() {
-   // this.search();
-   // this.breadCrumbItems = [{ label: 'User' }, { label: 'User', active: true }];
+    this.search();
+    this.breadCrumbItems = [{ label: 'Role' }, { label: 'Role', active: true }];
   }
 
   save() {

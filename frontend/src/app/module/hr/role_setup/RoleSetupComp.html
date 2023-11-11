@@ -29,11 +29,15 @@
               This field is required
             </div>
           </div>
-          <!-- <div formArrayName="addressList">
-            <div *ngFor="let item of addressListFa.controls; let index = index" [formGroupName]="index.toString()">
-              <input formControlName="name" />
+          <div formArrayName="vehicleList">
+            <!--<div *ngFor="let item of vehicleListFa.controls; let index = index">-->
+            <div *ngFor="let fg of toFaGfn(this.studentFg.get('vehicleList')).controls; let index = index">
+              <div [formGroupName]="index">
+                vahicle name: {{fg.value.id}} <input formControlName="vehicleName"/>
+                <button (click)="delete(fg,index)">Del</button>
+              </div>
             </div>
-          </div> -->
+        
           <!-- {{roleFg.value['addressList'] | json}} -->
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Submit

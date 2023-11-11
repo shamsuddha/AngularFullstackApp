@@ -4,6 +4,7 @@ import {
 } from '@rxweb/reactive-form-validators';
 import { Address } from './Address';
 import { Role } from './Role';
+import { UserInfoRole } from './UserInfoRole';
 
 export class UserInfo {  // FormGroup
 
@@ -19,7 +20,9 @@ export class UserInfo {  // FormGroup
   @prop() email: string | null = null;
   @prop() mobile: number | null = null;
 
-  // @propArray(Role, { createBlank: true }) roleList: Array<Role> = [];
+  @propArray(UserInfoRole)
+  userInfoRoleList: Array<UserInfoRole> = [];
+
 
   constructor(o?: Partial<UserInfo>) {
     Object.assign(this, o);

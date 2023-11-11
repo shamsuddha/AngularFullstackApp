@@ -4,17 +4,12 @@ Content-Type: application/json
 {
   "name": "user 11",
   "email" : "email11@gmail.com",
-  "mobile": 123456
-}, 
-{
-  "name": "user 12",
-  "email" : "email12@gmail.com",
-  "mobile": 123456
-},
-{
-  "name": "user 13",
-  "email" : "email13@gmail.com",
-  "mobile": 123456
+  "mobile": 123456,
+  "userInfoRoleList":
+  {
+    "role_id": 1,
+    "userInfo_id":1
+  }
 }
 ###
 
@@ -35,7 +30,9 @@ Content-Type: application/json
   "id": 13,
   "name": "user 13",
   "email" : "email13@gmail13.com",
-  "mobile": 13
+  "mobile": 13,
+  "userInfoRoleList":
+
 }
 
 ###
