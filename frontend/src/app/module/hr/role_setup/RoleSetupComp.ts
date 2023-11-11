@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { RoleSetupController } from 'src/app/controller/RoleSetupController';
 import { Role } from 'src/app/entity/Role';
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
 
 @Component({
@@ -14,13 +14,14 @@ import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
 })
 export class RoleSetupComp implements OnInit {
 
+
   //BreadCrumb Items
   breadCrumbItems!: Array<{}>;
   title!: string;
 
   // Form Items
   roleFg: FormGroup = this.rxFormBuilder.formGroup(Role);
-  ///addressListFa: FormArray = this.roleFg.get('addressList') as FormArray;
+  userInfoRoleListFa: FormArray = this.roleFg.get('userInfoRoleList') as FormArray;
   roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
   
   constructor(
@@ -48,7 +49,7 @@ export class RoleSetupComp implements OnInit {
     this.roleSetupController.update(this.roleFg.value).subscribe((e) => { });
   }
 
-  delete(role: Role) {
+  delete(role: any, id: number) {
     this.roleSetupController.delete(role).subscribe((e) => { this.search(); });
   }
 
@@ -59,9 +60,8 @@ export class RoleSetupComp implements OnInit {
   })*/
   }
 
-
-
-
-
+  toFaGfn = (fa: any) => {
+    return fa as FormArray;
+  }
 
 }

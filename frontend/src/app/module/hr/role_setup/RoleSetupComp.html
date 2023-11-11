@@ -29,15 +29,36 @@
               This field is required
             </div>
           </div>
-          <div formArrayName="vehicleList">
-            <!--<div *ngFor="let item of vehicleListFa.controls; let index = index">-->
-            <div *ngFor="let fg of toFaGfn(this.studentFg.get('vehicleList')).controls; let index = index">
-              <div [formGroupName]="index">
-                vahicle name: {{fg.value.id}} <input formControlName="vehicleName"/>
-                <button (click)="delete(fg,index)">Del</button>
+          <div formArrayName="userInfoRoleListFa">
+
+
+            <div>
+              <h5 class="font-size-14 mb-3"><i class="mdi mdi-arrow-right text-primary me-1"></i> Form Checkboxes
+              </h5>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="formCheck1">
+                <label class="form-check-label" for="formCheck1">
+                  Form Checkbox
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="formCheck2" checked>
+                <label class="form-check-label" for="formCheck2">
+                  Form Checkbox checked
+                </label>
               </div>
             </div>
-        
+            <!--<div *ngFor="let item of vehicleListFa.controls; let index = index">-->
+            <div *ngFor="let fg of toFaGfn(this.roleFg.get('userInfoRoleList'))
+            .controls; let index = index">
+              <div [formGroupName]="index">
+                user_id: {{fg.value.id}}
+                role_id: {{fg.value.id}}
+                <input formControlName="vehicleName" />
+                <button (click)="delete(fg, index)">Del</button>
+              </div>
+            </div>
+          </div>
           <!-- {{roleFg.value['addressList'] | json}} -->
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Submit
@@ -73,7 +94,8 @@
                     class="btn btn-info waves-effect waves-light mx-1">
                     Edit
                   </button>
-                  <button type="button" (click)="delete(role)" class="btn btn-danger waves-effect waves-light mx-1">
+                  <button type="button" (click)="delete(role, 122)"
+                    class="btn btn-danger waves-effect waves-light mx-1">
                     Delete
                   </button>
                 </td>
