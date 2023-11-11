@@ -26,5 +26,4 @@ public class Role {
     public Role(Long id) {
         this.id = id;
     }
-
 }

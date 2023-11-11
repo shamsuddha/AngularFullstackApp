@@ -220,14 +220,19 @@ export const MENU: MenuItem[] = [
             },
             {
                 id: 34,
-                label: 'Role',
+                label: 'Role Setup',
                 link: '/module/hr/role-setup',
                 
             },
             {
                 id: 35,
-                label: 'User', 
+                label: 'User Setup', 
                 link: '/module/hr/user-info-setup',                   
+            },
+            {
+                id: 35,
+                label: 'User Role Setup', 
+                link: '/module/hr/user-info-role-setup',                   
             }
         ]
     },

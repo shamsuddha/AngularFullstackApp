@@ -22,7 +22,7 @@ export class RoleSetupComp implements OnInit {
   // Form Items
   roleFg: FormGroup = this.rxFormBuilder.formGroup(Role);
   //userInfoRoleListFa: FormArray = this.roleFg.get('userInfoRoleList') as FormArray;
-  toFaGfn = toFaGfn;
+  //toFaGfn = toFaGfn;
   roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
   
   constructor(
@@ -62,7 +62,7 @@ export class RoleSetupComp implements OnInit {
   }
 }
 
-export const toFaGfn = (fa: any) => {
-  return fa as FormArray;
-}
+// export const toFaGfn = (fa: any) => {
+//   return fa as FormArray;
+// }
 

@@ -15,7 +15,7 @@
           <div class="mb-4">
             <label class="form-label" for="name">Name</label>
             <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter your name" />
-            {{roleFg.controls['name'].errors | json}}
+            <!-- {{roleFg.controls['name'].errors | json}} -->
             <div *ngIf="roleFg.controls['name'].touched
                       && roleFg.controls['name'].errors?.['maxLength']" style="color: red">
               {{roleFg.controls['name'].errors?.maxLength.message}}
@@ -28,26 +28,7 @@
                   && roleFg.controls['name'].errors?.['required']" style="color: red">
               This field is required
             </div>
-          </div>
-          <div formArrayName="userInfoRoleListFa">
-            <div>
-              <h5 class="font-size-14 mb-3">                 
-                Select Users
-              </h5>              
-            </div>
-            <!--<div *ngFor="let item of vehicleListFa.controls; let index = index">-->
-            <div *ngFor="let fg of toFaGfn(this.roleFg.get('userInfoRoleList'))
-            .controls; let index = index">
-              <div [formGroupName]="index" class="form-check mb-3">
-                <input formControlName="name" class="form-check-input" type="checkbox" id="formCheck1">
-                <label class="form-check-label" for="formCheck1">
-                  User 1
-                </label>
-                user_id: {{fg.value.id}}
-                role_id: {{fg.value.id}}
-              </div>
-            </div>
-          </div>
+          </div>         
           <!-- {{roleFg.value['addressList'] | json}} -->
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Submit

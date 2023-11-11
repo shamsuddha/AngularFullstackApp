@@ -13,11 +13,11 @@ const routes: Routes = [
       {
         path: 'role-setup', loadChildren: () => import('./role_setup/RoleSetupModule')
           .then(m => m.RoleSetupModule)
+      },
+      {
+        path: 'user-info-role-setup', loadChildren: () => import('./user_info_role_setup/UserInfoRoleSetupModule')
+          .then(m => m.UserInfoRoleSetupModule)
       }
-      // {
-      //   path: 'form-array-test', loadChildren: () => import('./test/FormArrayTestModule')
-      //     .then(m => m.FormArrayTestModule)
-      // }
     ]
   }
 ];
