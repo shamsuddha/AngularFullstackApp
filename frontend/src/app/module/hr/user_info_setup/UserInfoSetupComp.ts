@@ -5,7 +5,6 @@ import { UserInfo } from 'src/app/entity/UserInfo';
 import { UserInfoController } from '../../../controller/UserInfoController';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { UserSearchDto } from 'src/app/dto/request/UserSearchDto';
-import { Address } from 'src/app/entity/Address';
 
 @Component({
   selector: 'UserInfoSetupComp',
