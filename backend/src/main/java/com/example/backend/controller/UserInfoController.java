@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.entity.UserInfo;
 import com.example.backend.repository.UserInfoRepository;
+import com.example.backend.service.UserInfoService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 public class UserInfoController {
+    @Autowired
+    private UserInfoService userInfoService;
     @Autowired
     private UserInfoRepository userInfoRepository;
 
@@ -37,6 +40,6 @@ public class UserInfoController {
 
     @PostMapping(value = "/search")
     public @ResponseBody ResponseEntity<?> search() {
-        return new ResponseEntity<>(this.userInfoRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(this.userInfoService.search(), HttpStatus.OK);
     }
 }
