@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/user-info")
 public class UserInfoController {
 
   @Autowired
@@ -26,15 +26,15 @@ public class UserInfoController {
   // @PathParam: "/update/{id}"
   // @RequestParam: /update?id=3&name=abc @RequestParam Long id, @RequestParam String name
   // @RequestBody UserInfo userInfo
-  @PutMapping(value = "/update/{id}")
+  @PutMapping(value = "/update")
   public @ResponseBody
-  ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody UserInfo userInfo) {
+  ResponseEntity<?> update(@RequestBody UserInfo userInfo) {
     return new ResponseEntity<>(this.userInfoRepository.save(userInfo), HttpStatus.OK);
   }
 
-  @DeleteMapping(value = "/delete/{id}")
+  @DeleteMapping(value = "/delete")
   public @ResponseBody
-  ResponseEntity<?> delete(@PathParam("id") Long id, @RequestBody UserInfo userInfo) {
+  ResponseEntity<?> delete(@RequestBody UserInfo userInfo) {
     this.userInfoRepository.delete(userInfo);
     return new ResponseEntity<>(true, HttpStatus.OK);
   }

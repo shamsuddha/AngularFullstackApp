@@ -12,71 +12,75 @@
       </div>
       <div class="card-body">
         <form [formGroup]="userInfoRoleFg">
-          <div class="mb-4">  
-            <label class="form-label" for="name">Select a user</label> 
+          <div class="mb-4">
+            <label class="form-label" for="name">Select a user</label>
             <!-- {{roleFg.controls['name'].errors | json}} -->
-            <select class="form-control" formControlName="userInfo_id" data-trigger name="choices-single-groups" id="choices-single-groups">
+            <select class="form-control" formControlName="userInfo_id" data-trigger name="choices-single-groups"
+              id="choices-single-groups">
               <option value="">Choose a User</option>
               <option value="1">User 1</option>
               <option value="2">User 2</option>
               <option value="2">User 3</option>
             </select>
           </div>
-          <div class="mb-4">   
-            <label class="form-label" for="name">Select a role</label>         
+          <div class="mb-4">
+            <label class="form-label" for="name">Select a role</label>
             <!-- {{roleFg.controls['name'].errors | json}} -->
-            <select class="form-control" formControlName="role_id" data-trigger name="choices-single-groups" id="choices-single-groups">
+            <select class="form-control" formControlName="role_id" data-trigger name="choices-single-groups"
+              id="choices-single-groups">
               <option value="">Choose a Role</option>
               <option value="1">Role 1</option>
               <option value="2">Role 2</option>
               <option value="3">Role 3</option>
             </select>
-          </div>     
-    <!-- {{roleFg.value['addressList'] | json}} -->
-    <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
-      Submit
-    </button>
-    </form>
-  </div>
-</div>
-</div>
-<div _ngcontent-ng-c352282610="" class="col-xl-8">
-  <div _ngcontent-ng-c352282610="" class="card">
-    <div _ngcontent-ng-c352282610="" class="card-header">
-      <h4 _ngcontent-ng-c352282610="" class="card-title">Role List</h4>
-      <p _ngcontent-ng-c352282610="" class="card-title-desc">
-        Here you will get all the role list
-      </p>
-    </div>
-    <div _ngcontent-ng-c352282610="" class="card-body">
-      <div _ngcontent-ng-c352282610="" class="table-responsive">
-        <table _ngcontent-ng-c352282610="" class="table mb-0">
-          <thead _ngcontent-ng-c352282610="" class="table-light">
-            <tr _ngcontent-ng-c352282610="">
-              <th _ngcontent-ng-c352282610="">#</th>
-              <th _ngcontent-ng-c352282610="">Role Id</th>
-              <th _ngcontent-ng-c352282610="">User Info Id</th>
-              <th _ngcontent-ng-c352282610="">Action</th>
-            </tr>
-          </thead>
-          <tbody _ngcontent-ng-c352282610="">
-            <tr _ngcontent-ng-c352282610="" *ngFor="let userInfoRole of userInfoRoleList$ | async; let i = index">
-              <th _ngcontent-ng-c352282610="" scope="row">{{userInfoRole.id}}</th>
-              <td _ngcontent-ng-c352282610="">{{userInfoRole.role_id}}</td>
-              <td _ngcontent-ng-c352282610="">{{userInfoRole.userInfo_id}}</td>
-              <td _ngcontent-ng-c352282610="">
-                <button type="button" (click)="onUpdateClick(userInfoRole)" class="btn btn-info waves-effect waves-light mx-1">
-                  Edit
-                </button>
-                <button type="button" (click)="delete(userInfoRole)" class="btn btn-danger waves-effect waves-light mx-1">
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          </div>
+          <!-- {{roleFg.value['addressList'] | json}} -->
+          <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   </div>
-</div>
+  <div _ngcontent-ng-c352282610="" class="col-xl-8">
+    <div _ngcontent-ng-c352282610="" class="card">
+      <div _ngcontent-ng-c352282610="" class="card-header">
+        <h4 _ngcontent-ng-c352282610="" class="card-title">User Info Role List</h4>
+        <p _ngcontent-ng-c352282610="" class="card-title-desc">
+          Here you will get all the User Info Role List
+        </p>
+      </div>
+      <div _ngcontent-ng-c352282610="" class="card-body">
+        <div _ngcontent-ng-c352282610="" class="table-responsive">
+          <table _ngcontent-ng-c352282610="" class="table mb-0">
+            <thead _ngcontent-ng-c352282610="" class="table-light">
+              <tr _ngcontent-ng-c352282610="">
+                <th _ngcontent-ng-c352282610="">#</th>
+                <th _ngcontent-ng-c352282610="">Role Id</th>
+                <th _ngcontent-ng-c352282610="">User Info Id</th>
+                <th _ngcontent-ng-c352282610="">Action</th>
+              </tr>
+            </thead>
+            <tbody _ngcontent-ng-c352282610="">
+              <tr _ngcontent-ng-c352282610="" *ngFor="let userInfoRole of userInfoRoleList$ | async; let i = index">
+                <th _ngcontent-ng-c352282610="" scope="row">{{userInfoRole.id}}</th>
+                <td _ngcontent-ng-c352282610=""></td>
+                <td _ngcontent-ng-c352282610=""></td>
+                <td _ngcontent-ng-c352282610="">
+                  <button type="button" (click)="onUpdateClick(userInfoRole)"
+                    class="btn btn-info waves-effect waves-light mx-1">
+                    Edit
+                  </button>
+                  <button type="button" (click)="delete(userInfoRole)"
+                    class="btn btn-danger waves-effect waves-light mx-1">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

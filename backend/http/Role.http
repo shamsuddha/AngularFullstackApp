@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/role/update/1000
+PUT http://localhost:8080/role/update
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/role/delete/1000
+DELETE http://localhost:8080/role/delete
 Content-Type: application/json
 
 {

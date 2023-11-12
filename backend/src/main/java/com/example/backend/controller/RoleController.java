@@ -23,12 +23,12 @@ public class RoleController {
     public @ResponseBody ResponseEntity<?> save(@RequestBody Role role) {
         return new ResponseEntity<>(this.roleRepository.save(role), HttpStatus.OK);
     }
-    @PutMapping(value = "/update/{id}")
+    @PutMapping(value = "/update")
     public @ResponseBody
-    ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody Role role) {
+    ResponseEntity<?> update(@RequestBody Role role) {
         return new ResponseEntity<>(this.roleRepository.save(role), HttpStatus.OK);
     }
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/delete/")
     public @ResponseBody
     ResponseEntity<?> delete(@PathParam("id") Long id) {
         this.roleRepository.delete(new Role(id));

@@ -24,6 +24,7 @@ export class UserInfoRoleSetupComp implements OnInit {
 
   // Form Items
   userInfoRoleFg: FormGroup = this.rxFormBuilder.formGroup(UserInfoRole);
+  
   //userInfoRoleListFa: FormArray = this.userInfoRoleFg.get('userInfoRoleList') as FormArray;
   //toFaGfn = toFaGfn;
   userInfoRoleList$: Observable<Array<UserInfoRole>> = new Observable<Array<UserInfoRole>>();

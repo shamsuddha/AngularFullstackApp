@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/userInfoRole")
+@RequestMapping("/user-info-role")
 public class UserInfoRoleController {
   @Autowired
     private UserInfoRoleRepository userInfoRoleRepository;
@@ -27,15 +27,15 @@ public class UserInfoRoleController {
     // @PathParam: "/update/{id}"
     // @RequestParam: /update?id=3&name=abc @RequestParam Long id, @RequestParam String name
     // @RequestBody UserInfoRole userInfoRole
-    @PutMapping(value = "/update/{id}")
+    @PutMapping(value = "/update")
     public @ResponseBody
-    ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody UserInfoRole userInfoRole) {
+    ResponseEntity<?> update(@RequestBody UserInfoRole userInfoRole) {
         return new ResponseEntity<>(this.userInfoRoleRepository.save(userInfoRole), HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/delete")
     public @ResponseBody
-    ResponseEntity<?> delete(@PathParam("id") Long id, @RequestBody UserInfoRole userInfoRole) {
+    ResponseEntity<?> delete(@RequestBody UserInfoRole userInfoRole) {
         this.userInfoRoleRepository.delete(userInfoRole);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }

@@ -15,7 +15,8 @@ public class UserInfoRoleService {
     public List<UserInfoRole> search() {
         List<UserInfoRole> userInfoRoleList = this.userInfoRoleRepository.findAll();
         List<UserInfoRole> userInfoRoleList2 = userInfoRoleList.stream().map((e) -> {
-       //     e.userInfoRoleList(List.of());
+            e.setUserInfo(null);
+            e.setRole(null);
             // e.setOrganization(null);
             return e;
         }).toList();
