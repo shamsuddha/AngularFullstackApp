@@ -16,11 +16,11 @@ export class UserInfoController {
   }
 
   update(userInfo: UserInfo): Observable<UserInfo> {
-    return this.httpClient.put<UserInfo>('http://localhost:8080/user/update/123456', userInfo);
+    return this.httpClient.put<UserInfo>('http://localhost:8080/user/update/21312', userInfo);
   }
 
   delete(userInfo: UserInfo): Observable<boolean> {
-    return this.httpClient.delete<boolean>('http://localhost:8080/user/delete/245434', { body: userInfo })
+    return this.httpClient.delete<boolean>('http://localhost:8080/user/delete/12321', { body: userInfo })
     //.subscribe((e)=>{ });
   }
 

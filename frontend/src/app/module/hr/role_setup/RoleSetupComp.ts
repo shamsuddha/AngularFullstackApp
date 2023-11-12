@@ -23,7 +23,7 @@ export class RoleSetupComp implements OnInit {
   //userInfoRoleListFa: FormArray = this.roleFg.get('userInfoRoleList') as FormArray;
   //toFaGfn = toFaGfn;
   roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
-  
+
   constructor(
     public roleSetupController: RoleSetupController,
     public rxFormBuilder: RxFormBuilder
@@ -50,12 +50,13 @@ export class RoleSetupComp implements OnInit {
     this.search();
   }
 
-  delete(role:Role) {
+  delete(role: Role) {
+    //console.log(role);
     this.roleSetupController.delete(role).subscribe((e) => { this.search(); });
   }
 
   search() {
-    this.roleList$ = this.roleSetupController.search(new RoleSearchDto({"idList": []}));
+    this.roleList$ = this.roleSetupController.search(new RoleSearchDto({ "idList": [] }));
     /*.subscribe((e:Array<Role>)=>{
     console.log(e)
   })*/

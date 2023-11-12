@@ -15,11 +15,12 @@ export class RoleSetupController {
   }
 
   update(role: Role): Observable<Role> {
-    return this.httpClient.put<Role>('http://localhost:8080/role/update/', role);
+    return this.httpClient.put<Role>('http://localhost:8080/role/update/1235', role);
   }
 
   delete(role: Role): Observable<boolean> {
-    return this.httpClient.delete<boolean>('http://localhost:8080/role/delete/', { body: role })
+    //console.log(role);
+    return this.httpClient.delete<boolean>('http://localhost:8080/role/delete/1232', { body: role })
     //.subscribe((e)=>{ });
   }
 
