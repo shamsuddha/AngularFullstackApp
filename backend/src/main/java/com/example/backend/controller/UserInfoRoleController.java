@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.service.UserInfoRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,31 +18,33 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user-info-role")
 public class UserInfoRoleController {
   @Autowired
-    private UserInfoRoleRepository userInfoRoleRepository;
+  private UserInfoRoleRepository userInfoRoleRepository;
+  @Autowired
+  private UserInfoRoleService userInfoRoleService;
 
-    @PostMapping(value = "/save")
-    public @ResponseBody ResponseEntity<?> save(@RequestBody UserInfoRole userInfoRole) {
-        return new ResponseEntity<>(this.userInfoRoleRepository.save(userInfoRole), HttpStatus.OK);
-    }
+  @PostMapping(value = "/save")
+  public @ResponseBody ResponseEntity<?> save(@RequestBody UserInfoRole userInfoRole) {
+    return new ResponseEntity<>(this.userInfoRoleRepository.save(userInfoRole), HttpStatus.OK);
+  }
 
-    // @PathParam: "/update/{id}"
-    // @RequestParam: /update?id=3&name=abc @RequestParam Long id, @RequestParam String name
-    // @RequestBody UserInfoRole userInfoRole
-    @PutMapping(value = "/update")
-    public @ResponseBody
-    ResponseEntity<?> update(@RequestBody UserInfoRole userInfoRole) {
-        return new ResponseEntity<>(this.userInfoRoleRepository.save(userInfoRole), HttpStatus.OK);
-    }
+  // @PathParam: "/update/{id}"
+  // @RequestParam: /update?id=3&name=abc @RequestParam Long id, @RequestParam String name
+  // @RequestBody UserInfoRole userInfoRole
+  @PutMapping(value = "/update")
+  public @ResponseBody
+  ResponseEntity<?> update(@RequestBody UserInfoRole userInfoRole) {
+    return new ResponseEntity<>(this.userInfoRoleRepository.save(userInfoRole), HttpStatus.OK);
+  }
 
-    @DeleteMapping(value = "/delete")
-    public @ResponseBody
-    ResponseEntity<?> delete(@RequestBody UserInfoRole userInfoRole) {
-        this.userInfoRoleRepository.delete(userInfoRole);
-        return new ResponseEntity<>(true, HttpStatus.OK);
-    }
+  @DeleteMapping(value = "/delete")
+  public @ResponseBody
+  ResponseEntity<?> delete(@RequestBody UserInfoRole userInfoRole) {
+    this.userInfoRoleRepository.delete(userInfoRole);
+    return new ResponseEntity<>(true, HttpStatus.OK);
+  }
 
-    @PostMapping(value = "/search")
-    public @ResponseBody ResponseEntity<?> search() {
-        return new ResponseEntity<>(this.userInfoRoleRepository.findAll(), HttpStatus.OK);
-    }
+  @PostMapping(value = "/search")
+  public @ResponseBody ResponseEntity<?> search() {
+    return new ResponseEntity<>(this.userInfoRoleService.search(), HttpStatus.OK);
+  }
 }

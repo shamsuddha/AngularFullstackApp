@@ -2,7 +2,26 @@ POST http://localhost:8080/role/save
 Content-Type: application/json
 
 {
-  "name": "admin",
+  "name": "admin 15"
+}
+
+
+
+###
+PUT http://localhost:8080/role/update
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "admin 124"
+}
+
+###
+DELETE http://localhost:8080/role/delete
+Content-Type: application/json
+
+{
+  "id": 2
 }
 
 ###
@@ -11,23 +30,4 @@ Content-Type: application/json
 
 {
   "idList": []
-}
-
-###
-PUT http://localhost:8080/role/update
-Content-Type: application/json
-
-{
-  "id": 12,
-  "name": "user 60",
-  "userInfoRoleList": []
-}
-
-###
-DELETE http://localhost:8080/role/delete
-Content-Type: application/json
-
-{
-  "id": 7,
-   
 }

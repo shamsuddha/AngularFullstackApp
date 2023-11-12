@@ -2,34 +2,23 @@ POST http://localhost:8080/user-info-role/save
 Content-Type: application/json
 
 {
-  "name": "user 11",
-  "email" : "email11@gmail.com",
-  "mobile": 123456,
-  "userInfoRoleList":
-  {
-
-    "userInfo_id":1,
-    "role_id": 1,
+  "userInfo": {
+    "id": 7
   },
-   {
-    "userInfo_id":1,
-    "role_id": 2,
-  },
-   {
-    "userInfo_id":1,
-    "role_id": 3,
+  "role": {
+    "id": 5
   }
 }
-###
 
+###
 POST http://localhost:8080/user-info-role/search
 Content-Type: application/json
 
 {
   "idList": []
 }
-###
 
+###
 PUT http://localhost:8080/user-info-role/update
 Content-Type: application/json
 
@@ -37,22 +26,7 @@ Content-Type: application/json
   "id": 13,
   "name": "user 13",
   "email" : "email13@gmail13.com",
-  "mobile": 13,
-   "userInfoRoleList":
-  {
-
-    "userInfo_id":1,
-    "role_id": 1,
-  },
-   {
-    "userInfo_id":1,
-    "role_id": 4,
-  },
-   {
-    "userInfo_id":1,
-    "role_id": 5,
-  }
-
+  "mobile": 13
 }
 
 ###

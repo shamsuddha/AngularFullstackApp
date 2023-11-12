@@ -2,56 +2,21 @@ POST http://localhost:8080/user-info/save
 Content-Type: application/json
 
 {
-  "name": "user 11",
-  "email" : "email11@gmail.com",
-  "mobile": 123456,
-  "userInfoRoleList":
-  {
-    "userInfo_id":1,
-    "role_id": 1,
-  },
-   {
-    "userInfo_id":1,
-    "role_id": 2,
-  },
-   {
-    "userInfo_id":1,
-    "role_id": 3,
-  }
+  "name": "user 501",
+  "email" : "email111@gmail.com",
+  "mobile": 12345611
 }
-###
 
-POST http://localhost:8080/user-info/search
-Content-Type: application/json
-
-{
-  "idList": []
-}
 ###
 
 PUT http://localhost:8080/user-info/update
 Content-Type: application/json
 
 {
-  "id": 13,
-  "name": "user 13",
+  "id": 6,
+  "name": "user 12345",
   "email" : "email13@gmail13.com",
-  "mobile": 13,
-   "userInfoRoleList":
-  {
-    
-    "userInfo_id":1,
-    "role_id": 1,
-  },
-   {
-    "userInfo_id":1,
-    "role_id": 4,
-  },
-   {
-    "userInfo_id":1,
-    "role_id": 5,
-  }
-
+  "mobile": 13
 }
 
 ###
@@ -59,5 +24,13 @@ DELETE http://localhost:8080/user-info/delete
 Content-Type: application/json
 
 {
-  "id": 13
+  "id": 6
+}
+
+###
+POST http://localhost:8080/user-info/search
+Content-Type: application/json
+
+{
+  "idList": []
 }
