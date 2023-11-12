@@ -10,19 +10,19 @@ export class UserInfoRoleSetupController {
   constructor(private httpClient: HttpClient,) { }
 
   save(userInfoRole: UserInfoRole): Observable<UserInfoRole> {
-    return this.httpClient.post<UserInfoRole>('http://localhost:8080/userInfoRole/save', userInfoRole);
+    return this.httpClient.post<UserInfoRole>('http://localhost:8080/user-info-role/save', userInfoRole);
   }
 
   update(userInfoRole: UserInfoRole): Observable<UserInfoRole> {
-    return this.httpClient.put<UserInfoRole>('http://localhost:8080/userInfoRole/update/23423', userInfoRole);
+    return this.httpClient.put<UserInfoRole>('http://localhost:8080/user-info-role/update', userInfoRole);
   }
 
   delete(userInfoRole: UserInfoRole): Observable<boolean> {
-    return this.httpClient.delete<boolean>('http://localhost:8080/userInfoRole/delete/23423', { body: userInfoRole })
+    return this.httpClient.delete<boolean>('http://localhost:8080/user-info-role/delete', { body: userInfoRole })
     //.subscribe((e)=>{ });
   }
 
   search(userInfoRoleSearchDto: UserInfoRoleSearchDto): Observable<Array<UserInfoRole>> {
-    return this.httpClient.post<Array<UserInfoRole>>('http://localhost:8080/userInfoRole/search', userInfoRoleSearchDto);
+    return this.httpClient.post<Array<UserInfoRole>>('http://localhost:8080/user-info-role/search', userInfoRoleSearchDto);
   }
 }

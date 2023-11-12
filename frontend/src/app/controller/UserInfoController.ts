@@ -11,19 +11,19 @@ export class UserInfoController {
   constructor(private httpClient: HttpClient,) { }
 
   save(userInfo: UserInfo): Observable<UserInfo> {
-    return this.httpClient.post<UserInfo>('http://localhost:8080/user/save', userInfo);
+    return this.httpClient.post<UserInfo>('http://localhost:8080/user-info/save', userInfo);
   }
 
   update(userInfo: UserInfo): Observable<UserInfo> {
-    return this.httpClient.put<UserInfo>('http://localhost:8080/user/update/21312', userInfo);
+    return this.httpClient.put<UserInfo>('http://localhost:8080/user-info/update/21312', userInfo);
   }
 
   delete(userInfo: UserInfo): Observable<boolean> {
-    return this.httpClient.delete<boolean>('http://localhost:8080/user/delete/12321', { body: userInfo })
+    return this.httpClient.delete<boolean>('http://localhost:8080/user-info/delete/12321', { body: userInfo })
     //.subscribe((e)=>{ });
   }
 
   search(userSearchDto: UserSearchDto): Observable<Array<UserInfo>> {
-    return this.httpClient.post<Array<UserInfo>>('http://localhost:8080/user/search', userSearchDto);
+    return this.httpClient.post<Array<UserInfo>>('http://localhost:8080/user-info/search', userSearchDto);
   }
 }
