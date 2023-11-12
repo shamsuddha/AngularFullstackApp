@@ -7,6 +7,7 @@ import { FormArray, FormGroup } from '@angular/forms';
 import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
 import { UserInfoRole } from 'src/app/entity/UserInfoRole';
 import { UserInfoRoleSetupController } from 'src/app/controller/UserInfoRoleSetupController';
+import { UserInfo } from 'src/app/entity/UserInfo';
 
 @Component({
   selector: 'UserInfoRoleSetupComp',
@@ -26,6 +27,8 @@ export class UserInfoRoleSetupComp implements OnInit {
   //userInfoRoleListFa: FormArray = this.userInfoRoleFg.get('userInfoRoleList') as FormArray;
   //toFaGfn = toFaGfn;
   userInfoRoleList$: Observable<Array<UserInfoRole>> = new Observable<Array<UserInfoRole>>();
+  userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
+  roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
   
   constructor(
     public userInfoRoleSetupController: UserInfoRoleSetupController,
@@ -36,6 +39,17 @@ export class UserInfoRoleSetupComp implements OnInit {
     this.search();
     this.breadCrumbItems = [{ label: 'userInfoRole' }, { label: 'userInfoRole', active: true }];
   }
+
+  // onSelectDivision($event: { id: number, name: string }) {
+  //   this.crudPracticeOneFg.patchValue({
+  //     divisionName: $event.name
+  //   });
+
+  //   // console.log($event);
+  //   this.districtList = this.districtWithDivisionList.filter((e) => e.divisionId == $event.id);
+  //   console.log(this.districtList);
+  // }
+
 
   save() {
     this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => { });

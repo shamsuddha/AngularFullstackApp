@@ -15,21 +15,21 @@
           <div class="mb-4">  
             <label class="form-label" for="name">Select a user</label> 
             <!-- {{roleFg.controls['name'].errors | json}} -->
-            <select class="form-control" data-trigger name="choices-single-groups" id="choices-single-groups">
+            <select class="form-control" formControlName="userInfo_id" data-trigger name="choices-single-groups" id="choices-single-groups">
               <option value="">Choose a User</option>
-              <option value="User 1">User 1</option>
-              <option value="User 1">User 2</option>
-              <option value="User 1">User 3</option>
+              <option value="1">User 1</option>
+              <option value="2">User 2</option>
+              <option value="2">User 3</option>
             </select>
           </div>
           <div class="mb-4">   
             <label class="form-label" for="name">Select a role</label>         
             <!-- {{roleFg.controls['name'].errors | json}} -->
-            <select class="form-control" data-trigger name="choices-single-groups" id="choices-single-groups">
+            <select class="form-control" formControlName="role_id" data-trigger name="choices-single-groups" id="choices-single-groups">
               <option value="">Choose a Role</option>
-              <option value="Role 1">Role 1</option>
-              <option value="Role 1">Role 2</option>
-              <option value="Role 1">Role 3</option>
+              <option value="1">Role 1</option>
+              <option value="2">Role 2</option>
+              <option value="3">Role 3</option>
             </select>
           </div>     
     <!-- {{roleFg.value['addressList'] | json}} -->

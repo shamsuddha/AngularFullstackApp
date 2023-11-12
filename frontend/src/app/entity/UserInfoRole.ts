@@ -2,6 +2,7 @@ import { prop, propArray } from "@rxweb/reactive-form-validators";
 
 
 export class UserInfoRole {
+  
   @prop()
   id: number | null = null;
   @prop()

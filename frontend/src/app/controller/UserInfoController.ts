@@ -12,7 +12,6 @@ export class UserInfoController {
 
   save(userInfo: UserInfo): Observable<UserInfo> {
     return this.httpClient.post<UserInfo>('http://localhost:8080/user/save', userInfo);
-
   }
 
   update(userInfo: UserInfo): Observable<UserInfo> {

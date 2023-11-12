@@ -11,15 +11,14 @@ export class UserInfoRoleSetupController {
 
   save(userInfoRole: UserInfoRole): Observable<UserInfoRole> {
     return this.httpClient.post<UserInfoRole>('http://localhost:8080/userInfoRole/save', userInfoRole);
-
   }
 
   update(userInfoRole: UserInfoRole): Observable<UserInfoRole> {
-    return this.httpClient.put<UserInfoRole>('http://localhost:8080/userInfoRole/update/', userInfoRole);
+    return this.httpClient.put<UserInfoRole>('http://localhost:8080/userInfoRole/update/23423', userInfoRole);
   }
 
   delete(userInfoRole: UserInfoRole): Observable<boolean> {
-    return this.httpClient.delete<boolean>('http://localhost:8080/userInfoRole/delete/', { body: userInfoRole })
+    return this.httpClient.delete<boolean>('http://localhost:8080/userInfoRole/delete/23423', { body: userInfoRole })
     //.subscribe((e)=>{ });
   }
 

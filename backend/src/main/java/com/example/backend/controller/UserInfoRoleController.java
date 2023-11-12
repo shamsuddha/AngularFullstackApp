@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/user-info-role")
+@RequestMapping("/userInfoRole")
 public class UserInfoRoleController {
   @Autowired
     private UserInfoRoleRepository userInfoRoleRepository;

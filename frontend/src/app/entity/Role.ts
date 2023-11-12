@@ -3,6 +3,7 @@ import { UserInfo } from "./UserInfo";
 import { UserInfoRole } from "./UserInfoRole";
 
 export class Role {
+  
   @prop()
   id: number | null = null;
   @prop() 
