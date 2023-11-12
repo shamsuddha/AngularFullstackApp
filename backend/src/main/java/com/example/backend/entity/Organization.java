@@ -20,9 +20,6 @@ public class Organization {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
-
   @OneToMany(mappedBy = "organization", fetch = FetchType.LAZY)
   private List<UserInfo> userInfoList;
-
-
 }

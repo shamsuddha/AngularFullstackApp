@@ -14,7 +14,6 @@ import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
 })
 export class RoleSetupComp implements OnInit {
 
-
   //BreadCrumb Items
   breadCrumbItems!: Array<{}>;
   title!: string;
@@ -48,9 +47,10 @@ export class RoleSetupComp implements OnInit {
 
   update() {
     this.roleSetupController.update(this.roleFg.value).subscribe((e) => { });
+    this.search();
   }
 
-  delete(role: any, id: number) {
+  delete(role:Role) {
     this.roleSetupController.delete(role).subscribe((e) => { this.search(); });
   }
 

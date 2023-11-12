@@ -21,7 +21,7 @@ export class UserInfoSetupComp implements OnInit {
   // Form Items
   userInfoFg: FormGroup = this.rxFormBuilder.formGroup(UserInfo);
   //userInfoRoleListFa: FormArray = this.userInfoFg.get('userInfoRoleList') as FormArray;
-  toFaGfn = toFaGfn;
+  //toFaGfn = toFaGfn;
   userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
 
   constructor(
@@ -56,7 +56,7 @@ export class UserInfoSetupComp implements OnInit {
     this.userInfoController.update(this.userInfoFg.value).subscribe((e) => { });
   }
 
-  delete(userInfo: UserInfo, id?:number) {
+  delete(userInfo: UserInfo) {
     this.userInfoController.delete(userInfo).subscribe((e) => { this.search(); });
   }
 
