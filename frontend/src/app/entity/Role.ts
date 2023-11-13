@@ -10,8 +10,8 @@ export class Role {
   name: string | null = null;
   // userInfoList: Array<UserInfo> | null = null;
 
-  // @propArray(UserInfoRole)
-  // userInfoRoleList: Array<UserInfoRole> = [];
+  @propArray(UserInfoRole)
+  userInfoRoleList: Array<UserInfoRole> = [];
 
   constructor(o?: Partial<Role>) {
     Object.assign(this, o);

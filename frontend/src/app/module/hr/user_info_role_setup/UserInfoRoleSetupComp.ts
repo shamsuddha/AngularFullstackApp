@@ -46,8 +46,8 @@ export class UserInfoRoleSetupComp implements OnInit {
   }
 
   save() {
-    this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => { });
-    this.search();
+    this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => { this.search();});
+    
   }
 
   onUpdateClick(userInfoRole: UserInfoRole) {
@@ -57,7 +57,7 @@ export class UserInfoRoleSetupComp implements OnInit {
   }
 
   update() {
-    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value).subscribe((e) => { });
+    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value).subscribe((e) => { this.search();});
   }
 
   delete(userInfoRole: UserInfoRole) {
