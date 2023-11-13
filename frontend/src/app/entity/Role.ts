@@ -3,14 +3,15 @@ import { UserInfo } from "./UserInfo";
 import { UserInfoRole } from "./UserInfoRole";
 
 export class Role {
-  
+
   @prop()
   id: number | null = null;
-  @prop() 
+  @prop()
   name: string | null = null;
   // userInfoList: Array<UserInfo> | null = null;
-  @propArray(UserInfoRole)
-  userInfoRoleList: Array<UserInfoRole> = [];
+
+  // @propArray(UserInfoRole)
+  // userInfoRoleList: Array<UserInfoRole> = [];
 
   constructor(o?: Partial<Role>) {
     Object.assign(this, o);

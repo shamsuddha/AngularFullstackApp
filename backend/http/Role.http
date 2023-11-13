@@ -2,9 +2,8 @@ POST http://localhost:8080/role/save
 Content-Type: application/json
 
 {
-  "name": "admin 15"
+  "name": "admin 16"
 }
-
 
 
 ###

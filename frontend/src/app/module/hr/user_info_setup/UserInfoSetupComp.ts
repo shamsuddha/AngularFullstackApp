@@ -42,8 +42,8 @@ export class UserInfoSetupComp implements OnInit {
   // }
 
   save() {
-    this.userInfoController.save(this.userInfoFg.value).subscribe((e) => { });
-    this.search();
+    this.userInfoController.save(this.userInfoFg.value).subscribe((e) => 
+    { this.search();});
   }
 
   onUpdateClick(userInfo: UserInfo) {
@@ -53,11 +53,13 @@ export class UserInfoSetupComp implements OnInit {
   }
 
   update() {
-    this.userInfoController.update(this.userInfoFg.value).subscribe((e) => { });
+    this.userInfoController.update(this.userInfoFg.value).subscribe((e) => 
+    {this.search(); });
   }
 
   delete(userInfo: UserInfo) {
-    this.userInfoController.delete(userInfo).subscribe((e) => { this.search(); });
+    this.userInfoController.delete(userInfo).subscribe((e) => 
+    { this.search(); });
   }
 
   search() {

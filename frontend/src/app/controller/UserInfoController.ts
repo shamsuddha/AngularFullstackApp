@@ -1,8 +1,8 @@
-import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { UserInfo } from "../entity/UserInfo";
+import { Observable } from "rxjs";
 import { UserSearchDto } from "../dto/request/UserSearchDto";
+import { UserInfo } from "../entity/UserInfo";
 
 
 @Injectable({ providedIn: 'root' })
@@ -15,11 +15,11 @@ export class UserInfoController {
   }
 
   update(userInfo: UserInfo): Observable<UserInfo> {
-    return this.httpClient.put<UserInfo>('http://localhost:8080/user-info/update/21312', userInfo);
+    return this.httpClient.put<UserInfo>('http://localhost:8080/user-info/update', userInfo);
   }
 
   delete(userInfo: UserInfo): Observable<boolean> {
-    return this.httpClient.delete<boolean>('http://localhost:8080/user-info/delete/12321', { body: userInfo })
+    return this.httpClient.delete<boolean>('http://localhost:8080/user-info/delete', { body: userInfo })
     //.subscribe((e)=>{ });
   }
 

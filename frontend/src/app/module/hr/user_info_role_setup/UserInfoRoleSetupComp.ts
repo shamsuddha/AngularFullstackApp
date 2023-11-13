@@ -8,6 +8,8 @@ import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
 import { UserInfoRole } from 'src/app/entity/UserInfoRole';
 import { UserInfoRoleSetupController } from 'src/app/controller/UserInfoRoleSetupController';
 import { UserInfo } from 'src/app/entity/UserInfo';
+import { UserSearchDto } from 'src/app/dto/request/UserSearchDto';
+import { User } from 'src/app/core/models/auth.models';
 
 @Component({
   selector: 'UserInfoRoleSetupComp',
@@ -16,8 +18,7 @@ import { UserInfo } from 'src/app/entity/UserInfo';
   //standalone: true
 })
 export class UserInfoRoleSetupComp implements OnInit {
-
-
+  
   //BreadCrumb Items
   breadCrumbItems!: Array<{}>;
   title!: string;
@@ -28,12 +29,15 @@ export class UserInfoRoleSetupComp implements OnInit {
   //userInfoRoleListFa: FormArray = this.userInfoRoleFg.get('userInfoRoleList') as FormArray;
   //toFaGfn = toFaGfn;
   userInfoRoleList$: Observable<Array<UserInfoRole>> = new Observable<Array<UserInfoRole>>();
-  userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
-  roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
+  userInfoList: Array<UserInfo> = [];
+  roleList: Array<Role> = [];
+
+  // roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
   
   constructor(
     public userInfoRoleSetupController: UserInfoRoleSetupController,
-    public rxFormBuilder: RxFormBuilder
+    public rxFormBuilder: RxFormBuilder,
+    public userInfoSetupController: UserInfoRoleSetupController
   ) { }
 
   ngOnInit() {
@@ -77,7 +81,17 @@ export class UserInfoRoleSetupComp implements OnInit {
     console.log(e)
   })*/
   }
+
+  getUserList() {
+    this.userInfoSetupController.search(new UserSearchDto({"idList": []}));
+
+    /*.subscribe((e:Array<Role>)=>{
+    console.log(e)
+  })*/
+  }
 }
+
+
 
 // export const toFaGfn = (fa: any) => {
 //   return fa as FormArray;

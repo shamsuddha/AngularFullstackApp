@@ -35,7 +35,7 @@ export class RoleSetupComp implements OnInit {
   }
 
   save() {
-    this.roleSetupController.save(this.roleFg.value).subscribe((e) => { });
+    this.roleSetupController.save(this.roleFg.value).subscribe((e) => {this.search(); });
     this.search();
   }
 
@@ -46,7 +46,7 @@ export class RoleSetupComp implements OnInit {
   }
 
   update() {
-    this.roleSetupController.update(this.roleFg.value).subscribe((e) => { });
+    this.roleSetupController.update(this.roleFg.value).subscribe((e) => {this.search(); });
     this.search();
   }
 

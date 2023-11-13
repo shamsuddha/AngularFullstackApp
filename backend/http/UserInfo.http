@@ -2,18 +2,17 @@ POST http://localhost:8080/user-info/save
 Content-Type: application/json
 
 {
-  "name": "user 501",
-  "email" : "email111@gmail.com",
-  "mobile": 12345611
+  "name": "user 502",
+  "email" : "email112@gmail.com",
+  "mobile": 12345612
 }
 
 ###
-
 PUT http://localhost:8080/user-info/update
 Content-Type: application/json
 
 {
-  "id": 6,
+  "id": 41,
   "name": "user 12345",
   "email" : "email13@gmail13.com",
   "mobile": 13
@@ -24,7 +23,7 @@ DELETE http://localhost:8080/user-info/delete
 Content-Type: application/json
 
 {
-  "id": 6
+  "id": 42
 }
 
 ###

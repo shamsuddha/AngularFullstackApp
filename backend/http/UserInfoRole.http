@@ -3,19 +3,11 @@ Content-Type: application/json
 
 {
   "userInfo": {
-    "id": 7
+    "id": 43
   },
   "role": {
-    "id": 5
+    "id": 44
   }
-}
-
-###
-POST http://localhost:8080/user-info-role/search
-Content-Type: application/json
-
-{
-  "idList": []
 }
 
 ###
@@ -35,4 +27,12 @@ Content-Type: application/json
 
 {
   "id": 13
+}
+
+###
+POST http://localhost:8080/user-info-role/search
+Content-Type: application/json
+
+{
+  "idList": []
 }
