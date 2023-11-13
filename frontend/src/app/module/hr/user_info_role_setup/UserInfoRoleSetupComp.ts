@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { RoleSetupController } from 'src/app/controller/RoleSetupController';
+import { UserInfoSetupController } from 'src/app/controller/UserInfoSetupController';
 import { Role } from 'src/app/entity/Role';
 import { FormArray, FormGroup } from '@angular/forms';
 import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
 import { UserInfoRole } from 'src/app/entity/UserInfoRole';
 import { UserInfoRoleSetupController } from 'src/app/controller/UserInfoRoleSetupController';
 import { UserInfo } from 'src/app/entity/UserInfo';
-import { UserSearchDto } from 'src/app/dto/request/UserSearchDto';
+import { UserInfoSearchDto } from 'src/app/dto/request/UserInfoSearchDto';
 import { User } from 'src/app/core/models/auth.models';
+import { UserInfoRoleSearchDto } from 'src/app/dto/request/UserInfoRoleSearchDto';
 
 @Component({
   selector: 'UserInfoRoleSetupComp',
@@ -18,43 +20,30 @@ import { User } from 'src/app/core/models/auth.models';
   //standalone: true
 })
 export class UserInfoRoleSetupComp implements OnInit {
-  
+
   //BreadCrumb Items
   breadCrumbItems!: Array<{}>;
   title!: string;
 
   // Form Items
   userInfoRoleFg: FormGroup = this.rxFormBuilder.formGroup(UserInfoRole);
-  
+
   //userInfoRoleListFa: FormArray = this.userInfoRoleFg.get('userInfoRoleList') as FormArray;
   //toFaGfn = toFaGfn;
   userInfoRoleList$: Observable<Array<UserInfoRole>> = new Observable<Array<UserInfoRole>>();
-  userInfoList: Array<UserInfo> = [];
-  roleList: Array<Role> = [];
+  userInfoList: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
+  roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
 
-  // roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
-  
   constructor(
     public userInfoRoleSetupController: UserInfoRoleSetupController,
     public rxFormBuilder: RxFormBuilder,
-    public userInfoSetupController: UserInfoRoleSetupController
+    public userInfoSetupController: UserInfoSetupController
   ) { }
 
   ngOnInit() {
     this.search();
     this.breadCrumbItems = [{ label: 'userInfoRole' }, { label: 'userInfoRole', active: true }];
   }
-
-  // onSelectDivision($event: { id: number, name: string }) {
-  //   this.crudPracticeOneFg.patchValue({
-  //     divisionName: $event.name
-  //   });
-
-  //   // console.log($event);
-  //   this.districtList = this.districtWithDivisionList.filter((e) => e.divisionId == $event.id);
-  //   console.log(this.districtList);
-  // }
-
 
   save() {
     this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => { });
@@ -76,22 +65,13 @@ export class UserInfoRoleSetupComp implements OnInit {
   }
 
   search() {
-    this.userInfoRoleList$ = this.userInfoRoleSetupController.search(new RoleSearchDto({"idList": []}));
-    /*.subscribe((e:Array<Role>)=>{
-    console.log(e)
-  })*/
-  }
-
-  getUserList() {
-    this.userInfoSetupController.search(new UserSearchDto({"idList": []}));
-
+    this.userInfoRoleList$ = this.userInfoRoleSetupController.search(new UserInfoRoleSearchDto({ "idList": [] }));
+    console.log(this.userInfoRoleList$);
     /*.subscribe((e:Array<Role>)=>{
     console.log(e)
   })*/
   }
 }
-
-
 
 // export const toFaGfn = (fa: any) => {
 //   return fa as FormArray;

@@ -1,12 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { UserSearchDto } from "../dto/request/UserSearchDto";
+import { UserInfoSearchDto } from "../dto/request/UserInfoSearchDto";
 import { UserInfo } from "../entity/UserInfo";
 
 
 @Injectable({ providedIn: 'root' })
-export class UserInfoController {
+export class UserInfoSetupController {
 
   constructor(private httpClient: HttpClient,) { }
 
@@ -23,7 +23,7 @@ export class UserInfoController {
     //.subscribe((e)=>{ });
   }
 
-  search(userSearchDto: UserSearchDto): Observable<Array<UserInfo>> {
-    return this.httpClient.post<Array<UserInfo>>('http://localhost:8080/user-info/search', userSearchDto);
+  search(userInfoSearchDto: UserInfoSearchDto): Observable<Array<UserInfo>> {
+    return this.httpClient.post<Array<UserInfo>>('http://localhost:8080/user-info/search', userInfoSearchDto);
   }
 }
