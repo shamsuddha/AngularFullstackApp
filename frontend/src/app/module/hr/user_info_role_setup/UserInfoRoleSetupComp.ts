@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormGroup } from '@angular/forms';
-import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { Observable, tap } from 'rxjs';
-import { UserInfoRoleSetupController } from 'src/app/controller/UserInfoRoleSetupController';
-import { UserInfoSetupController } from 'src/app/controller/UserInfoSetupController';
-import { UserInfoRoleSearchDto } from 'src/app/dto/request/UserInfoRoleSearchDto';
-import { UserInfoSearchDto } from 'src/app/dto/request/UserInfoSearchDto';
-import { Role } from 'src/app/entity/Role';
-import { UserInfo } from 'src/app/entity/UserInfo';
-import { UserInfoRole } from 'src/app/entity/UserInfoRole';
+import {Component, OnInit} from '@angular/core';
+import {FormArray, FormGroup} from '@angular/forms';
+import {RxFormBuilder} from '@rxweb/reactive-form-validators';
+import {Observable} from 'rxjs';
+import {UserInfoRoleSetupController} from 'src/app/controller/UserInfoRoleSetupController';
+import {UserInfoSetupController} from 'src/app/controller/UserInfoSetupController';
+import {UserInfoSearchDto} from 'src/app/dto/request/UserInfoSearchDto';
+import {Role} from 'src/app/entity/Role';
+import {UserInfo} from 'src/app/entity/UserInfo';
+import {UserInfoRole} from 'src/app/entity/UserInfoRole';
 
 @Component({
   selector: 'UserInfoRoleSetupComp',
@@ -18,11 +17,9 @@ import { UserInfoRole } from 'src/app/entity/UserInfoRole';
 })
 export class UserInfoRoleSetupComp implements OnInit {
 
-  //BreadCrumb Items
-  breadCrumbItems!: Array<{}>;
+  breadCrumbItems: Array<{}> = [];
   title!: string;
 
-  // Form Items
   userInfoRoleFg: FormGroup = this.rxFormBuilder.formGroup(UserInfoRole);
   toFaGfn = toFaGfn;
 
@@ -34,15 +31,18 @@ export class UserInfoRoleSetupComp implements OnInit {
     public userInfoRoleSetupController: UserInfoRoleSetupController,
     public rxFormBuilder: RxFormBuilder,
     public userInfoSetupController: UserInfoSetupController
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.search();
-    this.breadCrumbItems = [{ label: 'userInfoRole' }, { label: 'userInfoRole', active: true }];
+    this.breadCrumbItems = [{label: 'userInfoRole'}, {label: 'userInfoRole', active: true}];
   }
 
   save() {
-    this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => { this.search(); });
+    this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => {
+      this.search();
+    });
   }
 
   onUpdateClick(userInfoRole: UserInfoRole) {
@@ -52,39 +52,30 @@ export class UserInfoRoleSetupComp implements OnInit {
   }
 
   update() {
-    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value).subscribe((e) => { this.search(); });
+    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value).subscribe((e) => {
+      this.search();
+    });
   }
 
   delete(userInfoRole: UserInfoRole) {
-    this.userInfoRoleSetupController.delete(userInfoRole).subscribe((e) => { this.search(); });
+    this.userInfoRoleSetupController.delete(userInfoRole).subscribe((e) => {
+      this.search();
+    });
   }
 
   search() {
-    this.userInfoRoleList$ = this.userInfoRoleSetupController.search(new UserInfoRoleSearchDto({ "idList": [] }));
-    console.log(this.userInfoRoleList$);
+    //this.userInfoRoleList$ = this.userInfoRoleSetupController.search(new UserInfoRoleSearchDto({"idList": []}));
+    this.userInfoRoleList$ = this.userInfoRoleSetupController.searchWithUserInfoRole();
+
     /*.subscribe((e:Array<Role>)=>{
     console.log(e)
   })*/
   }
-
 
   getUserInfoList(e: Observable<Array<UserInfo>>) {
-    this.userInfoList$ = this.userInfoSetupController.search(new UserInfoSearchDto({ "idList": [] }))
-    .pipe(
-
-     
-    ),
-    
-   // console.log(this.userInfoList$);
-    /*.subscribe((e:Array<Role>)=>{
-    console.log(e)
-  })*/
+    this.userInfoList$ = this.userInfoSetupController
+      .search(new UserInfoSearchDto({"idList": []}))
   }
-
-
-
-
-
 
 }
 

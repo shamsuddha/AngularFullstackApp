@@ -20,7 +20,7 @@ export class UserInfo {  // FormGroup
   @prop() email: string | null = null;
   @prop() mobile: number | null = null;
 
-  @propArray(UserInfoRole)
+  @propArray(UserInfoRole, {createBlank: false})
   userInfoRoleList: Array<UserInfoRole> = [];
 
   constructor(o?: Partial<UserInfo>) {

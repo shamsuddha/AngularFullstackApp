@@ -25,4 +25,8 @@ export class UserInfoRoleSetupController {
   search(userInfoRoleSearchDto: UserInfoRoleSearchDto): Observable<Array<UserInfoRole>> {
     return this.httpClient.post<Array<UserInfoRole>>('http://localhost:8080/user-info-role/search', userInfoRoleSearchDto);
   }
+
+  searchWithUserInfoRole(): Observable<Array<UserInfoRole>> {
+    return this.httpClient.post<Array<UserInfoRole>>('http://localhost:8080/user-info-role/search-with-user-info-role',{});
+  }
 }

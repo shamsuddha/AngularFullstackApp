@@ -5,15 +5,18 @@ import { Role } from "./Role";
 
 export class UserInfoRole {
 
-  @prop()
-  id: number | null = null;
-  @prop()
-  userInfo_id: number | null = null;
-  @prop()
-  role_id: number | null = null;
+  @prop() id: number | null = null;
 
-  // @propObject(UserInfo, { autoCreate: true }) userInfo: UserInfo | null = null;
-  // @propObject(Role, { autoCreate: true }) role: Role | null = null;
+  //@propObject(UserInfo, { autoCreate: false })
+  @prop()
+  userInfo: UserInfo | null = null;
+  @prop()
+  userInfoId: number | null = null;
+
+  //@propObject(Role, { autoCreate: false })
+  @prop()
+  role: Role | null = null;
+  @prop() roleId: number | null = null;
 
   constructor(o?: Partial<UserInfoRole>) {
     Object.assign(this, o);

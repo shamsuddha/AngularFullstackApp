@@ -27,7 +27,7 @@ import { UserInfoRoleSetupComp } from './UserInfoRoleSetupComp';
   ],
 
   providers: [
-    
+
   ],
 })
 export class UserInfoRoleSetupModule {}
