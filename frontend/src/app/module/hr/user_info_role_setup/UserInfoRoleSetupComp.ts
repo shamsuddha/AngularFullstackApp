@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { RoleSetupController } from 'src/app/controller/RoleSetupController';
-import { UserInfoSetupController } from 'src/app/controller/UserInfoSetupController';
-import { Role } from 'src/app/entity/Role';
 import { FormArray, FormGroup } from '@angular/forms';
-import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
-import { UserInfoRole } from 'src/app/entity/UserInfoRole';
+import { RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { Observable, tap } from 'rxjs';
 import { UserInfoRoleSetupController } from 'src/app/controller/UserInfoRoleSetupController';
-import { UserInfo } from 'src/app/entity/UserInfo';
-import { UserInfoSearchDto } from 'src/app/dto/request/UserInfoSearchDto';
-import { User } from 'src/app/core/models/auth.models';
+import { UserInfoSetupController } from 'src/app/controller/UserInfoSetupController';
 import { UserInfoRoleSearchDto } from 'src/app/dto/request/UserInfoRoleSearchDto';
+import { UserInfoSearchDto } from 'src/app/dto/request/UserInfoSearchDto';
+import { Role } from 'src/app/entity/Role';
+import { UserInfo } from 'src/app/entity/UserInfo';
+import { UserInfoRole } from 'src/app/entity/UserInfoRole';
 
 @Component({
   selector: 'UserInfoRoleSetupComp',
@@ -27,11 +24,10 @@ export class UserInfoRoleSetupComp implements OnInit {
 
   // Form Items
   userInfoRoleFg: FormGroup = this.rxFormBuilder.formGroup(UserInfoRole);
+  toFaGfn = toFaGfn;
 
-  //userInfoRoleListFa: FormArray = this.userInfoRoleFg.get('userInfoRoleList') as FormArray;
-  //toFaGfn = toFaGfn;
   userInfoRoleList$: Observable<Array<UserInfoRole>> = new Observable<Array<UserInfoRole>>();
-  userInfoList: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
+  userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
   roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
 
   constructor(
@@ -46,18 +42,17 @@ export class UserInfoRoleSetupComp implements OnInit {
   }
 
   save() {
-    this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => { this.search();});
-    
+    this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => { this.search(); });
   }
 
   onUpdateClick(userInfoRole: UserInfoRole) {
     this.userInfoRoleFg.patchValue(userInfoRole);
-    //this.userInfoRoleFg.patchValue({id:role.id,name:userInfoRole.name});
+    //this.userInfoRoleFg.patchValue({id:role.id, name:userInfoRole.name});
     console.log(this.userInfoRoleFg.value);
   }
 
   update() {
-    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value).subscribe((e) => { this.search();});
+    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value).subscribe((e) => { this.search(); });
   }
 
   delete(userInfoRole: UserInfoRole) {
@@ -71,9 +66,29 @@ export class UserInfoRoleSetupComp implements OnInit {
     console.log(e)
   })*/
   }
+
+
+  getUserInfoList(e: Observable<Array<UserInfo>>) {
+    this.userInfoList$ = this.userInfoSetupController.search(new UserInfoSearchDto({ "idList": [] }))
+    .pipe(
+
+     
+    ),
+    
+   // console.log(this.userInfoList$);
+    /*.subscribe((e:Array<Role>)=>{
+    console.log(e)
+  })*/
+  }
+
+
+
+
+
+
 }
 
-// export const toFaGfn = (fa: any) => {
-//   return fa as FormArray;
-// }
+export const toFaGfn = (fa: any) => {
+  return fa as FormArray;
+}
 

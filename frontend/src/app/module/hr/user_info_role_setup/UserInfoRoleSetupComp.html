@@ -15,7 +15,7 @@
           <div class="mb-4">
             <label class="form-label" for="name">Select a user</label>
             <!-- {{roleFg.controls['name'].errors | json}} -->
-            <!-- <ng-select [items]="userInfoList" class="form-control" bindLabel="name" bindValue="id"
+            <!-- <ng-select [items: Observable]="userInfoList$" class="form-control" bindLabel="name" bindValue="id"
               formControlName="userInfo_id">
             </ng-select> -->
             <select class="form-control" formControlName="userInfo_id" data-trigger name="choices-single-groups"
