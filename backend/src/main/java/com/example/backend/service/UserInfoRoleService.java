@@ -21,6 +21,13 @@ public class UserInfoRoleService {
 
   private final UserInfoRoleRepository userInfoRoleRepository;
 
+  public Object update(UserInfoRole userInfoRole) {
+    UserInfoRole userInfoRoleUpdated = this.userInfoRoleRepository.save(userInfoRole);
+    userInfoRoleUpdated.setUserInfo(null);
+    userInfoRoleUpdated.setRole(null);
+    return userInfoRoleUpdated;
+  }
+
   public List<UserInfoRole> search() {
     List<UserInfoRole> userInfoRoleList = this.userInfoRoleRepository.findAll();
     List<UserInfoRole> userInfoRoleList2 = userInfoRoleList.stream().map((e) -> {
@@ -44,7 +51,7 @@ public class UserInfoRoleService {
       .leftJoin(qUserInfoRole.role, qRole).fetchJoin()
       .fetch();
 
-    List<UserInfoRole> userInfoRoleList2 = userInfoRoleList.stream().map(e->{
+    List<UserInfoRole> userInfoRoleList2 = userInfoRoleList.stream().map(e -> {
       e.getUserInfo().setUserInfoRoleList(List.of());
       e.getRole().setUserInfoRoleList(List.of());
       return e;
@@ -52,6 +59,8 @@ public class UserInfoRoleService {
     return userInfoRoleList2;
 
   }
+
+
 
   /*
   select * from user_info_role

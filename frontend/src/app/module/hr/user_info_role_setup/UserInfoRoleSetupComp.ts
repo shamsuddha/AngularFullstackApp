@@ -8,6 +8,8 @@ import {UserInfoSearchDto} from 'src/app/dto/request/UserInfoSearchDto';
 import {Role} from 'src/app/entity/Role';
 import {UserInfo} from 'src/app/entity/UserInfo';
 import {UserInfoRole} from 'src/app/entity/UserInfoRole';
+import {RoleSetupController} from "../../../controller/RoleSetupController";
+import {RoleSearchDto} from "../../../dto/request/RoleSearchDto";
 
 @Component({
   selector: 'UserInfoRoleSetupComp',
@@ -29,6 +31,7 @@ export class UserInfoRoleSetupComp implements OnInit {
 
   constructor(
     public userInfoRoleSetupController: UserInfoRoleSetupController,
+    public roleSetupController: RoleSetupController,
     public rxFormBuilder: RxFormBuilder,
     public userInfoSetupController: UserInfoSetupController
   ) {
@@ -36,6 +39,8 @@ export class UserInfoRoleSetupComp implements OnInit {
 
   ngOnInit() {
     this.search();
+    this.userInfoList$ = this.userInfoSetupController.search(new UserInfoSearchDto({"idList": []}))
+    this.roleList$ = this.roleSetupController.search(new RoleSearchDto({"idList": []}))
     this.breadCrumbItems = [{label: 'userInfoRole'}, {label: 'userInfoRole', active: true}];
   }
 
@@ -52,9 +57,10 @@ export class UserInfoRoleSetupComp implements OnInit {
   }
 
   update() {
-    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value).subscribe((e) => {
-      this.search();
-    });
+    this.userInfoRoleSetupController.update(this.userInfoRoleFg.value)
+      .subscribe((e) => {
+        this.search();
+      });
   }
 
   delete(userInfoRole: UserInfoRole) {
@@ -72,11 +78,13 @@ export class UserInfoRoleSetupComp implements OnInit {
   })*/
   }
 
-  getUserInfoList(e: Observable<Array<UserInfo>>) {
-    this.userInfoList$ = this.userInfoSetupController
-      .search(new UserInfoSearchDto({"idList": []}))
+  getUserInfoList() {
+
   }
 
+  reset() {
+    this.userInfoRoleFg.reset();
+  }
 }
 
 export const toFaGfn = (fa: any) => {

@@ -16,26 +16,28 @@
             <!-- {{roleFg.controls['name'].errors | json}} -->
              {{userInfoList$ | async | json}}
             <ng-select [items]="userInfoList$ | async"
-                       class="form-control"
                        bindLabel="name"
-                       bindValue="id"
-                       formControlName="userInfo.id">
+                       formControlName="userInfo">
             </ng-select>
           </div>
           <div class="mb-4">
             <label class="form-label" for="name">Select a role</label>
             <!-- {{roleFg.controls['name'].errors | json}} -->
-            <select class="form-control" formControlName="role_id" data-trigger name="choices-single-groups"
-                    id="choices-single-groups">
-              <option value="">Choose a Role</option>
-              <option value="1">Role 1</option>
-              <option value="2">Role 2</option>
-              <option value="3">Role 3</option>
-            </select>
+            {{roleList$ | async | json}}
+            <ng-select [items]="roleList$ | async"
+                       bindLabel="name"
+                       formControlName="role">
+            </ng-select>
           </div>
           <!-- {{roleFg.value['addressList'] | json}} -->
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
-            Submit
+            Save
+          </button>
+          <button type="button" (click)="update()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
+            Update
+          </button>
+          <button type="button" (click)="reset()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
+            Reset
           </button>
         </form>
       </div>
@@ -69,7 +71,6 @@
               <td>{{userInfoRole.role?.name}}</td>
               <td>{{userInfoRole.userInfo?.id}}</td>
               <td>{{userInfoRole.userInfo?.name}}</td>
-
               <td>
                 <button type="button" (click)="onUpdateClick(userInfoRole)"
                         class="btn btn-info waves-effect waves-light mx-1">Edit

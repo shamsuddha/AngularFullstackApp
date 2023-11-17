@@ -33,7 +33,7 @@ public class UserInfoRoleController {
   @PutMapping(value = "/update")
   public @ResponseBody
   ResponseEntity<?> update(@RequestBody UserInfoRole userInfoRole) {
-    return new ResponseEntity<>(this.userInfoRoleRepository.save(userInfoRole), HttpStatus.OK);
+    return new ResponseEntity<>(this.userInfoRoleService.update(userInfoRole), HttpStatus.OK);
   }
 
   @DeleteMapping(value = "/delete")
