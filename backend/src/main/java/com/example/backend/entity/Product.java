@@ -1,10 +1,12 @@
 package com.example.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.List;
 
 @Entity
@@ -13,28 +15,28 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class Product extends AuditLog {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String code;
-    private int price;
-    private String description;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  private String name;
+  private String code;
+  private int price;
+  private String description;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<OrderInfoDetail> orderDetailList;
+  @JsonIgnore
+  @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+  private List<OrderInfoDetail> orderDetailList;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userInfo_id")
-    private UserInfo userInfo;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "userInfo_id")
+  private UserInfo userInfo;
 
-    public Product(Long id) {
-        this.id = id;
-    }
+  public Product(Long id) {
+    this.id = id;
+  }
 }
-
 
 
 // id ,  name

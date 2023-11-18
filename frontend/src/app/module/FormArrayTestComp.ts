@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {prop, propArray, RxFormBuilder} from '@rxweb/reactive-form-validators';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {toFaGfn} from "../../util/MiscUtil";
 
 class Vehicle {
   @prop() id: string | null = null;
@@ -81,9 +82,6 @@ class StudentDto {
  }
 
 
-export const toFaGfn = (fa: any) => {
-  return fa as FormArray;
-}
 
 
 

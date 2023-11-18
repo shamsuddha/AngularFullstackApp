@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderInfoDetail {
+public class OrderInfoDetail extends AuditLog{
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

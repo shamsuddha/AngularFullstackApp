@@ -23,13 +23,9 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     ReactiveFormsModule,
     RxReactiveFormsModule,
     NgSelectModule,
-    HttpClientModule,
-    
-
+    HttpClientModule
   ],
-
   providers: [
-    
   ],
 })
 export class UserInfoSetupModule {}

@@ -1,7 +1,8 @@
-import { prop, propArray } from '@rxweb/reactive-form-validators';
-import { OrderInfoDetail } from './OrderInfoDetail';
+import {prop, propArray} from '@rxweb/reactive-form-validators';
+import {OrderInfoDetail} from './OrderInfoDetail';
+import {AuditLog} from "./AuditLog";
 
-export class OrderInfo {
+export class OrderInfo extends AuditLog {
 
   @prop() id: number | null = null;
   @prop() code: string | null = null;
@@ -12,6 +13,7 @@ export class OrderInfo {
   orderInfoDetailList: Array<OrderInfoDetail> = [];
 
   constructor(o?: Partial<OrderInfo>) {
+    super();
     Object.assign(this, o);
   }
 }

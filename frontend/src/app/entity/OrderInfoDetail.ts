@@ -1,15 +1,19 @@
-import { OrderInfo } from "./OrderInfo";
-import { Product } from "./Product";
+import {OrderInfo} from "./OrderInfo";
+import {Product} from "./Product";
+import {AuditLog} from "./AuditLog";
+import { prop, propArray } from '@rxweb/reactive-form-validators';
 
-export class OrderInfoDetail {
+export class OrderInfoDetail extends AuditLog {
 
-  id: number | null = null;
-  product: Product | null = null;
-  amount: number | null = null;
-  price: number | null = null;
-  orderInfo: OrderInfo | null = null;
+  @prop() id: number | null = null;
+  @prop() code: string | null = null;
+  @prop() product: Product | null = null;
+  @prop() amount: number | null = null;
+  @prop() price: number | null = null;
+  @prop() orderInfo: OrderInfo | null = null;
 
   constructor(o?: Partial<OrderInfoDetail>) {
+    super();
     Object.assign(this, o);
   }
 }
