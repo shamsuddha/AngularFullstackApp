@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { FormGroup } from "@angular/forms";
 
 
 @Component({
@@ -7,4 +8,6 @@ import { Component } from "@angular/core";
   styleUrls: ['./OrderInfoSetupComp.scss'],
   //standalone: true
 })
-export class OrderInfoSetupComp{}
+export class OrderInfoSetupComp{
+orderInfoFg: FormGroup<any>;
+}

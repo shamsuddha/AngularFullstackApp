@@ -23,7 +23,7 @@ public class OrderInfo {
   private Long id;
   private String code;
   private String receiverAddress;
-  private Integer extraContactNumber;
+  private String contactNumber;
 
   @JsonIgnore
   @OneToMany(mappedBy = "orderInfo", fetch = FetchType.LAZY)
