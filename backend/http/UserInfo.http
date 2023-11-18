@@ -33,3 +33,7 @@ Content-Type: application/json
 {
   "idList": []
 }
+
+###
+POST http://localhost:8080/user-info/searchWithUserInfoRole
+Content-Type: application/json

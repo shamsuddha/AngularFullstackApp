@@ -1,15 +1,13 @@
 package com.example.backend.service;
 
 
-import com.example.backend.entity.QRole;
-import com.example.backend.entity.QUserInfo;
-import com.example.backend.entity.QUserInfoRole;
-import com.example.backend.entity.UserInfoRole;
+import com.example.backend.entity.*;
 import com.example.backend.repository.UserInfoRoleRepository;
 import com.querydsl.jpa.impl.JPAQuery;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,15 +27,10 @@ public class UserInfoRoleService {
   }
 
   public List<UserInfoRole> search() {
-    List<UserInfoRole> userInfoRoleList = this.userInfoRoleRepository.findAll();
-    List<UserInfoRole> userInfoRoleList2 = userInfoRoleList.stream().map((e) -> {
-      e.setUserInfo(null);
-      e.setRole(null);
-      return e;
-    }).toList();
-    return userInfoRoleList2;
+    return this.userInfoRoleRepository.findAll();
   }
 
+  @Transactional
   public List<UserInfoRole> searchWithUserInfoRole() {
 
     final QUserInfoRole qUserInfoRole = QUserInfoRole.userInfoRole;
@@ -46,38 +39,12 @@ public class UserInfoRoleService {
 
     final JPAQuery<UserInfoRole> query = new JPAQuery<>(entityManager);
 
-    List<UserInfoRole> userInfoRoleList = query.from(qUserInfoRole)
+    List<UserInfoRole> userInfoRoleList1 = query.from(qUserInfoRole)
       .leftJoin(qUserInfoRole.userInfo, qUserInfo).fetchJoin()
       .leftJoin(qUserInfoRole.role, qRole).fetchJoin()
+      .where(qUserInfoRole.id.ne(111l))
       .fetch();
-
-    List<UserInfoRole> userInfoRoleList2 = userInfoRoleList.stream().map(e -> {
-      e.getUserInfo().setUserInfoRoleList(List.of());
-      e.getRole().setUserInfoRoleList(List.of());
-      return e;
-    }).toList();
-    return userInfoRoleList2;
-
+    return userInfoRoleList1;
   }
-
-
-
-  /*
-  select * from user_info_role
-  left join user_info on user_info_role.user_info_id = user_info.id
-  left join role on user_info_role.role_id = role.id
-  */
-
-/*
-  {
-    id: 1
-    userInfo:{
-
-    },
-    role:{
-
-    }
-  }
-  */
 
 }

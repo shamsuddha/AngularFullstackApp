@@ -43,4 +43,9 @@ public class UserInfoController {
   public @ResponseBody ResponseEntity<?> search() {
     return new ResponseEntity<>(this.userInfoService.search(), HttpStatus.OK);
   }
+
+  @PostMapping(value = "/searchWithUserInfoRole")
+  public @ResponseBody ResponseEntity<?> searchWithUserInfoRole() {
+    return new ResponseEntity<>(this.userInfoService.searchWithUserInfoRole(), HttpStatus.OK);
+  }
 }
