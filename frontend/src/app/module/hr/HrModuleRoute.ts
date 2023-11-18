@@ -17,6 +17,14 @@ const routes: Routes = [
       {
         path: 'user-info-role-setup', loadChildren: () => import('./user_info_role_setup/UserInfoRoleSetupModule')
           .then(m => m.UserInfoRoleSetupModule)
+      },
+      {
+        path: 'order-info-setup', loadChildren: () => import('./order_info_setup/OrderInfoSetupModule')
+          .then(m => m.OrderInfoSetupModule)
+      },
+      {
+        path: 'order-info-detail-setup', loadChildren: () => import('./order_info_detail_setup/OrderInfoDetailSetupModule')
+          .then(m => m.OrderInfoDetailSetupModule)
       }
     ]
   }

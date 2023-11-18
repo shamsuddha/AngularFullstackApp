@@ -1,15 +1,15 @@
-import { Order } from "./Order";
+import { OrderInfo } from "./OrderInfo";
 import { Product } from "./Product";
 
-export class OrderDetail {
+export class OrderInfoDetail {
 
   id: number | null = null;
   product: Product | null = null;
   amount: number | null = null;
   price: number | null = null;
-  order: Order | null = null;
+  orderInfo: OrderInfo | null = null;
 
-  constructor(o?: Partial<OrderDetail>) {
+  constructor(o?: Partial<OrderInfoDetail>) {
     Object.assign(this, o);
   }
 }

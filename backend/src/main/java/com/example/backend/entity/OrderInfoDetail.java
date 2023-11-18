@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDetail {
+public class OrderInfoDetail {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class OrderDetail {
   @JoinColumn(name = "product_id")
   private Product product;
 
-  public OrderDetail(Long id) {
+  public OrderInfoDetail(Long id) {
     this.id = id;
   }
 }

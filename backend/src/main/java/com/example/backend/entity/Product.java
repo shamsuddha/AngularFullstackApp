@@ -24,7 +24,7 @@ public class Product {
     private String description;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<OrderDetail> orderDetailList;
+    private List<OrderInfoDetail> orderDetailList;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userInfo_id")

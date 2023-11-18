@@ -3,13 +3,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { OrderDetailSetupComp } from "./OrderDetailSetupComp";
+import { OrderInfoDetailSetupComp } from "./OrderInfoDetailSetupComp";
 import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
   declarations:
   [
-    OrderDetailSetupComp
+    OrderInfoDetailSetupComp
   ],
   imports:
   [
@@ -17,7 +17,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
     RouterModule.forChild([
       {
         path: '',
-        component: OrderDetailSetupComp,
+        component: OrderInfoDetailSetupComp,
       },
     ]),
     ReactiveFormsModule,
@@ -30,4 +30,4 @@ import { NgSelectModule } from "@ng-select/ng-select";
     
   ],
 })
-export class OrderDetailSetupModule {}
+export class OrderInfoDetailSetupModule {}

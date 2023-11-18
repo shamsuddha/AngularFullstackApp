@@ -230,9 +230,19 @@ export const MENU: MenuItem[] = [
                 link: '/module/hr/user-info-setup',                   
             },
             {
-                id: 35,
+                id: 36,
                 label: 'User Role Setup', 
                 link: '/module/hr/user-info-role-setup',                   
+            },
+            {
+                id: 37,
+                label: 'Order Info', 
+                link: '/module/hr/order-info-setup',                   
+            },
+            {
+                id: 38,
+                label: 'Order Info detail', 
+                link: '/module/hr/order-info-detail-setup',                   
             }
         ]
     },

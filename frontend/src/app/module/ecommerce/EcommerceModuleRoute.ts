@@ -15,14 +15,7 @@ const routes: Routes = [
         path: 'category-setup', loadChildren: () => import('./category_setup/CategorySetupModule')
           .then(m => m.CategorySetupModule)
       },
-      {
-        path: 'order-detail-setup', loadChildren: () => import('./order_detail_setup/OrderDetailSetupModule')
-          .then(m => m.OrderDetailSetupModule)
-      },
-      {
-        path: 'order-info-setup', loadChildren: () => import('./order_info_setup/OrderInfoSetupModule')
-          .then(m => m.OrderInfoSetupModule)
-      },
+      
       {
         path: 'product-setup', loadChildren: () => import('./product_setup/ProductSetupModule')
           .then(m => m.ProductSetupModule)
