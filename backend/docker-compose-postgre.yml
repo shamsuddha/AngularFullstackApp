@@ -32,4 +32,3 @@ services:
 
 # sudo docker compose -f docker-compose-postgre.yml down
 # sudo docker compose -f docker-compose-postgre.yml up -d
-

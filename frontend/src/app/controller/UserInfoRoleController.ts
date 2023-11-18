@@ -5,7 +5,7 @@ import { UserInfoRole } from "../entity/UserInfoRole";
 import { UserInfoRoleSearchDto } from "../dto/request/UserInfoRoleSearchDto";
 
 @Injectable({ providedIn: 'root' })
-export class UserInfoRoleSetupController {
+export class UserInfoRoleController {
 
   constructor(private httpClient: HttpClient,) { }
 

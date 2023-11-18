@@ -2,13 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormGroup} from '@angular/forms';
 import {RxFormBuilder} from '@rxweb/reactive-form-validators';
 import {Observable} from 'rxjs';
-import {UserInfoRoleSetupController} from 'src/app/controller/UserInfoRoleSetupController';
-import {UserInfoSetupController} from 'src/app/controller/UserInfoSetupController';
+import {UserInfoRoleController} from 'src/app/controller/UserInfoRoleController';
+import {UserInfoController} from 'src/app/controller/UserInfoController';
 import {UserInfoSearchDto} from 'src/app/dto/request/UserInfoSearchDto';
 import {Role} from 'src/app/entity/Role';
 import {UserInfo} from 'src/app/entity/UserInfo';
 import {UserInfoRole} from 'src/app/entity/UserInfoRole';
-import {RoleSetupController} from "../../../controller/RoleSetupController";
+import {RoleController} from "../../../controller/RoleController";
 import {RoleSearchDto} from "../../../dto/request/RoleSearchDto";
 
 @Component({
@@ -30,10 +30,10 @@ export class UserInfoRoleSetupComp implements OnInit {
   roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
 
   constructor(
-    public userInfoRoleSetupController: UserInfoRoleSetupController,
-    public roleSetupController: RoleSetupController,
+    public userInfoRoleSetupController: UserInfoRoleController,
+    public roleSetupController: RoleController,
     public rxFormBuilder: RxFormBuilder,
-    public userInfoSetupController: UserInfoSetupController
+    public userInfoSetupController: UserInfoController
   ) {
   }
 
@@ -46,7 +46,7 @@ export class UserInfoRoleSetupComp implements OnInit {
 
   save() {
     this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => {
-      this.search();
+      //this.search();
     });
   }
 

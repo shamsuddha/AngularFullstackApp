@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user-info-role")
 public class UserInfoRoleController {
+
   @Autowired
   private UserInfoRoleRepository userInfoRoleRepository;
   @Autowired
@@ -24,7 +25,7 @@ public class UserInfoRoleController {
 
   @PostMapping(value = "/save")
   public @ResponseBody ResponseEntity<?> save(@RequestBody UserInfoRole userInfoRole) {
-    return new ResponseEntity<>(this.userInfoRoleRepository.save(userInfoRole), HttpStatus.OK);
+    return new ResponseEntity<>(this.userInfoRoleService.save(userInfoRole), HttpStatus.OK);
   }
 
   // @PathParam: "/update/{id}"

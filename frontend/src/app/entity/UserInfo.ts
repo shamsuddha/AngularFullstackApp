@@ -5,8 +5,9 @@ import {
 import { Address } from './Address';
 import { Role } from './Role';
 import { UserInfoRole } from './UserInfoRole';
+import {AuditLog} from "./AuditLog";
 
-export class UserInfo {  // FormGroup
+export class UserInfo extends AuditLog{  // FormGroup
 
   @prop() id: number | null = null; // FormControl
   // @prop()
@@ -24,6 +25,7 @@ export class UserInfo {  // FormGroup
   userInfoRoleList: Array<UserInfoRole> = [];
 
   constructor(o?: Partial<UserInfo>) {
+    super();
     Object.assign(this, o);
   }
 }

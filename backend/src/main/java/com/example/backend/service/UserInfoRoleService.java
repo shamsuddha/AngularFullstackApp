@@ -19,6 +19,13 @@ public class UserInfoRoleService {
 
   private final UserInfoRoleRepository userInfoRoleRepository;
 
+  @Transactional
+  public UserInfoRole save(UserInfoRole userInfoRole) {
+    userInfoRole.setUserInfo(new UserInfo(userInfoRole.getUserInfo().getId()));
+    userInfoRole.setRole(new Role(userInfoRole.getRole().getId()));
+    return this.userInfoRoleRepository.save(userInfoRole);
+  }
+
   public Object update(UserInfoRole userInfoRole) {
     UserInfoRole userInfoRoleUpdated = this.userInfoRoleRepository.save(userInfoRole);
     userInfoRoleUpdated.setUserInfo(null);
@@ -46,5 +53,6 @@ public class UserInfoRoleService {
       .fetch();
     return userInfoRoleList1;
   }
+
 
 }

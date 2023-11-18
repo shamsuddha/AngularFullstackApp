@@ -18,18 +18,23 @@ public class OrderInfo {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   private String code;
+
   private String receiverAddress;
   private Integer extraContactNumber;
+
   @OneToMany(mappedBy = "orderInfo", fetch = FetchType.LAZY)
   private List<OrderDetail> orderDetailList;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "userInfo_id")
-  private UserInfo userInfo;
+//  @ManyToOne(fetch = FetchType.LAZY)
+//  @JoinColumn(name = "userInfo_id")
+//  private UserInfo userInfo;
+
   public OrderInfo(Long id) {
     this.id = id;
   }
+
 }
 
 // id ,  code  , user_id(fk)

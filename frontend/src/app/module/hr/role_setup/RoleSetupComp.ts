@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { RoleSetupController } from 'src/app/controller/RoleSetupController';
+import { RoleController } from 'src/app/controller/RoleController';
 import { Role } from 'src/app/entity/Role';
 import { FormArray, FormGroup } from '@angular/forms';
 import { RoleSearchDto } from 'src/app/dto/request/RoleSearchDto';
@@ -25,7 +25,7 @@ export class RoleSetupComp implements OnInit {
   roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
 
   constructor(
-    public roleSetupController: RoleSetupController,
+    public roleSetupController: RoleController,
     public rxFormBuilder: RxFormBuilder
   ) { }
 

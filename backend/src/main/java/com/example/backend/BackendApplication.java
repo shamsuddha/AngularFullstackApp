@@ -1,5 +1,7 @@
 package com.example.backend;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate6.Hibernate6Module;
 import org.springframework.boot.SpringApplication;
@@ -34,12 +36,12 @@ public class BackendApplication {
   @Bean
   public MappingJackson2HttpMessageConverter jacksonMessageConverter() {
     MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
-    ObjectMapper mapper = new ObjectMapper();
-    mapper.registerModule(new Hibernate6Module()); //Registering Hibernate6Module to support lazy objects
-    messageConverter.setObjectMapper(mapper);
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);  // request => from json to object/entity
+    objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);  // response => from object/entity to json
+    objectMapper.registerModule(new Hibernate6Module()); //Registering Hibernate6Module to support lazy objects
+    messageConverter.setObjectMapper(objectMapper);
     return messageConverter;
-
   }
-
 
 }

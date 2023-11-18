@@ -1,9 +1,10 @@
 import { prop, propArray, propObject } from "@rxweb/reactive-form-validators";
 import { UserInfo } from "./UserInfo";
 import { Role } from "./Role";
+import {AuditLog} from "./AuditLog";
 
 
-export class UserInfoRole {
+export class UserInfoRole extends AuditLog{
 
   @prop() id: number | null = null;
 
@@ -19,6 +20,7 @@ export class UserInfoRole {
   @prop() roleId: number | null = null;
 
   constructor(o?: Partial<UserInfoRole>) {
+    super();
     Object.assign(this, o);
   }
 }

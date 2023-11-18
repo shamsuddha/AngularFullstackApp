@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { UserInfo } from 'src/app/entity/UserInfo';
-import { UserInfoSetupController } from '../../../controller/UserInfoSetupController';
+import { UserInfoController } from '../../../controller/UserInfoController';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { UserInfoSearchDto } from 'src/app/dto/request/UserInfoSearchDto';
 
@@ -25,7 +25,7 @@ export class UserInfoSetupComp implements OnInit {
   userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
 
   constructor(
-    public userInfoSetupController: UserInfoSetupController,
+    public userInfoSetupController: UserInfoController,
     public rxFormBuilder: RxFormBuilder
   ) { }
 
@@ -42,7 +42,7 @@ export class UserInfoSetupComp implements OnInit {
   // }
 
   save() {
-    this.userInfoSetupController.save(this.userInfoFg.value).subscribe((e) => 
+    this.userInfoSetupController.save(this.userInfoFg.value).subscribe((e) =>
     { this.search();});
   }
 
@@ -53,12 +53,12 @@ export class UserInfoSetupComp implements OnInit {
   }
 
   update() {
-    this.userInfoSetupController.update(this.userInfoFg.value).subscribe((e) => 
+    this.userInfoSetupController.update(this.userInfoFg.value).subscribe((e) =>
     {this.search(); });
   }
 
   delete(userInfo: UserInfo) {
-    this.userInfoSetupController.delete(userInfo).subscribe((e) => 
+    this.userInfoSetupController.delete(userInfo).subscribe((e) =>
     { this.search(); });
   }
 

@@ -6,7 +6,7 @@ import { UserInfo } from "../entity/UserInfo";
 
 
 @Injectable({ providedIn: 'root' })
-export class UserInfoSetupController {
+export class UserInfoController {
 
   constructor(private httpClient: HttpClient,) { }
 
