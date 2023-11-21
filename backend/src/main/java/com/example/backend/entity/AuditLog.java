@@ -46,7 +46,7 @@ public class AuditLog {
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   protected LocalDateTime lastModifiedAt;
 
-  @Column(name = "enabled", nullable = false)
+  @Column(name = "enabled", nullable = true)
   protected Boolean enabled = true;
 
   @Column(name = "organization_id")
