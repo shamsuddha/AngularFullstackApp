@@ -8,6 +8,7 @@ import {UserInfoSearchDto} from 'src/app/dto/request/UserInfoSearchDto';
 import {Role} from 'src/app/entity/Role';
 import {UserInfo} from 'src/app/entity/UserInfo';
 import {UserInfoRole} from 'src/app/entity/UserInfoRole';
+import {toFaGfn} from "../../../../util/MiscUtil";
 import {RoleController} from "../../../controller/RoleController";
 import {RoleSearchDto} from "../../../dto/request/RoleSearchDto";
 
@@ -46,7 +47,7 @@ export class UserInfoRoleSetupComp implements OnInit {
 
   save() {
     this.userInfoRoleSetupController.save(this.userInfoRoleFg.value).subscribe((e) => {
-      //this.search();
+      this.search();
     });
   }
 
@@ -78,16 +79,7 @@ export class UserInfoRoleSetupComp implements OnInit {
   })*/
   }
 
-  getUserInfoList() {
-
-  }
-
   reset() {
     this.userInfoRoleFg.reset();
   }
 }
-
-export const toFaGfn = (fa: any) => {
-  return fa as FormArray;
-}
-

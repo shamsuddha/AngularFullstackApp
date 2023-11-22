@@ -13,23 +13,21 @@ import { HttpClientModule } from "@angular/common/http";
     CategorySetupComp
   ],
 
-  imports: [
+  imports:  [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
         component: CategorySetupComp,
-      },
+      }
     ]),
     FormsModule,
     ReactiveFormsModule,
     RxReactiveFormsModule,
     NgSelectModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-
   providers: [
-
   ],
 })
 export class CategorySetupModule { }

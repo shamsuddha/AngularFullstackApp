@@ -18,9 +18,10 @@ public class Brand{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "category_id")
+    // private Category category;
+
     public Brand(Long id){
         this.id = id;
     }

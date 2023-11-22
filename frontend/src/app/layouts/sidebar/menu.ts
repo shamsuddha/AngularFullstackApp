@@ -254,30 +254,30 @@ export const MENU: MenuItem[] = [
             {
                 id: 41,
                 label: 'Category',
-                link: '/ecommerce/category',                
+                link: '/module/ecommerce/category-setup',                
             },
             {
-                id: 44,
+                id: 42,
                 label: 'Brand',
-                link: '/ecommerce/brand',                
+                link: '/module/ecommerce/brand-setup',                
             },
             {
-                id: 47,
+                id: 43,
                 label: 'Product',
-                link: '/ecommerce/product',     
+                link: '/module/ecommerce/product-setup',     
                
             },
             {
-                id: 50,
+                id: 44,
                 label: 'Order',
-                link: '/ecommerce/order_info',
+                link: '/module/ecommerce/order-info-setup',
                 
             },      
             {
-                id: 51,
+                id: 45,
                 label: 'Order Details',
-                link: '/ecommerce/order_detail',
-                parentId: 40
+                link: '/module/ecommerce/order-info-detail-setup',
+               
             },
         ]
     },

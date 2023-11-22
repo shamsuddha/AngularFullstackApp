@@ -1,94 +1,77 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-
+import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
+import { RxFormBuilder } from "@rxweb/reactive-form-validators";
+import { Observable } from "rxjs";
+import { BrandController } from "src/app/controller/BrandController";
+import { BrandSearchDto } from "src/app/dto/request/BrandSearchDto";
+import { Brand } from "src/app/entity/Brand";
 
 @Component({
   selector: 'BrandSetupComp',
   templateUrl: './BrandSetupComp.html',
   styleUrls: ['./BrandSetupComp.scss'],
-  //standalone: true
+  //standalone: true 
 })
 export class BrandSetupComp{
 
-  brandDtoFg = new FormGroup({
-    id: new FormControl<number | null>(null),
-    name: new FormControl<string | null>(null),
-    
+    breadCrumbItems!: Array<{}>;
+    title!: string;
 
+  // Form Items
+  brandFg: FormGroup = this.rxFormBuilder.formGroup(Brand);
+  //userInfoRoleListFa: FormArray = this.brandFg.get('userInfoRoleList') as FormArray;
+  //toFaGfn = toFaGfn;
+  brandList$: Observable<Array<Brand>> = new Observable<Array<Brand>>();
 
-  });
+  constructor(
+    public brandController: BrandController,
+    public rxFormBuilder: RxFormBuilder
+  ) { }
 
-  // userDtoFg = new FormGroup({
+  ngOnInit() {
+    this.search();
+    this.breadCrumbItems = [{ label: 'User' }, { label: 'User', active: true }];
+  }
 
-  //   id: new FormControl<number | null>(null),
-
-  //   email: new FormControl<string | null>(null, [
-  //     Validators.required,
-  //     Validators.maxLength(35),
-  //     Validators.minLength(5),
-  //   ]),
-  //   mobile: new FormControl<number | null>(null, [
-  //     Validators.required,
-  //     Validators.maxLength(15),
-  //     Validators.minLength(9),
-  //   ]),
-  // });
-
-  // userDtoList: Array<User> = [];
-  // currentUserId: number | null = 0;
-
-  // constructor(public userDtoApiService: UserDtoApiService) {}
-
-  // ngOnInit() {
-  //   this.searchUser();
+  // fn1() {
+  //   this.brandFg.patchValue({
+  //     addressList: [new Address({ id: 1, name: 'name1' }),
+  //     new Address({ id: 2, name: 'name2' })]
+  //   })
   // }
 
-  // saveUser() {
-  //   const userDto = new User(this.userDtoFg.value);
-  //   // console.log(userDto);
-  //   console.log(userDto);
-  //   this.userDtoApiService.save(userDto).subscribe((e) => {
-  //     this.searchUser();
-  //   });
-  // }
+  save() {
+    this.brandController.save(this.brandFg.value).subscribe((e) =>
+    { this.search();});
+  }
 
-  // onUpdateClick(user: User) {
-  //   this.userDtoFg.patchValue({
-  //     id: user.id,
-  //     email: user.email,
-  //     mobile: user.mobile,
-  //   });
-  // }
+  onUpdateClick(userInfo: Brand) {
+    this.brandFg.patchValue(userInfo);
+    //this.brandFg.patchValue({id:userInfo.id,name:userInfo.name});
+    console.log(this.brandFg.value);
+  }
 
-  // update() {
+  update() {
+    this.brandController.update(this.brandFg.value).subscribe((e) =>
+    {this.search(); });
+  }
 
-  //   this.userDtoApiService
-  //     .update(new User(this.userDtoFg.value))
-  //     .subscribe((e) => {
-  //       console.log(e);
-  //       this.searchUser();
-  //     });
-  // }
+  delete(userInfo: Brand) {
+    this.brandController.delete(userInfo).subscribe((e) =>
+    { this.search(); });
+  }
 
-  // delete(user: User) {
-  //   this.userDtoApiService.delete(user).subscribe(e=>{});
-  //   console.log(user.id + "deleted");
-  //   this.searchUser();
-  // }
-
-  // searchUser() {
-  //   this.userDtoApiService
-  //     .search(new UserSearchDto())
-  //     .subscribe((e: Array<User>) => {
-  //       this.userDtoList = e;
-  //       console.log(this.userDtoList);
-  //     });
-  // }
-
-
-
-
-
+  search() {
+    this.brandList$ = this.brandController.search(new BrandSearchDto({"idList": []}));
+    /*.subscribe((e:Array<Brand>)=>{
+    console.log(e)
+  })*/
+  }
 
 
 }
+
+export const toFaGfn = (fa: any) => {
+  return fa as FormArray;
+}
+

@@ -1,4 +1,4 @@
-<!-- <app-pagetitle title="All User Role List" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>-->
+<!-- <app-pagetitle title="All User Role List" [breadcrumbItems]="breadCrumbItems"></app-pagetitle> -->
 
 <div class="row">
   <div class="col-lg-4">
@@ -12,8 +12,7 @@
       <div class="card-body">
         <form [formGroup]="userInfoRoleFg">
           <div class="mb-4">
-            <label class="form-label" for="name">Select a user</label>
-            <!-- {{roleFg.controls['name'].errors | json}} -->
+            <label class="form-label" for="name">Select a user</label>           
              {{userInfoList$ | async | json}}
             <ng-select [items]="userInfoList$ | async"
                        bindLabel="name"
@@ -21,15 +20,13 @@
             </ng-select>
           </div>
           <div class="mb-4">
-            <label class="form-label" for="name">Select a role</label>
-            <!-- {{roleFg.controls['name'].errors | json}} -->
+            <label class="form-label" for="name">Select a role</label>            
             {{roleList$ | async | json}}
             <ng-select [items]="roleList$ | async"
                        bindLabel="name"
                        formControlName="role">
             </ng-select>
-          </div>
-          <!-- {{roleFg.value['addressList'] | json}} -->
+          </div>         
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Save
           </button>

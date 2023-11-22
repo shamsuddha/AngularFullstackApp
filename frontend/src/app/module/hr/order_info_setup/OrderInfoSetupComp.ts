@@ -18,6 +18,7 @@ export class OrderInfoSetupComp {
   orderInfoDetailList$: Observable<Array<OrderInfoDetail>> = new Observable<Array<OrderInfoDetail>>();
 
   constructor(public rxFormBuilder: RxFormBuilder) {
+    
   }
 
   addOrderInfoDetail() {

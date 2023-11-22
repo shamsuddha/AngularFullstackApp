@@ -72,6 +72,3 @@ export class UserInfoSetupComp implements OnInit {
 
 }
 
-export const toFaGfn = (fa: any) => {
-  return fa as FormArray;
-}
