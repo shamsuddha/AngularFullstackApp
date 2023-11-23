@@ -1,0 +1,34 @@
+POST http://localhost:8080/room/save
+Content-Type: application/json
+
+{
+  "name": "user 502",
+  "code" : "email112@gmail.com",
+}
+
+###
+PUT http://localhost:8080/room/update
+Content-Type: application/json
+
+{
+  "id": 41,
+  "name": "user 12345",
+  
+}
+
+###
+DELETE http://localhost:8080/room/delete
+Content-Type: application/json
+
+{
+  "id": 42
+}
+
+###
+POST http://localhost:8080/room/search
+Content-Type: application/json
+
+{
+  "idList": []
+}
+

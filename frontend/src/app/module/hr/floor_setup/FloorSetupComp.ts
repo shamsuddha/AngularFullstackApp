@@ -31,7 +31,7 @@ export class FloorSetupComp implements OnInit {
   }
 
   save() {
-    this.floorController.save(this.floorFg.value).subscribe((e) => {this.search(); });
+    this.floorController.save(this.floorFg.value).subscribe((e) => { this.search(); });
   }
 
   onUpdateClick(floor: Floor) {
@@ -41,7 +41,7 @@ export class FloorSetupComp implements OnInit {
   }
 
   update() {
-    this.floorController.update(this.floorFg.value).subscribe((e) => {this.search(); });
+    this.floorController.update(this.floorFg.value).subscribe((e) => { this.search(); });
   }
 
   delete(floor: Floor) {
@@ -55,13 +55,4 @@ export class FloorSetupComp implements OnInit {
     console.log(e)
   })*/
   }
-
-
-
-
-
-
-
-
-
 }

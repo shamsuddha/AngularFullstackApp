@@ -22,7 +22,6 @@ public class Floor extends AuditLog {
   private Long id;
   private String name;
   private String code;
-
   // @JsonSerialize(using = ListSerialize.class)
   @JsonIgnore
   @OneToMany(mappedBy = "floor", fetch = FetchType.LAZY)

@@ -59,7 +59,7 @@ export class UserInfoRoleSetupComp implements OnInit {
 
   update() {
     this.userInfoRoleSetupController.update(this.userInfoRoleFg.value)
-      .subscribe((e) => {
+    .subscribe((e) => {
         this.search();
       });
   }
