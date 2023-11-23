@@ -25,6 +25,14 @@ const routes: Routes = [
       {
         path: 'order-info-detail-setup', loadChildren: () => import('./order_info_detail_setup/OrderInfoDetailSetupModule')
           .then(m => m.OrderInfoDetailSetupModule)
+      },
+      {
+        path: 'floor-setup', loadChildren: () => import('./floor_setup/FloorSetupModule')
+          .then(m => m.FloorSetupModule)
+      },
+      {
+        path: 'room-setup', loadChildren: () => import('./room_setup/RoomSetupModule')
+          .then(m => m.RoomSetupModule)
       }
     ]
   }

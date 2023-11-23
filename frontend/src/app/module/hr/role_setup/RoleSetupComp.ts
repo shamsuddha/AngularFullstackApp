@@ -25,7 +25,7 @@ export class RoleSetupComp implements OnInit {
   roleList$: Observable<Array<Role>> = new Observable<Array<Role>>();
 
   constructor(
-    public roleSetupController: RoleController,
+    public roleController: RoleController,
     public rxFormBuilder: RxFormBuilder
   ) { }
 
@@ -35,7 +35,7 @@ export class RoleSetupComp implements OnInit {
   }
 
   save() {
-    this.roleSetupController.save(this.roleFg.value).subscribe((e) => {this.search(); });
+    this.roleController.save(this.roleFg.value).subscribe((e) => {this.search(); });
     this.search();
   }
 
@@ -46,17 +46,17 @@ export class RoleSetupComp implements OnInit {
   }
 
   update() {
-    this.roleSetupController.update(this.roleFg.value).subscribe((e) => {this.search(); });
+    this.roleController.update(this.roleFg.value).subscribe((e) => {this.search(); });
     this.search();
   }
 
   delete(role: Role) {
     //console.log(role);
-    this.roleSetupController.delete(role).subscribe((e) => { this.search(); });
+    this.roleController.delete(role).subscribe((e) => { this.search(); });
   }
 
   search() {
-    this.roleList$ = this.roleSetupController.search(new RoleSearchDto({ "idList": [] }));
+    this.roleList$ = this.roleController.search(new RoleSearchDto({ "idList": [] }));
     /*.subscribe((e:Array<Role>)=>{
     console.log(e)
   })*/
