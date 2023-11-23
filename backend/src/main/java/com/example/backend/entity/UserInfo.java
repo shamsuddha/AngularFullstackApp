@@ -42,6 +42,8 @@ public class UserInfo extends AuditLog{
   @JoinColumn(name = "organization")
   private Organization organization;
 
+  
+
 
   // @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
   // private List<Product> productList;

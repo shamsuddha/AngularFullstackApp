@@ -19,8 +19,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private List<Brand> brandList;
+//    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+//    private List<Brand> brandList;
 
     public Category(Long id) {
         this.id = id;

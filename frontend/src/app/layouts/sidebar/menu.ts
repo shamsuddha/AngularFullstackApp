@@ -243,7 +243,19 @@ export const MENU: MenuItem[] = [
                 id: 38,
                 label: 'Order Info detail', 
                 link: '/module/hr/order-info-detail-setup',                   
-            }
+            },
+            {
+                id: 39,
+                label: 'Floor',
+                link: '/module/hr/order-info-detail-setup',
+               
+            },
+            {
+                id: 40,
+                label: 'Room',
+                link: '/module/hr/order-info-detail-setup',
+               
+            },
         ]
     },
     {
@@ -278,7 +290,8 @@ export const MENU: MenuItem[] = [
                 label: 'Order Details',
                 link: '/module/ecommerce/order-info-detail-setup',
                
-            },
+            }
+            
         ]
     },
     {

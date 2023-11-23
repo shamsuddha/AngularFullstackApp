@@ -23,7 +23,6 @@ import java.time.LocalDateTime;
 //@EntityListeners(AuditingEntityListener.class)
 public class AuditLog {
 
-
   @CreatedBy
   @Column(name = "created_by_id", updatable = false)
   protected String createdById;
@@ -52,3 +51,5 @@ public class AuditLog {
   @Column(name = "organization_id")
   protected String organizationId;
 }
+
+
