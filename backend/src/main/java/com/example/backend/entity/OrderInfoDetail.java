@@ -34,8 +34,6 @@ public class OrderInfoDetail extends AuditLog{
   }
 }
 
-
-
 // id ,  quantity , product(fk) , order_id(fk)
 // 1     1.5              1         1
 // 2     2.3              2         1

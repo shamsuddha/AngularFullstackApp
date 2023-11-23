@@ -1,6 +1,4 @@
 import { prop, propArray } from "@rxweb/reactive-form-validators";
-import { Brand } from "./Brand";
-import { Product } from "./Product";
 
 export class Category {
 
@@ -9,7 +7,6 @@ export class Category {
   @prop() code: string | null = null;
   // @propArray(Brand, {createBlank: true}) brandList: Array<Brand> = [];
   // @propArray(Product, {createBlank:true}) productList: Array<Product> = [];
-
 
   constructor(o?: Partial<Category>) {
     Object.assign(this, o);

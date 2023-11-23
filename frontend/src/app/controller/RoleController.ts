@@ -11,7 +11,6 @@ export class RoleController {
 
   save(role: Role): Observable<Role> {
     return this.httpClient.post<Role>('http://localhost:8080/role/save', role);
-
   }
 
   update(role: Role): Observable<Role> {

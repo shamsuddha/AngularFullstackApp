@@ -25,7 +25,7 @@ export class UserInfoSetupComp implements OnInit {
   userInfoList$: Observable<Array<UserInfo>> = new Observable<Array<UserInfo>>();
 
   constructor(
-    public userInfoSetupController: UserInfoController,
+    public userInfoController: UserInfoController,
     public rxFormBuilder: RxFormBuilder
   ) { }
 
@@ -42,7 +42,7 @@ export class UserInfoSetupComp implements OnInit {
   // }
 
   save() {
-    this.userInfoSetupController.save(this.userInfoFg.value).subscribe((e) =>
+    this.userInfoController.save(this.userInfoFg.value).subscribe((e) =>
     { this.search();});
   }
 
@@ -53,17 +53,17 @@ export class UserInfoSetupComp implements OnInit {
   }
 
   update() {
-    this.userInfoSetupController.update(this.userInfoFg.value).subscribe((e) =>
+    this.userInfoController.update(this.userInfoFg.value).subscribe((e) =>
     {this.search(); });
   }
 
   delete(userInfo: UserInfo) {
-    this.userInfoSetupController.delete(userInfo).subscribe((e) =>
+    this.userInfoController.delete(userInfo).subscribe((e) =>
     { this.search(); });
   }
 
   search() {
-    this.userInfoList$ = this.userInfoSetupController.search(new UserInfoSearchDto({"idList": []}));
+    this.userInfoList$ = this.userInfoController.search(new UserInfoSearchDto({"idList": []}));
     /*.subscribe((e:Array<UserInfo>)=>{
     console.log(e)
   })*/
