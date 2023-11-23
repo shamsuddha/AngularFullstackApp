@@ -21,14 +21,8 @@ public class FloorService {
 
   public List<Floor> search() {
         List<Floor> floorList = this.floorRepository.findAll();
-        List<Floor> floorList2 = floorList.stream().map((e) -> {
-          e.setRoomList(List.of());
-          
-            //e.setUserInfoRoleList(List.of());
-           // e.setOrganization(null);
-            return e;
-        }).toList();
-        return floorList2;
+
+        return floorList;
     }
   
 }
