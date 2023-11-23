@@ -19,14 +19,14 @@ public class OrderInfoController {
     public @ResponseBody ResponseEntity<?> save(@RequestBody OrderInfo orderInfo) {
         return new ResponseEntity<>(this.orderInfoRepository.save(orderInfo), HttpStatus.OK);
     }
+
     @PutMapping(value = "/update/{id}")
-    public @ResponseBody
-    ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody OrderInfo orderInfo) {
+    public @ResponseBody ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody OrderInfo orderInfo) {
         return new ResponseEntity<>(this.orderInfoRepository.save(orderInfo), HttpStatus.OK);
     }
+
     @DeleteMapping(value = "/delete/{id}")
-    public @ResponseBody
-    ResponseEntity<?> delete(@PathParam("id") Long id) {
+    public @ResponseBody ResponseEntity<?> delete(@PathParam("id") Long id) {
         this.orderInfoRepository.delete(new OrderInfo(id));
         return new ResponseEntity<>(true, HttpStatus.OK);
     }

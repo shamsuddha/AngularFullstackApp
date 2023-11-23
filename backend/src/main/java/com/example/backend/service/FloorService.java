@@ -17,11 +17,10 @@ public class FloorService {
   private final EntityManager entityManager;
 
   @Autowired
-  private FloorRepository floorRepository;
+  private FloorRepository  floorRepository;
 
   public List<Floor> search() {
         List<Floor> floorList = this.floorRepository.findAll();
-
         return floorList;
     }
   

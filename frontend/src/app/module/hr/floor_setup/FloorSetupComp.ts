@@ -1,10 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
 import { RxFormBuilder } from "@rxweb/reactive-form-validators";
 import { Observable } from "rxjs";
+import {toFaGfn} from "../../../../util/MiscUtil";
 import { FloorController } from "src/app/controller/FloorController";
 import { FloorSearchDto } from "src/app/dto/request/FloorSearchDto";
 import { Floor } from "src/app/entity/Floor";
+import { Room } from "src/app/entity/Room";
 
 @Component({
   selector: 'FloorSetupComp',
@@ -18,6 +20,7 @@ export class FloorSetupComp implements OnInit {
   title!: string;
 
   floorFg: FormGroup = this.rxFormBuilder.formGroup(Floor);
+  toFaGfn = toFaGfn;
   floorList$: Observable<Array<Floor>> = new Observable<Array<Floor>>();
 
   constructor(
@@ -26,9 +29,14 @@ export class FloorSetupComp implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.search();
+   // this.search();
     this.breadCrumbItems = [{ label: 'Floor' }, { label: 'Floor', active: true }];
   }
+
+  addRoom() {
+    (<FormArray>this.floorFg.get('roomList'))
+    .push(this.rxFormBuilder.formGroup(Room));
+    }
 
   save() {
     this.floorController.save(this.floorFg.value).subscribe((e) => { this.search(); });
@@ -44,10 +52,14 @@ export class FloorSetupComp implements OnInit {
     this.floorController.update(this.floorFg.value).subscribe((e) => { this.search(); });
   }
 
-  delete(floor: Floor) {
-    //console.log(floor);
-    this.floorController.delete(floor).subscribe((e) => { this.search(); });
+  delete(fg: AbstractControl, index: number) {
+    console.log((<FormGroup>fg).value)
   }
+
+  // delete(floor: Floor) {
+  //   //console.log(floor);
+  //   this.floorController.delete(floor).subscribe((e) => { this.search(); });
+  // }
 
   search() {
     this.floorList$ = this.floorController.search(new FloorSearchDto({ "idList": [] }));
