@@ -246,14 +246,14 @@ export const MENU: MenuItem[] = [
             },
             {
                 id: 39,
-                label: 'Floor',
-                link: '/module/hr/order-info-detail-setup',
+                label: 'Floor Setup',
+                link: '/module/hr/floor-setup',
                
             },
             {
                 id: 40,
-                label: 'Room',
-                link: '/module/hr/order-info-detail-setup',
+                label: 'Room Setup',
+                link: '/module/hr/room-setup',
                
             },
         ]
