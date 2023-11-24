@@ -13,19 +13,16 @@ import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Service
 @RequiredArgsConstructor
 @Transactional
 public class FloorService {
 
     private final EntityManager entityManager;
-
     @Autowired
     private FloorRepository floorRepository;
     @Autowired
     private RoomRepository roomRepository;
-
     public Floor saveWithRoom(Floor floor) {
        Floor floorSaved = this.floorRepository.save(floor);
        List<Room> roomList = floor.getRoomListForSerde().stream().map(e->{
@@ -41,8 +38,6 @@ public class FloorService {
         List<Floor> floorList = this.floorRepository.findAll();
         return floorList;
     }
-
-
 }
 
   

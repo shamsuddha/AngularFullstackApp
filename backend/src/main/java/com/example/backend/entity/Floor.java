@@ -26,10 +26,8 @@ public class Floor extends AuditLog {
   @JsonIgnore
   @OneToMany(mappedBy = "floor", fetch = FetchType.LAZY)
   private List<Room> roomList = new ArrayList<>();
-
   @Transient
   private List<Room> roomListForSerde = new ArrayList<>();
-
 
   public Floor(Long id) {
     this.id = id;

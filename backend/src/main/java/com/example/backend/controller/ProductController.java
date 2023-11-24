@@ -19,11 +19,13 @@ public class ProductController {
     public @ResponseBody ResponseEntity<?> save(@RequestBody Product product) {
         return new ResponseEntity<>(this.productRepository.save(product), HttpStatus.OK);
     }
+
     @PutMapping(value = "/update/{id}")
     public @ResponseBody
     ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody Product product) {
         return new ResponseEntity<>(this.productRepository.save(product), HttpStatus.OK);
     }
+
     @DeleteMapping(value = "/delete/{id}")
     public @ResponseBody
     ResponseEntity<?> delete(@PathParam("id") Long id) {

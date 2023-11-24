@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 @RestController
 @RequestMapping("/orderDetail")
-public class OrderInfoDetailController
-{
+public class OrderInfoDetailController {
 
     @Autowired
     private OrderInfoDetailRepository orderDetailRepository;
@@ -20,11 +18,13 @@ public class OrderInfoDetailController
     public @ResponseBody ResponseEntity<?> save(@RequestBody OrderInfoDetail orderDetail) {
         return new ResponseEntity<>(this.orderDetailRepository.save(orderDetail), HttpStatus.OK);
     }
+
     @PutMapping(value = "/update/{id}")
     public @ResponseBody
     ResponseEntity<?> update(@PathParam("id") Long id, @RequestBody OrderInfoDetail orderDetail) {
         return new ResponseEntity<>(this.orderDetailRepository.save(orderDetail), HttpStatus.OK);
     }
+
     @DeleteMapping(value = "/delete/{id}")
     public @ResponseBody
     ResponseEntity<?> delete(@PathParam("id") Long id) {

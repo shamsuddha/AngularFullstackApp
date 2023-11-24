@@ -13,16 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.backend.entity.Category;
 import com.example.backend.repository.CategoryRepository;
 import com.example.backend.service.CategoryService;
-
 import jakarta.websocket.server.PathParam;
-
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
 
   @Autowired
   private CategoryService categoryService;
-
   @Autowired
   private CategoryRepository categoryRepository;
 
