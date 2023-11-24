@@ -47,4 +47,8 @@ public class RoomController {
   public @ResponseBody ResponseEntity<?> search() {
     return new ResponseEntity<>(this.roomService.search(), HttpStatus.OK);
   }
+  @PostMapping(value = "/search-with-floor")
+  public @ResponseBody ResponseEntity<?> searchWithFloor() {
+    return new ResponseEntity<>(this.roomService.searchWithFloor(), HttpStatus.OK);
+  }
 }

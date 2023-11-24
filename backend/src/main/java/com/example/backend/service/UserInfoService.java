@@ -29,13 +29,12 @@ public class UserInfoService {
 
     final QUserInfo qUserInfo = QUserInfo.userInfo;
     final QUserInfoRole qUserInfoRole = QUserInfoRole.userInfoRole;
-
     final JPAQuery<UserInfo> query = new JPAQuery<>(entityManager);
 
     List<UserInfo> userInfoList = query.from(qUserInfo)
       .leftJoin(qUserInfo.userInfoRoleList, qUserInfoRole).fetchJoin()
       .fetch();
-
+      
     return userInfoList;
   }
 }

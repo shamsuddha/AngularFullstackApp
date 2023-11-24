@@ -69,9 +69,7 @@
     <div _ngcontent-ng-c352282610="" class="card">
       <div _ngcontent-ng-c352282610="" class="card-header">
         <h4 _ngcontent-ng-c352282610="" class="card-title">Floor List</h4>
-        <p _ngcontent-ng-c352282610="" class="card-title-desc">
-          Here you will get all the floor list
-        </p>
+        <button (click)="searchWithFloor()">Search</button>
       </div>
       <div _ngcontent-ng-c352282610="" class="card-body">
         <div _ngcontent-ng-c352282610="" class="table-responsive">
@@ -87,14 +85,15 @@
               </tr>
             </thead>
             <tbody _ngcontent-ng-c352282610="">
-              <tr _ngcontent-ng-c352282610="" *ngFor="let floor of floorList$ | async; let i = index">
-                <th _ngcontent-ng-c352282610="" scope="row">{{floor.id}}</th>
-                <td _ngcontent-ng-c352282610="">{{floor.name}}</td>
-                <td _ngcontent-ng-c352282610="">{{floor.code}}</td>
-                <td _ngcontent-ng-c352282610="">{{floor.code}}</td>
-                <td _ngcontent-ng-c352282610="">{{floor.code}}</td>
+              <tr _ngcontent-ng-c352282610="" *ngFor="let room of roomList$ | async; let i = index">
+                <th _ngcontent-ng-c352282610="" scope="row">{{room.id}}</th>
+                <td _ngcontent-ng-c352282610="">{{room.name}}</td>
+                <td _ngcontent-ng-c352282610="">{{room.code}}</td>
+                <td _ngcontent-ng-c352282610="">{{room.floor?.id}}</td>
+                <td _ngcontent-ng-c352282610="">{{room.floor?.name}}</td>
+                <td _ngcontent-ng-c352282610="">{{room.floor?.code}}</td>
                 <td _ngcontent-ng-c352282610="">
-                  <button type="button" (click)="onUpdateClick(floor)"
+                  <button type="button" (click)="onUpdateClick(room)"
                     class="btn btn-info waves-effect waves-light mx-1">
                     Edit
                   </button>

@@ -11,7 +11,6 @@ export class FloorController {
 
   save(floor: Floor): Observable<Floor> {
     return this.httpClient.post<Floor>('http://localhost:8080/floor/save', floor);
-
   }
 
   update(floor: Floor): Observable<Floor> {

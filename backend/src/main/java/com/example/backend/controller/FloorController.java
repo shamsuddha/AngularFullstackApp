@@ -31,6 +31,11 @@ public class FloorController {
     return new ResponseEntity<>(this.floorRepository.save(floor), HttpStatus.OK);
   }
 
+  @PostMapping(value = "/save-with-room")
+  public @ResponseBody ResponseEntity<?> saveWithRoom(@RequestBody Floor floor) {
+    return new ResponseEntity<>(this.floorService.saveWithRoom(floor), HttpStatus.OK);
+  }
+
   @PutMapping(value = "/update")
   public @ResponseBody ResponseEntity<?> update(@RequestBody Floor floor) {
     return new ResponseEntity<>(this.floorRepository.save(floor), HttpStatus.OK);

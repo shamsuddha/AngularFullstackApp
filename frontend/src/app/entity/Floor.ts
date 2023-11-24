@@ -12,6 +12,8 @@ export class Floor extends AuditLog{
 
   @propArray(Room, {createBlank: false})
   roomList: Array<Room> = [];
+  
+  roomListForSerde: Array<Room> = [];
 
   constructor(o?: Partial<Floor>) {
     super();
