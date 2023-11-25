@@ -30,4 +30,7 @@ export class RoomController {
   searchWithFloor(): Observable<Array<Room>> {
     return this.httpClient.post<Array<Room>>('http://localhost:8080/room/search-with-floor', {});
   }
+
+ 
+  
 }

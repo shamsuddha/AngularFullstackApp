@@ -19,6 +19,7 @@ import { FloorSearchDto } from "src/app/dto/request/FloorSearchDto";
 
 export class RoomSetupComp implements OnInit {
 
+
   breadCrumbItems!: Array<{}>;
   title!: string;
 
@@ -26,6 +27,7 @@ export class RoomSetupComp implements OnInit {
   toFaGfn = toFaGfn
   roomList$: Observable<Array<Room>> = new Observable<Array<Room>>();
   floorList$: Observable<Array<Floor>> = new Observable<Array<Floor>>();
+  floorWithroomList$: Observable<Array<Floor>> = new Observable<Array<Floor>>();
   constructor(
     public roomController: RoomController,
     public rxFormBuilder: RxFormBuilder,
@@ -64,4 +66,9 @@ export class RoomSetupComp implements OnInit {
     console.log(e)
   })*/
   }
+
+  // searchFloorWithRoomList() {
+  //   this.floorWithroomList$ = this.roomController.searchFloorWithRoomList();
+  //   }
+
 }

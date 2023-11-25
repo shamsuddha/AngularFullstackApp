@@ -2,12 +2,12 @@ package com.example.backend.service;
 
 import java.util.List;
 
-import com.example.backend.entity.Room;
+import com.example.backend.entity.*;
 import com.example.backend.repository.RoomRepository;
+import com.example.backend.util.serde.TransformUtil;
+import com.querydsl.jpa.impl.JPAQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.backend.entity.Floor;
-import com.example.backend.entity.Role;
 import com.example.backend.repository.FloorRepository;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -40,6 +40,20 @@ public class FloorService {
   public List<Floor> search() {
     List<Floor> floorList = this.floorRepository.findAll();
     return floorList;
+  }
+
+  public List<Floor> searchWithRoomList() {
+    final QRoom qRoom = QRoom.room;
+    final QFloor qFloor = QFloor.floor;
+    final JPAQuery<Floor> query = new JPAQuery<>(entityManager);
+    List<Floor> floorWithRoomList = query.from(qFloor)
+            .leftJoin(qFloor.roomList, qRoom).fetchJoin()
+            .fetch();
+    List<Floor> floorWithRoomListRsp = floorWithRoomList.stream().map(e->{
+      e.setRoomListSerde(TransformUtil.copyList(e.getRoomList(),Room.class));
+      return e;
+    }).toList();
+    return floorWithRoomList;
   }
 }
 
