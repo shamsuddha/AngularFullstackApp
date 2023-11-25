@@ -35,14 +35,14 @@ public class BackendApplication {
     };
   }
 
+
+
   @Bean
-  public MappingJackson2HttpMessageConverter jacksonMessageConverter() {
-    MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
+  public ObjectMapper objectMapper() {
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);  // request => from json to object/entity
     objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);  // response => from object/entity to json
     objectMapper.registerModule(new Hibernate6Module()); //Registering Hibernate6Module to support lazy objects
-    messageConverter.setObjectMapper(objectMapper);
 
     //objectMapper.configure(MapperFeature.PROPAGATE_TRANSIENT_MARKER, true);
     /*objectMapper.setVisibilityChecker(
@@ -51,7 +51,15 @@ public class BackendApplication {
         .withFieldVisibility(JsonAutoDetect.Visibility.ANY)
         .withGetterVisibility(JsonAutoDetect.Visibility.NONE)
     );*/
+    return objectMapper;
+  }
 
+
+
+  @Bean
+  public MappingJackson2HttpMessageConverter jacksonMessageConverter() {
+    MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
+    messageConverter.setObjectMapper( objectMapper());
     return messageConverter;
   }
 
