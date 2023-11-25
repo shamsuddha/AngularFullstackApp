@@ -1,6 +1,8 @@
 package com.example.backend;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate6.Hibernate6Module;
@@ -41,6 +43,15 @@ public class BackendApplication {
     objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);  // response => from object/entity to json
     objectMapper.registerModule(new Hibernate6Module()); //Registering Hibernate6Module to support lazy objects
     messageConverter.setObjectMapper(objectMapper);
+
+    //objectMapper.configure(MapperFeature.PROPAGATE_TRANSIENT_MARKER, true);
+    /*objectMapper.setVisibilityChecker(
+      objectMapper.getSerializationConfig()
+        .getDefaultVisibilityChecker()
+        .withFieldVisibility(JsonAutoDetect.Visibility.ANY)
+        .withGetterVisibility(JsonAutoDetect.Visibility.NONE)
+    );*/
+
     return messageConverter;
   }
 

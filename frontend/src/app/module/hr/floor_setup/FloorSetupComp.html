@@ -14,7 +14,7 @@
         <form [formGroup]="floorFg">
           <div class="mb-4">
             <label class="form-label" for="name">Name</label>
-            <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter floor name" />
+            <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter floor name"/>
             {{floorFg.controls['name'].errors | json}}
             <div *ngIf="floorFg.controls['name'].touched
                       && floorFg.controls['name'].errors?.['maxLength']" style="color: red">
@@ -31,8 +31,8 @@
           </div>
           <div class="mb-4">
             <label class="form-label" for="code">Code</label>
-            <input class="form-control" formControlName="code" type="text" id="code" placeholder="Enter your code" />
-          </div>          
+            <input class="form-control" formControlName="code" type="text" id="code" placeholder="Enter your code"/>
+          </div>
           <button (click)="addRoom()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Add Room With Floor
           </button>
@@ -43,22 +43,23 @@
                 <div class="mb-4 mt-2">
                   <label class="form-label" for="name">Room Name</label>
                   <input class="form-control" formControlName="name" type="text" id="name"
-                    placeholder="Enter your room name" />
+                         placeholder="Enter your room name"/>
                 </div>
                 <div class="mb-4 mt-2">
                   <label class="form-label" for="code">Room Code</label>
                   <input class="form-control" formControlName="code" type="text" id="code"
-                    placeholder="Enter your room code" />
+                         placeholder="Enter your room code"/>
                 </div>
                 <button (click)="delete(fg,index)" class="btn btn-outline-primary waves-effect">Delete</button>
               </div>
               <hr>
             </div>
-          </div>          
-          <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
+          </div>
+          <button type="button" (click)="saveWithRoom()"
+                  class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Submit
           </button>
-          <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
+          <button type="button" (click)="reset()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Reset
           </button>
         </form>
@@ -75,33 +76,33 @@
         <div _ngcontent-ng-c352282610="" class="table-responsive">
           <table _ngcontent-ng-c352282610="" class="table mb-0">
             <thead _ngcontent-ng-c352282610="" class="table-light">
-              <tr _ngcontent-ng-c352282610="">
-                <th _ngcontent-ng-c352282610="">#</th>
-                <th _ngcontent-ng-c352282610="">Floor Name</th>
-                <th _ngcontent-ng-c352282610="">Floor Code</th>
-                <th _ngcontent-ng-c352282610="">Room Name</th>
-                <th _ngcontent-ng-c352282610="">Room Code</th>
-                <th _ngcontent-ng-c352282610="">Action</th>
-              </tr>
+            <tr _ngcontent-ng-c352282610="">
+              <th _ngcontent-ng-c352282610="">#</th>
+              <th _ngcontent-ng-c352282610="">Floor Name</th>
+              <th _ngcontent-ng-c352282610="">Floor Code</th>
+              <th _ngcontent-ng-c352282610="">Room Name</th>
+              <th _ngcontent-ng-c352282610="">Room Code</th>
+              <th _ngcontent-ng-c352282610="">Action</th>
+            </tr>
             </thead>
             <tbody _ngcontent-ng-c352282610="">
-              <tr _ngcontent-ng-c352282610="" *ngFor="let room of roomList$ | async; let i = index">
-                <th _ngcontent-ng-c352282610="" scope="row">{{room.id}}</th>
-                <td _ngcontent-ng-c352282610="">{{room.name}}</td>
-                <td _ngcontent-ng-c352282610="">{{room.code}}</td>
-                <td _ngcontent-ng-c352282610="">{{room.floor?.id}}</td>
-                <td _ngcontent-ng-c352282610="">{{room.floor?.name}}</td>
-                <td _ngcontent-ng-c352282610="">{{room.floor?.code}}</td>
-                <td _ngcontent-ng-c352282610="">
-                  <button type="button" (click)="onUpdateClick(room)"
-                    class="btn btn-info waves-effect waves-light mx-1">
-                    Edit
-                  </button>
-                  <!-- <button type="button" (click)="delete(floor)" class="btn btn-danger waves-effect waves-light mx-1">
-                    Delete
-                  </button> -->
-                </td>
-              </tr>
+            <tr _ngcontent-ng-c352282610="" *ngFor="let room of roomList$ | async; let i = index">
+              <th _ngcontent-ng-c352282610="" scope="row">{{room.id}}</th>
+              <td _ngcontent-ng-c352282610="">{{room.name}}</td>
+              <td _ngcontent-ng-c352282610="">{{room.code}}</td>
+              <td _ngcontent-ng-c352282610="">{{room.floor?.id}}</td>
+              <td _ngcontent-ng-c352282610="">{{room.floor?.name}}</td>
+              <td _ngcontent-ng-c352282610="">{{room.floor?.code}}</td>
+              <td _ngcontent-ng-c352282610="">
+                <button type="button" (click)="onUpdateClick(room)"
+                        class="btn btn-info waves-effect waves-light mx-1">
+                  Edit
+                </button>
+                <!-- <button type="button" (click)="delete(floor)" class="btn btn-danger waves-effect waves-light mx-1">
+                  Delete
+                </button> -->
+              </td>
+            </tr>
             </tbody>
           </table>
         </div>

@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
-import { RxFormBuilder } from "@rxweb/reactive-form-validators";
-import { Observable } from "rxjs";
-import { toFaGfn } from "../../../../util/MiscUtil";
-import { FloorController } from "src/app/controller/FloorController";
-import { FloorSearchDto } from "src/app/dto/request/FloorSearchDto";
-import { Floor } from "src/app/entity/Floor";
-import { Room } from "src/app/entity/Room";
-import { RoomController } from "src/app/controller/RoomController";
+import {Component, OnInit} from "@angular/core";
+import {AbstractControl, FormArray, FormGroup} from "@angular/forms";
+import {RxFormBuilder} from "@rxweb/reactive-form-validators";
+import {Observable} from "rxjs";
+import {toFaGfn} from "../../../../util/MiscUtil";
+import {FloorController} from "src/app/controller/FloorController";
+import {FloorSearchDto} from "src/app/dto/request/FloorSearchDto";
+import {Floor} from "src/app/entity/Floor";
+import {Room} from "src/app/entity/Room";
+import {RoomController} from "src/app/controller/RoomController";
 
 @Component({
   selector: 'FloorSetupComp',
@@ -30,11 +30,12 @@ export class FloorSetupComp implements OnInit {
     public floorController: FloorController,
     public roomController: RoomController,
     public rxFormBuilder: RxFormBuilder
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     // this.search();
-    this.breadCrumbItems = [{ label: 'Floor' }, { label: 'Floor', active: true }];
+    this.breadCrumbItems = [{label: 'Floor'}, {label: 'Floor', active: true}];
   }
 
   addRoom() {
@@ -42,10 +43,12 @@ export class FloorSetupComp implements OnInit {
       .push(this.rxFormBuilder.formGroup(Room));
   }
 
-  save() {
+  saveWithRoom() {
     let floor: Floor = this.floorFg.value;
-    floor.roomListForSerde = floor.roomList;
-    this.floorController.save(floor).subscribe((e) => { this.search(); });
+    floor.roomListSerde = floor.roomList;
+    this.floorController.saveWithRoom(floor).subscribe((e) => {
+      this.search();
+    });
   }
 
   onUpdateClick(room: Room) {
@@ -57,7 +60,9 @@ export class FloorSetupComp implements OnInit {
   }
 
   update() {
-    this.floorController.update(this.floorFg.value).subscribe((e) => { this.search(); });
+    this.floorController.update(this.floorFg.value).subscribe((e) => {
+      this.search();
+    });
   }
 
   delete(fg: AbstractControl, index: number) {
@@ -70,7 +75,7 @@ export class FloorSetupComp implements OnInit {
   // }
 
   search() {
-    this.floorList$ = this.floorController.search(new FloorSearchDto({ "idList": [] }));
+    this.floorList$ = this.floorController.search(new FloorSearchDto({"idList": []}));
     /*.subscribe((e:Array<Floor>)=>{
     console.log(e)
   })*/
@@ -78,6 +83,10 @@ export class FloorSetupComp implements OnInit {
 
   searchWithFloor() {
     this.roomList$ = this.roomController.searchWithFloor();
+
+  }
+
+  reset() {
 
   }
 }

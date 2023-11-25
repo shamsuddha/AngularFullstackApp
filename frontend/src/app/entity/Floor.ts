@@ -4,7 +4,7 @@ import {
 import {AuditLog} from "./AuditLog";
 import { Room } from './Room';
 
-export class Floor extends AuditLog{  
+export class Floor extends AuditLog{
 
   @prop() id: number | null = null;
   @prop() name: string | null = null;
@@ -12,8 +12,8 @@ export class Floor extends AuditLog{
 
   @propArray(Room, {createBlank: false})
   roomList: Array<Room> = [];
-  
-  roomListForSerde: Array<Room> = [];
+
+  roomListSerde: Array<Room> = [];
 
   constructor(o?: Partial<Floor>) {
     super();
