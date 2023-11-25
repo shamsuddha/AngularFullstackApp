@@ -23,7 +23,7 @@ export class UserInfo extends AuditLog{  // FormGroup
 
   @propArray(UserInfoRole, {createBlank: false})
   userInfoRoleList: Array<UserInfoRole> = [];
-
+  // @propObject(Brand, { autoCreate: true }) brand: Brand | null = null;
   constructor(o?: Partial<UserInfo>) {
     super();
     Object.assign(this, o);
