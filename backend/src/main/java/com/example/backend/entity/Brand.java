@@ -1,6 +1,9 @@
 package com.example.backend.entity;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,20 +16,21 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Brand{
+public class Brand extends AuditLog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @JoinColumn(name = "category_id")
-    // private Category category;
+    // BRAND ONE TO MANY CATEGORY
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
+    private List<Category> categoryList = new ArrayList<>();
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    private List<Category> categoryListSerde = new ArrayList<>();
 
-    public Brand(Long id){
+    public Brand(Long id) {
         this.id = id;
     }
-
-
-
-
 }

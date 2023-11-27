@@ -1,9 +1,6 @@
 package com.example.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,16 +22,14 @@ public class Role extends AuditLog{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
-    //@JsonSerialize(using = ListSerialize.class)
-    @JsonIgnore
+    // ROLE ONE TO MANY USER INFO ROLE
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
-    private List<UserInfoRole> userInfoRoleList= new ArrayList<>() ;
-
+    private List<UserInfoRole> userInfoRoleList = new ArrayList<>();
     @Transient
-    private List<UserInfoRole> userInfoRoleListForSerde = new ArrayList<>();
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    private List<UserInfoRole> userInfoRoleListSerde = new ArrayList<>();
 
     public Role(Long id) {
         this.id = id;

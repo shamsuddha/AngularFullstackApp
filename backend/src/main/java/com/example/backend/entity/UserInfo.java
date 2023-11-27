@@ -1,9 +1,6 @@
 package com.example.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,31 +22,25 @@ public class UserInfo extends AuditLog{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private String name;
   private String email;
   private Integer mobile;
-
   //@JsonSerialize(using = ListSerialize.class)
-  @JsonIgnore
+  // USER INFO ONE TO MANY USER INFO ROLE
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
   private List<UserInfoRole> userInfoRoleList = new ArrayList<>();
-
   @Transient
-  private List<UserInfoRole> userInfoRoleListForSerde = new ArrayList<>();
+  @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+  private List<UserInfoRole> userInfoRoleListSerde = new ArrayList<>();
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "organization")
-  private Organization organization;
-
-  
-
-
-  // @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
-  // private List<Product> productList;
-
-  // @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
-  // private List<OrderInfo> orderInfoList;
+  // USER INFO ONE TO MANY PRODUCT
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
+  private List<Product> productList = new ArrayList<>();
+  @Transient
+  @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+  private List<Product> productListSerde = new ArrayList<>();
 
   public UserInfo(Long id) {
     this.id = id;

@@ -12,26 +12,26 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderInfoDetail extends AuditLog{
+public class OrderInfoDetail extends AuditLog {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  private Integer amount;
-  private Integer price;
-  private Double quantity;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    // ORDER INFO DETAIL MANY TO ONE ORDER INFO
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "orderInfo_id")
+    private OrderInfo orderInfo;
+    // ORDER INFO DETAIL ONE TO MANY PRODUCT
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
+    private Double quantity;
+    private Double unitPrice;
+    private Double discount;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "orderInfo_id")
-  private OrderInfo orderInfo;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "product_id")
-  private Product product;
-
-  public OrderInfoDetail(Long id) {
-    this.id = id;
-  }
+    public OrderInfoDetail(Long id) {
+        this.id = id;
+    }
 }
 
 // id ,  quantity , product(fk) , order_id(fk)

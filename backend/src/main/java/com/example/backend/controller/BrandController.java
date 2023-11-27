@@ -1,4 +1,6 @@
 package com.example.backend.controller;
 
-public class BrandController {
+import com.example.backend.entity.AuditLog;
+
+public class BrandController extends AuditLog {
 }
