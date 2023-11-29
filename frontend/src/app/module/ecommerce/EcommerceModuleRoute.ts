@@ -15,7 +15,6 @@ const routes: Routes = [
         path: 'category-setup', loadChildren: () => import('./category_setup/CategorySetupModule')
           .then(m => m.CategorySetupModule)
       },
-      
       {
         path: 'product-setup', loadChildren: () => import('./product_setup/ProductSetupModule')
           .then(m => m.ProductSetupModule)
@@ -27,8 +26,7 @@ const routes: Routes = [
       {
         path: 'supplier-setup', loadChildren: () => import('./supplier_setup/SupplierSetupModule')
           .then(m => m.SupplierSetupModule)
-      }
-      
+      }      
     ]
   }
 ];

@@ -39,6 +39,7 @@ public class Floor extends AuditLog {
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private List<Room> roomListSerde = new ArrayList<>();
 
+
     public Floor(Long id) {
         this.id = id;
     }

@@ -26,10 +26,10 @@ public class Category extends AuditLog {
     // CATEGORY ONE TO MANY PRODUCT
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private List<Category> productList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
     @Transient
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    private List<Category> productListSerde = new ArrayList<>();
+    private List<Product> productListSerde = new ArrayList<>();
     // CATEGORY ONE TO MANY BRAND
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)

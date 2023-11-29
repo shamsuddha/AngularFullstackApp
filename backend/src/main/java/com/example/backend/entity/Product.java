@@ -34,25 +34,32 @@ public class Product extends AuditLog {
     @JoinColumn(name = "category_id")
     private Category category;
 
-//    // PRODUCT MANY TO ONE ORDER INFO DETAIL
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "orderInfoDetail_id")
-//    private OrderInfoDetail orderInfoDetail;
+    // PRODUCT ONE TO MANY ORDER INFO DETAIL
+    @JsonIgnore
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<OrderInfoDetail> orderInfoDetailList = new ArrayList<>();
+    @Transient
+    private List<OrderInfoDetail> orderInfoDetailListForSerde = new ArrayList<>();
 
     // PRODUCT MANY TO ONE SUPPLIER
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "supplier_id")
-    private Supplier supplier;
+    @JoinColumn(name = "floor_id")
+    private Floor floor;
+
     // PRODUCT MANY TO ONE USER INFO
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userInfo_id")
     private UserInfo userInfo;
 
+    // PRODUCT MANY TO ONE SUPPLIER
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
     public Product(Long id) {
         this.id = id;
     }
 }
-
 
 // id ,  name\
 // 1     apple
