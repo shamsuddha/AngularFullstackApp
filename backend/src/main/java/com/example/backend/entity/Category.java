@@ -23,14 +23,20 @@ public class Category extends AuditLog {
     private String categoryName;
     private String image;
     private String code;
-    // CATEGORY ONE TO MANY PRODUCTS
+    // CATEGORY ONE TO MANY PRODUCT
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private List<Product> productList = new ArrayList<>();
-    // CATEGORY MANY TO ONE BRAND
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id")
-    private Brand brand;
+    private List<Category> productList = new ArrayList<>();
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    private List<Category> productListSerde = new ArrayList<>();
+    // CATEGORY ONE TO MANY BRAND
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private List<Brand> brandList = new ArrayList<>();
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    private List<Brand> brandListSerde = new ArrayList<>();
 
     public Category(Long id) {
         this.id = id;

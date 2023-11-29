@@ -21,10 +21,7 @@ public class OrderInfoDetail extends AuditLog {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderInfo_id")
     private OrderInfo orderInfo;
-    // ORDER INFO DETAIL ONE TO MANY PRODUCT
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    //private Product product;
     private Double quantity;
     private Double unitPrice;
     private Double discount;

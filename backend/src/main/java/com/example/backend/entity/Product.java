@@ -34,10 +34,10 @@ public class Product extends AuditLog {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    // PRODUCT MANY TO ONE ORDER INFO DETAIL
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderInfoDetail_id")
-    private OrderInfoDetail orderInfoDetail;
+//    // PRODUCT MANY TO ONE ORDER INFO DETAIL
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "orderInfoDetail_id")
+//    private OrderInfoDetail orderInfoDetail;
 
     // PRODUCT MANY TO ONE SUPPLIER
     @ManyToOne(fetch = FetchType.LAZY)

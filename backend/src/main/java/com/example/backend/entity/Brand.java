@@ -22,13 +22,10 @@ public class Brand extends AuditLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    // BRAND ONE TO MANY CATEGORY
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
-    private List<Category> categoryList = new ArrayList<>();
-    @Transient
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    private List<Category> categoryListSerde = new ArrayList<>();
+    // BRAND MANY TO ONE CATEGORY
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Brand(Long id) {
         this.id = id;

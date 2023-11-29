@@ -290,8 +290,18 @@ export const MENU: MenuItem[] = [
                 label: 'Order Details',
                 link: '/module/ecommerce/order-info-detail-setup',
                
+            },
+            {
+                id: 46,
+                label: 'Supplier',
+                link: '/module/ecommerce/supplier-setup',
+               
+            },
+            {
+                id: 47,
+                label: 'Shipper',
+                link: '/module/ecommerce/shipper-setup',
             }
-            
         ]
     },
     {
