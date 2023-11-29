@@ -12,9 +12,9 @@ export class Floor extends AuditLog{
 
   @propArray(Room, {createBlank: false})
   roomList: Array<Room> = [];
-
   roomListSerde: Array<Room> = [];
 
+  
   constructor(o?: Partial<Floor>) {
     super();
     Object.assign(this, o);

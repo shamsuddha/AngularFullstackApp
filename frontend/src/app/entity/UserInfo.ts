@@ -13,7 +13,6 @@ export class UserInfo extends AuditLog{  // FormGroup
   // @prop()
   // @minLength({ value: 3, message: 'Minimum 3 character required' })
   // @maxLength({ value: 10, message: 'Maximum 10 character allowed' })
-
   // @numeric({ acceptValue: NumericValueType.PositiveNumber, allowDecimal: false,})
   // @trim()
   // @required({ message: 'name is required'})

@@ -67,11 +67,4 @@ export class BrandSetupComp{
     console.log(e)
   })*/
   }
-
-
 }
-
-export const toFaGfn = (fa: any) => {
-  return fa as FormArray;
-}
-

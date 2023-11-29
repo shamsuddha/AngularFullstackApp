@@ -23,9 +23,10 @@ public class Product extends AuditLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String productName;
-    private String unitPrice;
-    private String unitsInStock;
-    private String unitsOnOrder;
+    private String productCode;
+    private Integer unitPrice;
+    private Integer unitsInStock;
+    private Integer unitsOnOrder;
     private String reorderLevel;
     private String discontinued;
 
