@@ -29,6 +29,7 @@ public class Product extends AuditLog {
     private Integer unitsOnOrder;
     private String reorderLevel;
     private String discontinued;
+    private String description;
 
     // PRODUCT MANY TO ONE CATEGORY
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,11 +42,6 @@ public class Product extends AuditLog {
     private List<OrderInfoDetail> orderInfoDetailList = new ArrayList<>();
     @Transient
     private List<OrderInfoDetail> orderInfoDetailListForSerde = new ArrayList<>();
-
-    // PRODUCT MANY TO ONE SUPPLIER
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "floor_id")
-    private Floor floor;
 
     // PRODUCT MANY TO ONE USER INFO
     @ManyToOne(fetch = FetchType.LAZY)

@@ -13,7 +13,7 @@
       <div class="card-body">
         <form [formGroup]="productFg">
           <div class="mb-4">
-            <label class="form-label" for="name">Name</label>
+            <label class="form-label" for="name">Product Name</label>
             <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter product name" />
             {{productFg.controls['name'].errors | json}}
             <div *ngIf="productFg.controls['name'].touched
@@ -30,9 +30,29 @@
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label" for="code">Code</label>
-            <input class="form-control" formControlName="code" type="code" id="code"
+            <label class="form-label" for="code">Product Code</label>
+            <input class="form-control" formControlName="code" type="text" id="code"
               placeholder="Enter product code" />
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="code">Unit Price</label>
+            <input class="form-control" formControlName="code" type="number" id="code"
+              placeholder="Enter product code" />
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="code">Units In Stock</label>
+            <input class="form-control" formControlName="code" type="number" id="code"
+              placeholder="Enter product code" />
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="code">Units On Order</label>
+            <input class="form-control" formControlName="code" type="number" id="code"
+              placeholder="Enter product code" />
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="code">Description</label>
+            <textarea class="form-control" formControlName="code" type="number" id="code"
+              placeholder="Enter product code"> </textarea>
           </div>
    
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
@@ -45,7 +65,7 @@
   <div _ngcontent-ng-c352282610="" class="col-xl-8">
     <div _ngcontent-ng-c352282610="" class="card">
       <div _ngcontent-ng-c352282610="" class="card-header">
-        <h4 _ngcontent-ng-c352282610="" class="card-title">Brad List</h4>
+        <h4 _ngcontent-ng-c352282610="" class="card-title">Product List</h4>
         <p _ngcontent-ng-c352282610="" class="card-title-desc">
           Here you will get all the product list
         </p>
@@ -64,8 +84,8 @@
             <tbody _ngcontent-ng-c352282610="">
               <tr _ngcontent-ng-c352282610="" *ngFor="let product of productList$ | async; let i = index">
                 <th _ngcontent-ng-c352282610="" scope="row">{{product.id}}</th>
-                <td _ngcontent-ng-c352282610="">{{product.name}}</td>
-                <td _ngcontent-ng-c352282610="">{{product.code}}</td>                
+                <td _ngcontent-ng-c352282610="">{{product.productName}}</td>
+                <td _ngcontent-ng-c352282610="">{{product.productCode}}</td>                
                 <td _ngcontent-ng-c352282610="">
                   <button type="button" (click)="onUpdateClick(product)"
                     class="btn btn-info waves-effect waves-light mx-1">
