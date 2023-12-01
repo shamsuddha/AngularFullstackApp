@@ -17,8 +17,8 @@ export class DistrictController {
     return this.httpClient.post<District>('http://localhost:8080/district/save', district);
   }
 
-  saveWithRoom(district: District): Observable<District> {
-    return this.httpClient.post<District>('http://localhost:8080/district/save-with-room', district);
+  saveWithUpozila(district: District): Observable<District> {
+    return this.httpClient.post<District>('http://localhost:8080/district/save-with-upozila', district);
   }
 
   update(district: District): Observable<District> {

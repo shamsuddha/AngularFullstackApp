@@ -24,10 +24,11 @@ export class RoomSetupComp implements OnInit {
   title!: string;
 
   roomFg: FormGroup = this.rxFormBuilder.formGroup(Room);
-  toFaGfn = toFaGfn
+  toFaGfn = toFaGfn;
   roomList$: Observable<Array<Room>> = new Observable<Array<Room>>();
   floorList$: Observable<Array<Floor>> = new Observable<Array<Floor>>();
   floorWithroomList$: Observable<Array<Floor>> = new Observable<Array<Floor>>();
+  
   constructor(
     public roomController: RoomController,
     public rxFormBuilder: RxFormBuilder,

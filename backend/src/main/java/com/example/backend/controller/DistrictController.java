@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.entity.District;
+import com.example.backend.entity.Floor;
 import com.example.backend.repository.DistrictRepository;
 import com.example.backend.service.DistrictService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class DistrictController {
     @PostMapping(value = "/save")
     public @ResponseBody ResponseEntity<?> save(@RequestBody District district) {
         return new ResponseEntity<>(this.districtRepository.save(district), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/save-with-upozila")
+    public @ResponseBody ResponseEntity<?> saveWithRoom(@RequestBody District district) {
+        return new ResponseEntity<>(this.districtService.saveWithUpozila(district), HttpStatus.OK);
     }
 
     // @PathParam: "/update/{id}"
