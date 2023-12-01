@@ -35,10 +35,10 @@ public class Floor extends AuditLog {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "floor", fetch = FetchType.LAZY)
     private List<Room> roomList = new ArrayList<>();
+
     @Transient
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private List<Room> roomListSerde = new ArrayList<>();
-
 
     public Floor(Long id) {
         this.id = id;

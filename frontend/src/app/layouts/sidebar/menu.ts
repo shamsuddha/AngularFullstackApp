@@ -236,25 +236,38 @@ export const MENU: MenuItem[] = [
             },
             {
                 id: 37,
+                label: 'Division', 
+                link: '/module/hr/division-setup',                            
+            },
+            {
+                id: 38,
+                label: 'District', 
+                link: '/module/hr/district-setup',    
+            },
+            {
+                id: 39,
+                label: 'Upozila', 
+                link: '/module/hr/upozila-setup',                   
+            },
+            {
+                id: 40,
                 label: 'Order Info', 
                 link: '/module/hr/order-info-setup',                   
             },
             {
-                id: 38,
+                id: 41,
                 label: 'Order Info detail', 
                 link: '/module/hr/order-info-detail-setup',                   
             },
             {
-                id: 39,
+                id: 42,
                 label: 'Floor Setup',
                 link: '/module/hr/floor-setup',
-               
             },
             {
-                id: 40,
+                id: 43,
                 label: 'Room Setup',
                 link: '/module/hr/room-setup',
-               
             },
         ]
     },

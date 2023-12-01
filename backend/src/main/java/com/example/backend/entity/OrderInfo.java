@@ -36,6 +36,9 @@ public class OrderInfo extends AuditLog{
   private List<OrderInfoDetail> orderInfoDetailList = new ArrayList<>();
   @Transient
   private List<OrderInfoDetail> orderInfoDetailListForSerde = new ArrayList<>();
+
+
+
   // ORDER INFO MANY TO ONE CUSTOMER
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "customer_id")
