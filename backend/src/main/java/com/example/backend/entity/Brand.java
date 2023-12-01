@@ -22,6 +22,7 @@ public class Brand extends AuditLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
     // BRAND MANY TO ONE CATEGORY
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
