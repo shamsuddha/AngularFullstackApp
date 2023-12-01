@@ -6,6 +6,9 @@ import { DistrictSearchDto } from "../dto/request/DisctrictSearchDto";
 
 @Injectable({ providedIn: 'root' })
 export class DistrictController {
+  searchWithDivision(): Observable<District[]> {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private httpClient: HttpClient,) {
   }

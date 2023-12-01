@@ -17,7 +17,6 @@ import {RoomController} from "src/app/controller/RoomController";
 })
 export class FloorSetupComp implements OnInit {
 
-
   breadCrumbItems!: Array<{}>;
   title!: string;
 

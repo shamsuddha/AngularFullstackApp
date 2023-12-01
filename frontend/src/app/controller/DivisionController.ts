@@ -6,6 +6,9 @@ import { DivisionSearchDto } from "../dto/request/DivisionSearchDto";
 
 @Injectable({providedIn: 'root'})
 export class DivisionController {
+  saveWithDistrict(floor: any) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private httpClient: HttpClient,) {
   }
