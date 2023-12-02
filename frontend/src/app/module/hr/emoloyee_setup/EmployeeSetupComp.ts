@@ -94,7 +94,7 @@ export class EmployeeSetupComp implements OnInit {
   }
 
   reset() {
-    this.employeeFg.reset();
+   // this.employeeFg.reset();
   }
 
   onSelectDivision(division: Division) {
