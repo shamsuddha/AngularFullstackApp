@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -21,13 +22,14 @@ public class DistrictService {
     private DistrictRepository districtRepository;
     @Autowired
     private UpozilaRepository upozilaRepository;
+
     public List<District> search() {
         return this.districtRepository.findAll();
     }
 
     public District saveWithUpozila(District district) {
-        district.getUpozilaList().forEach(e->System.out.println("from prop "+e.getName()));
-        district.getUpozilaListSerde().forEach(e->System.out.println("from serde "+e.getName()));
+        district.getUpozilaList().forEach(e -> System.out.println("from prop " + e.getName()));
+        district.getUpozilaListSerde().forEach(e -> System.out.println("from serde " + e.getName()));
         District districtSaved = this.districtRepository.save(district);
         List<Upozila> upozilaList = district.getUpozilaList().stream().map(e -> {
             e.setDistrict(new District(districtSaved.getId()));
@@ -39,13 +41,13 @@ public class DistrictService {
     }
 
     public List<District> searchWithDivision() {
-            final QDivision qDivision = QDivision.division;
-            final QDistrict qDistrict = QDistrict.district;
+        final QDivision qDivision = QDivision.division;
+        final QDistrict qDistrict = QDistrict.district;
 
-            final JPAQuery<District> query = new JPAQuery<>(entityManager);
-            List<District> districtList = query.from(qDistrict)
-                    .leftJoin(qDistrict.division, qDivision).fetchJoin()
-                    .fetch();
-            return districtList;
+        final JPAQuery<District> query = new JPAQuery<>(entityManager);
+        List<District> districtList = query.from(qDistrict)
+                .leftJoin(qDistrict.division, qDivision).fetchJoin()
+                .fetch();
+        return districtList;
     }
 }

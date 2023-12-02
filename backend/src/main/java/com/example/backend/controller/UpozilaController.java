@@ -42,4 +42,9 @@ public class UpozilaController {
     public @ResponseBody ResponseEntity<?> search() {
         return new ResponseEntity<>(this.upozilaService.search(), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/search-with-district")
+    public @ResponseBody ResponseEntity<?> searchWithDistrict() {
+        return new ResponseEntity<>(this.upozilaService.searchWithDistrict(), HttpStatus.OK);
+    }
 }
