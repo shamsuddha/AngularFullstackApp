@@ -33,6 +33,22 @@ const routes: Routes = [
       {
         path: 'room-setup', loadChildren: () => import('./room_setup/RoomSetupModule')
           .then(m => m.RoomSetupModule)
+      },
+      {
+        path: 'division-setup', loadChildren: () => import('./division_setup/DivisionSetupModule')
+          .then(m => m.DivisionSetupModule)
+      },
+      {
+        path: 'district-setup', loadChildren: () => import('./district_setup/DistrictSetupModule')
+          .then(m => m.DistrictSetupModule)
+      },
+      {
+        path: 'upozila-setup', loadChildren: () => import('./upozila_setup/UpozilaSetupModule')
+          .then(m => m.UpozilaSetupModule)
+      },
+      {
+        path: 'employee-setup', loadChildren: () => import('./emoloyee_setup/EmployeeSetupModule')
+          .then(m => m.EmployeeSetupModule)
       }
     ]
   }

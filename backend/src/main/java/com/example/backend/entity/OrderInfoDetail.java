@@ -17,10 +17,15 @@ public class OrderInfoDetail extends AuditLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     // ORDER INFO DETAIL MANY TO ONE ORDER INFO
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderInfo_id")
     private OrderInfo orderInfo;
+
+    @Column(name = "orderInfo_id", insertable = false, updatable = false)
+    private Long orderInfoId;
+
     private Double quantity;
     private Double unitPrice;
     private Double discount;

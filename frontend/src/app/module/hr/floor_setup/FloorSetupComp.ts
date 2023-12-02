@@ -17,7 +17,6 @@ import {RoomController} from "src/app/controller/RoomController";
 })
 export class FloorSetupComp implements OnInit {
 
-
   breadCrumbItems!: Array<{}>;
   title!: string;
 
@@ -32,7 +31,7 @@ export class FloorSetupComp implements OnInit {
     public rxFormBuilder: RxFormBuilder
   ) {
   }
-
+  
   ngOnInit() {
     // this.search();
     this.breadCrumbItems = [{label: 'Floor'}, {label: 'Floor', active: true}];

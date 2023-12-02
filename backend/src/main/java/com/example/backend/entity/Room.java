@@ -22,9 +22,13 @@ public class Room extends AuditLog {
   private String name;
   private String code;
 
+  // ROOM MANY TO ONE FLOOR
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "floor_id")
   private Floor floor;
+
+  @Column(name = "floor_id", insertable = false, updatable = false)
+  private Long floorId;
 
   public Room(Long id) {
     this.id = id;
