@@ -8,7 +8,6 @@ public class CustomSerDe {
 
 
   public ObjectMapper mapping(){
-
     ObjectMapper mapper = new ObjectMapper();
     SimpleModule simpleModule = new SimpleModule();
     simpleModule.addSerializer(UserInfo.class, new UserInfoSerialize());

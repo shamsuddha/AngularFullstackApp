@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import java.util.List;
 
-public class MapUtil {
+public class MapTest {
 
   public String mappingTest(List<UserInfoRole> userInfoRoleList) {
     //var userInfoRoleList2 = CloneUtil.copyList(userInfoRoleList);

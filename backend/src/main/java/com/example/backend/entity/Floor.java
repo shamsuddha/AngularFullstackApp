@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 @Entity
 @Table
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Accessors(chain = true)
 public class Floor extends AuditLog {
 
     @Id
@@ -27,12 +29,12 @@ public class Floor extends AuditLog {
     private Long id;
     private String name;
     private String code;
+
     //  @JsonSerialize(using = ListSerialize.class)
-    //  @JsonIgnore
+     @JsonIgnore
     //  @JsonSerialize
     //  @JsonDeserialize
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "floor", fetch = FetchType.LAZY)
     private List<Room> roomList = new ArrayList<>();
 

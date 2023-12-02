@@ -1,4 +1,4 @@
-package com.example.backend.util.serde;
+package com.example.backend.util.transform;
 
 import org.hibernate.LazyInitializationException;
 import org.springframework.beans.BeanUtils;
