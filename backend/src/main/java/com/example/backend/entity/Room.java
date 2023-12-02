@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 @Entity
 @Table
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Accessors(chain = true)
 public class Room extends AuditLog {
 
   @Id
@@ -19,6 +21,7 @@ public class Room extends AuditLog {
   private Long id;
   private String name;
   private String code;
+
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "floor_id")
   private Floor floor;

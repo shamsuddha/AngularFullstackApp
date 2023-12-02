@@ -1,20 +1,29 @@
 package com.example.backend.util.deep_copy;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-//Hibernate aware clone, lazy object will be null or lazy collection will be empty
+// removing circular mapping
 public class CloneUtil {
 
+  public static <T> T deepCopy(T model, Class<T> tClass) throws Exception {
+    final ObjectMapper objectMapper = new ObjectMapper();
+    final byte[] bytes = objectMapper.writeValueAsBytes(model);
+    final T copy = objectMapper.readValue(bytes, tClass);
+    return copy;
+  }
 
   public static <X> List<X> copyList(List<X> list) {
     return (List<X>) list.parallelStream().map(e -> copyObject(e)).collect(Collectors.toList());
   }
+
+
 
   //todo set null for null value
   public static Object copyObject(Object object) {
