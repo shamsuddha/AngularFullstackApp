@@ -30,6 +30,15 @@ public class Division {
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private List<District> districtListSerde = new ArrayList<>();
 
+    // DIVISION ONE TO MANY EMPLOYEE
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "division", fetch = FetchType.LAZY)
+    private List<Employee> employeeList = new ArrayList<>();
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    private List<Employee> employeeListSerde = new ArrayList<>();
+
+
     public Division(Long id) {
         this.id = id;
     }

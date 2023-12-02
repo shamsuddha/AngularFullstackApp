@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import com.example.backend.repository.RoomRepository;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class RoomService {
 
   private final EntityManager entityManager;

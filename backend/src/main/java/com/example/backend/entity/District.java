@@ -34,6 +34,13 @@ public class District {
     @Transient
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private List<Upozila> upozilaListSerde = new ArrayList<>();
+    // DISTRICT ONE TO MANY EMPLOYEE
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "district", fetch = FetchType.LAZY)
+    private List<Employee> employeeList = new ArrayList<>();
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    private List<Employee> employeeListSerde = new ArrayList<>();
 
     public District(Long id) {
         this.id = id;

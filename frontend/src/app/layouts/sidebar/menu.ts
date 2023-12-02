@@ -138,22 +138,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 22,
                 label: 'Employee',
-                link: '/account/recoverpw',
-                subItems: [
-                    {
-                        id: 23,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 22
-                    },
-                    {
-                        id: 24,
-                        label: 'All Employee',
-                        link: '/apps/invoice-detail',
-                        parentId: 22
-                    }
-        
-                ]
+                link: '/module/hr/employee-setup',               
                 
             },
             {

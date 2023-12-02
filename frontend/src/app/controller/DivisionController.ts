@@ -6,9 +6,6 @@ import { DivisionSearchDto } from "../dto/request/DivisionSearchDto";
 
 @Injectable({providedIn: 'root'})
 export class DivisionController {
-  saveWithDistrict(floor: any) {
-    throw new Error("Method not implemented.");
-  }
 
   constructor(private httpClient: HttpClient,) {
   }
@@ -17,9 +14,9 @@ export class DivisionController {
     return this.httpClient.post<Division>('http://localhost:8080/division/save', division);
   }
 
-  saveWithRoom(division: Division): Observable<Division> {
-    return this.httpClient.post<Division>('http://localhost:8080/division/save-with-room', division);
-  }
+  // saveWithRoom(division: Division): Observable<Division> {
+  //   return this.httpClient.post<Division>('http://localhost:8080/division/save-with-room', division);
+  // }
 
   update(division: Division): Observable<Division> {
     return this.httpClient.put<Division>('http://localhost:8080/division/update', division);
@@ -33,5 +30,9 @@ export class DivisionController {
 
   search(divisionSearchDto: DivisionSearchDto): Observable<Array<Division>> {
     return this.httpClient.post<Array<Division>>('http://localhost:8080/division/search', divisionSearchDto);
+  }
+
+  searchWithDistrictList(): Observable<Array<Division>> {
+    return this.httpClient.post<Array<Division>>('http://localhost:8080/division/search-with-districtList', {});
   }
 }

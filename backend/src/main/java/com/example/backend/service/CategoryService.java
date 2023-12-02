@@ -10,9 +10,11 @@ import com.example.backend.repository.CategoryRepository;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CategoryService {
 
   private final EntityManager entityManager;

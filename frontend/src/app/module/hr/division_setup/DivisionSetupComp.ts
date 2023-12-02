@@ -19,15 +19,17 @@ export class DivisionSetupComp {
   divisionFg: FormGroup = this.rxFormBuilder.formGroup(Division);
   toFaGfn = toFaGfn;
   divisionList$: Observable<Array<Division>> = new Observable<Array<Division>>();
-
+  divisionWithDistrictList$: Observable<Array<Division>> = new Observable<Array<Division>>;
+  
   constructor(
     public divisionController: DivisionController,
     public rxFormBuilder: RxFormBuilder
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Division' }, { label: 'Division', active: true }];
+    this.searchWithDistrictList();
+    this.search();
   }
 
   save() {
@@ -53,5 +55,9 @@ export class DivisionSetupComp {
 
   search() {
     this.divisionList$ = this.divisionController.search(new DivisionSearchDto({ "idList": [] }));
+  }
+
+  searchWithDistrictList() {
+    this.divisionWithDistrictList$ = this.divisionController.searchWithDistrictList();
   }
 }

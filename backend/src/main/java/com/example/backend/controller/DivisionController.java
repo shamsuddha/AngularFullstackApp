@@ -42,6 +42,10 @@ public class DivisionController {
     public @ResponseBody ResponseEntity<?> search() {
         return new ResponseEntity<>(this.divisionService.search(), HttpStatus.OK);
     }
+    @PostMapping(value = "/search-with-districtList")
+    public @ResponseBody ResponseEntity<?> searchWithDistrictList() {
+        return new ResponseEntity<>(this.divisionService.searchWithDistrictList(), HttpStatus.OK);
+    }
 
 //    @PostMapping(value = "/searchWithDivisionRole")
 //    public @ResponseBody ResponseEntity<?> searchWithDivisionRole() {

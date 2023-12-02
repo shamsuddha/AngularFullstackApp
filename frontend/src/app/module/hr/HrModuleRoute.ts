@@ -45,6 +45,10 @@ const routes: Routes = [
       {
         path: 'upozila-setup', loadChildren: () => import('./upozila_setup/UpozilaSetupModule')
           .then(m => m.UpozilaSetupModule)
+      },
+      {
+        path: 'employee-setup', loadChildren: () => import('./emoloyee_setup/EmployeeSetupModule')
+          .then(m => m.EmployeeSetupModule)
       }
     ]
   }

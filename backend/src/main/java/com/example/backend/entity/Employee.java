@@ -24,11 +24,29 @@ public class Employee extends AuditLog {
     private Date birthDate;
     private Date hireDate;
     private Date resignDate;
+    private String country;
+    // EMPLOYEE MANY TO ONE DIVISION
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "division_id")
+    private Division division;
+    @Column(name = "division_id", insertable = false, updatable = false)
+    private Long divisionId;
+    // EMPLOYEE MANY TO ONE DISTRICT
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "district_id")
+    private District district;
+    @Column(name = "district_id", insertable = false, updatable = false)
+    private Long districtId;
+    // EMPLOYEE MANY TO ONE UPOZILA
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "upozila_id")
+    private Upozila upozila;
+    @Column(name = "upozila_id", insertable = false, updatable = false)
+    private Long upozilaId;
     private String address;
     private String city;
     private String region;
     private String postalCode;
-    private String country;
     private String homePhone;
     private String extension;
     private String photo;

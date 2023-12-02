@@ -27,7 +27,7 @@
             </div>
           </div>         
           <!-- {{divisionFg.value['addressList'] | json}} -->
-          <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
+          <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-1 mx-1">
             Submit
           </button>
         </form>
@@ -37,7 +37,7 @@
   <div _ngcontent-ng-c352282610="" class="col-xl-8">
     <div _ngcontent-ng-c352282610="" class="card">
       <div _ngcontent-ng-c352282610="" class="card-header">
-        <h4 _ngcontent-ng-c352282610="" class="card-title">Division List</h4>
+        <h4 _ngcontent-ng-c352282610="" class="card-title">DivisionList</h4>
         <p _ngcontent-ng-c352282610="" class="card-title-desc">
           Here you will get all the division list
         </p>
@@ -48,12 +48,52 @@
             <thead _ngcontent-ng-c352282610="" class="table-light">
               <tr _ngcontent-ng-c352282610="">
                 <th _ngcontent-ng-c352282610="">#</th>
-                <th _ngcontent-ng-c352282610="">Name</th>
+                <th _ngcontent-ng-c352282610="">Division Name</th>               
                 <th _ngcontent-ng-c352282610="">Action</th>
               </tr>
             </thead>
             <tbody _ngcontent-ng-c352282610="">
               <tr _ngcontent-ng-c352282610="" *ngFor="let division of divisionList$ | async; let i = index">
+                <th _ngcontent-ng-c352282610="" scope="row">{{division.id}}</th>
+                <td _ngcontent-ng-c352282610="">{{division.name}}</td>
+                <td _ngcontent-ng-c352282610="">
+                  <button type="button" (click)="onUpdateClick(division)"
+                    class="btn btn-info waves-effect waves-light mx-1">
+                    Edit
+                  </button>
+                  <button type="button" (click)="delete(division)"
+                    class="btn btn-danger waves-effect waves-light mx-1">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div _ngcontent-ng-c352282610="" class="col-xl-12">
+    <div _ngcontent-ng-c352282610="" class="card">
+      <div _ngcontent-ng-c352282610="" class="card-header">
+        <h4 _ngcontent-ng-c352282610="" class="card-title">Division With DistrictList</h4>
+        <p _ngcontent-ng-c352282610="" class="card-title-desc">
+          Here you will get all the divisions with district list
+        </p>
+      </div>
+      <div _ngcontent-ng-c352282610="" class="card-body">
+        <div _ngcontent-ng-c352282610="" class="table-responsive">
+          <table _ngcontent-ng-c352282610="" class="table mb-0">
+            <thead _ngcontent-ng-c352282610="" class="table-light">
+              <tr _ngcontent-ng-c352282610="">
+                <th _ngcontent-ng-c352282610="">#</th>
+                <th _ngcontent-ng-c352282610="">Division Name</th>
+                <th _ngcontent-ng-c352282610="">District Name</th>
+                <th _ngcontent-ng-c352282610="">Action</th>
+              </tr>
+            </thead>
+            <tbody _ngcontent-ng-c352282610="">
+              <tr _ngcontent-ng-c352282610="" *ngFor="let division of divisionWithDistrictList$ | async; let i = index">
                 <th _ngcontent-ng-c352282610="" scope="row">{{division.id}}</th>
                 <td _ngcontent-ng-c352282610="">{{division.name}}</td>
                 <td _ngcontent-ng-c352282610="">
