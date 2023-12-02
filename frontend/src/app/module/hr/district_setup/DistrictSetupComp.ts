@@ -26,7 +26,8 @@ export class DistrictSetupComp {
   upozilaList$: Observable<Array<Upozila>> = new Observable<Array<Upozila>>();
   districtList$: Observable<Array<District>> = new Observable<Array<District>>();
   divisionList$: Observable<Array<Division>> = new Observable<Array<Division>>();
-
+  districtListWithDivision$: Observable<Array<District>> = new Observable<Array<District>>();
+  
   constructor(
     public rxFormBuilder: RxFormBuilder,
     public districtController: DistrictController,
@@ -34,7 +35,7 @@ export class DistrictSetupComp {
   }
 
   ngOnInit() {
-    this.search();
+    this.searchWithDivision();
     this.divisionList$ = this.divisionController.search(new DivisionSearchDto({ "idList": [] }))
     this.breadCrumbItems = [{ label: 'District' }, { label: 'District', active: true }];
   }
@@ -53,7 +54,7 @@ export class DistrictSetupComp {
   }
 
   // updateOrderWithDetailList() {
-  //   this.districtFg.patchValue({code: 'code 1',});
+  //   this.districtFg.patchValue();
   //   [1, 2, 3].forEach((e, i) => {
   //     (<FormArray>this.orderInfoFg.get('vehicleList'))
   //       .push(this.rxFormBuilder.formGroup(new OrderInfoDetail({
@@ -85,8 +86,9 @@ export class DistrictSetupComp {
     console.log((<FormGroup>fg).value)
   }
 
-  searchWithFloor() {
-    this.districtList$ = this.districtController.searchWithDivision();
+  searchWithDivision() {
+    this.districtListWithDivision$ = this.districtController.searchWithDivision();
+    console.log(this.districtListWithDivision$);
   }
 
   reset() {

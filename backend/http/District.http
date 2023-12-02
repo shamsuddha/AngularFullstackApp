@@ -1,0 +1,35 @@
+POST http://localhost:8080/district/search-with-division
+Content-Type: application/json
+
+{
+  "idList": []
+}
+
+
+###
+PUT http://localhost:8080/category/update
+Content-Type: application/json
+
+{
+  "id": 41,
+  "name": "user 12345",
+  "email" : "email13@gmail13.com",
+
+}
+
+###
+DELETE http://localhost:8080/category/delete
+Content-Type: application/json
+
+{
+  "id": 42
+}
+
+###
+POST http://localhost:8080/category/search
+Content-Type: application/json
+
+{
+  "idList": []
+}
+

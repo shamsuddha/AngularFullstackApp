@@ -37,4 +37,15 @@ public class DistrictService {
         districtSaved.setUpozilaListSerde(upozilaListSaved);
         return districtSaved;
     }
+
+    public List<District> searchWithDivision() {
+            final QDivision qDivision = QDivision.division;
+            final QDistrict qDistrict = QDistrict.district;
+
+            final JPAQuery<District> query = new JPAQuery<>(entityManager);
+            List<District> districtList = query.from(qDistrict)
+                    .leftJoin(qDistrict.division, qDivision).fetchJoin()
+                    .fetch();
+            return districtList;
+    }
 }

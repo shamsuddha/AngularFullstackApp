@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
 import { RxFormBuilder } from "@rxweb/reactive-form-validators";
-import { Observable, filter, map } from "rxjs";
+import { Observable, Subscription, filter, map, tap } from "rxjs";
 import { toFaGfn } from "../../../../util/MiscUtil";
 import { Employee } from "src/app/entity/Employee";
 import { Division } from "src/app/entity/Division";
@@ -13,6 +13,7 @@ import { DistrictController } from "src/app/controller/DistrictController";
 import { UpozilaController } from "src/app/controller/UpozilaController";
 import { DivisionSearchDto } from "src/app/dto/request/DivisionSearchDto";
 import { DistrictSearchDto } from "src/app/dto/request/DisctrictSearchDto";
+import { UpozilaSearchDto } from "src/app/dto/request/UpozilaSearchDto";
 
 @Component({
   selector: 'EmployeeSetupComp',
@@ -21,7 +22,7 @@ import { DistrictSearchDto } from "src/app/dto/request/DisctrictSearchDto";
   //standalone: true
 })
 
-export class EmployeeSetupComp implements OnInit {
+export class EmployeeSetupComp implements OnInit, OnDestroy {
 
   breadCrumbItems: Array<{}> = [];
   title!: string;
@@ -74,6 +75,7 @@ export class EmployeeSetupComp implements OnInit {
   // ];
 
   // upozilaList: Array<{ id: number, name: string }> = [];
+  subscription1!: Subscription;
 
   constructor(
     public employeeController: EmployeeController,
@@ -92,25 +94,34 @@ export class EmployeeSetupComp implements OnInit {
     this.breadCrumbItems = [{ label: 'employee' }, { label: 'employee', active: true }];
   }
 
-  onSelectDivision(division: Division) {
-    this.employeeFg.patchValue({
-      divisionName: division.name
-    });
+  onSelectDivision(division: Division) {    
+    this.employeeFg.patchValue({divisionName: division.name});
+    // this.subscription1 = this.districtController.search(new DistrictSearchDto({ "idList": [] }))
+    //   .pipe(
+    //     map(e => e.filter(district => district.divisionId = division.id))
+    //   )
+    //   .subscribe(e => {
+    //     console.log(e)
+    //   });
 
-    //console.log(division);
     this.districtList$ = this.districtController.search(new DistrictSearchDto({ "idList": [] }))
       .pipe(
-        map(e => e.filter(district => district.divisionId = division.id))
-      ).subscribe(e => console.log(e))
-    console.log(this.districtList$);
+        map(e => e.filter(district => district.divisionId == division.id)),
+        tap((e)=> console.log(e))
+      )
+      //console.log(this.districtList$);
   }
 
-  onSelectDistrict($event: { id: number, name: string }) {
-    this.employeeFg.patchValue({
-      districtName: $event.name
+  ngOnDestroy(): void {
+    this.subscription1.unsubscribe();
+  }
 
-    });
-
+  onSelectDistrict(district: District) {    
+    this.employeeFg.patchValue({ districtName: district.name});
+    this.upozilaList$ = this.upozilaController.search(new UpozilaSearchDto({ "idList": [] }))
+    .pipe(
+      map(e => e.filter(upozila => upozila.districtId == district.id))
+    )
     // console.log($event);
     // console.log(this.upozilaWithDistrictList);
     // this.upozilaList = this.upozilaWithDistrictList.filter((e) => e.districtId == $event.id);

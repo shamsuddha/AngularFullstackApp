@@ -17,7 +17,7 @@
             class="form-control" 
             bindLabel="name" 
             bindValue="id"
-            formControlName="divisionId" 
+            formControlName="division" 
             (change)="onSelectDivision($event)">
             </ng-select>
           </div>
@@ -27,7 +27,7 @@
             class="form-control" 
             bindLabel="name" 
             bindValue="id"
-            formControlName="districtId"
+            formControlName="district"
             (change)="onSelectDistrict($event)">
             </ng-select>
           </div>
@@ -37,7 +37,7 @@
             class="form-control" 
             bindLabel="name" 
             bindValue="id"
-            formControlName="districtId">
+            formControlName="upozila">
             </ng-select>
           </div>
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">

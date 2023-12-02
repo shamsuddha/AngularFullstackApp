@@ -48,5 +48,10 @@ public class DistrictController {
     public @ResponseBody ResponseEntity<?> search() {
         return new ResponseEntity<>(this.districtService.search(), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/search-with-division")
+    public @ResponseBody ResponseEntity<?> searchWithDivision() {
+        return new ResponseEntity<>(this.districtService.searchWithDivision(), HttpStatus.OK);
+    }
 }
 

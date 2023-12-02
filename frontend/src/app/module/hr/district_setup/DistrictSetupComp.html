@@ -10,16 +10,14 @@
       <div class="card-body">
         <form [formGroup]="districtFg">
           <div class="mb-4">
-            <label class="form-label" for="name">Select a division</label>           
-            <ng-select [items]="divisionList$ | async"
-                       bindLabel="name"
-                       formControlName="division"
-                       class="form-control">
+            <label class="form-label" for="name">Select a division</label>
+            <ng-select [items]="divisionList$ | async" bindLabel="name" formControlName="division" class="form-control">
             </ng-select>
           </div>
           <div class="mb-4">
             <label class="form-label" for="name">District Name</label>
-            <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter district name" />
+            <input formControlName="name" class="form-control" type="text" id="name"
+              placeholder="Enter district name" />
             <!-- {{districtFg.controls['name'].errors | json}} -->
             <div *ngIf="districtFg.controls['name'].touched
                       && districtFg.controls['name'].errors?.['maxLength']" style="color: red">
@@ -33,7 +31,7 @@
                   && districtFg.controls['name'].errors?.['required']" style="color: red">
               This field is required
             </div>
-          </div>         
+          </div>
           <!-- {{districtFg.value['addressList'] | json}} -->
           <button (click)="addUpozila()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Add Upozila With this district
@@ -45,19 +43,20 @@
                 <div class="mb-4 mt-2">
                   <label class="form-label" for="name">Upozila Name</label>
                   <input class="form-control" formControlName="name" type="text" id="name"
-                         placeholder="Enter upozila name"/>
-                </div>             
+                    placeholder="Enter upozila name" />
+                </div>
                 <button (click)="delete(fg,index)" class="btn btn-outline-primary waves-effect">Delete</button>
               </div>
               <hr>
             </div>
           </div>
-          <button type="button" (click)="saveWithUpozila()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
+          <button type="button" (click)="saveWithUpozila()"
+            class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Submit
           </button>
           <button type="button" (click)="reset()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Reset
-          </button>         
+          </button>
         </form>
       </div>
     </div>
@@ -65,9 +64,9 @@
   <div _ngcontent-ng-c352282610="" class="col-xl-8">
     <div _ngcontent-ng-c352282610="" class="card">
       <div _ngcontent-ng-c352282610="" class="card-header">
-        <h4 _ngcontent-ng-c352282610="" class="card-title">District List</h4>
+        <h4 _ngcontent-ng-c352282610="" class="card-title">District List with division</h4>
         <p _ngcontent-ng-c352282610="" class="card-title-desc">
-          Here you will get all the district list
+          Here you will get all the district list with division
         </p>
       </div>
       <div _ngcontent-ng-c352282610="" class="card-body">
@@ -75,16 +74,16 @@
           <table _ngcontent-ng-c352282610="" class="table mb-0">
             <thead _ngcontent-ng-c352282610="" class="table-light">
               <tr _ngcontent-ng-c352282610="">
-                <th _ngcontent-ng-c352282610="">#</th>                
-                <th _ngcontent-ng-c352282610="">Division Name</th>
+                <th _ngcontent-ng-c352282610="">#</th>
+                <th _ngcontent-ng-c352282610="">Division Name</th>                
                 <th _ngcontent-ng-c352282610="">District Name</th>
                 <th _ngcontent-ng-c352282610="">Action</th>
               </tr>
             </thead>
             <tbody _ngcontent-ng-c352282610="">
-              <tr _ngcontent-ng-c352282610="" *ngFor="let district of districtList$ | async; let i = index">
-                <th _ngcontent-ng-c352282610="" scope="row">{{district.id}}</th>
-                <td _ngcontent-ng-c352282610="">{{district.division?.name}}</td>
+              <tr _ngcontent-ng-c352282610="" *ngFor="let district of districtListWithDivision$ | async; let i = index">
+                <td _ngcontent-ng-c352282610="">{{district.id}}</td>
+                <th _ngcontent-ng-c352282610="" scope="row">{{district.division?.name}}</th>
                 <td _ngcontent-ng-c352282610="">{{district.name}}</td>
                 <td _ngcontent-ng-c352282610="">
                   <!-- <button type="button" (click)="onUpdateClick(district)"
