@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { UpozilaSetupComp } from './UpozilaSetupComp';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations:  [
@@ -24,6 +25,7 @@ import { UpozilaSetupComp } from './UpozilaSetupComp';
     RxReactiveFormsModule,
     NgSelectModule,
     HttpClientModule,
+    AgGridModule
   ],
 
   providers: [
