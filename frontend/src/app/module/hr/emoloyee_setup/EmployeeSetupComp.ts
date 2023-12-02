@@ -1,13 +1,8 @@
-import {Component, OnInit} from "@angular/core";
-import {AbstractControl, FormArray, FormGroup} from "@angular/forms";
-import {RxFormBuilder} from "@rxweb/reactive-form-validators";
-import {Observable, filter} from "rxjs";
-import {toFaGfn} from "../../../../util/MiscUtil";
-import {FloorController} from "src/app/controller/FloorController";
-import {FloorSearchDto} from "src/app/dto/request/FloorSearchDto";
-import {Floor} from "src/app/entity/Floor";
-import {Room} from "src/app/entity/Room";
-import {RoomController} from "src/app/controller/RoomController";
+import { Component, OnInit } from "@angular/core";
+import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
+import { RxFormBuilder } from "@rxweb/reactive-form-validators";
+import { Observable, filter, map } from "rxjs";
+import { toFaGfn } from "../../../../util/MiscUtil";
 import { Employee } from "src/app/entity/Employee";
 import { Division } from "src/app/entity/Division";
 import { District } from "src/app/entity/District";
@@ -18,7 +13,6 @@ import { DistrictController } from "src/app/controller/DistrictController";
 import { UpozilaController } from "src/app/controller/UpozilaController";
 import { DivisionSearchDto } from "src/app/dto/request/DivisionSearchDto";
 import { DistrictSearchDto } from "src/app/dto/request/DisctrictSearchDto";
-import { UpozilaSearchDto } from "src/app/dto/request/UpozilaSearchDto";
 
 @Component({
   selector: 'EmployeeSetupComp',
@@ -28,7 +22,6 @@ import { UpozilaSearchDto } from "src/app/dto/request/UpozilaSearchDto";
 })
 
 export class EmployeeSetupComp implements OnInit {
-
 
   breadCrumbItems: Array<{}> = [];
   title!: string;
@@ -41,22 +34,87 @@ export class EmployeeSetupComp implements OnInit {
   districtList$: Observable<Array<District>> = new Observable<Array<District>>();
   upozilaList$: Observable<Array<Upozila>> = new Observable<Array<Upozila>>();
 
+  // divisionList: Array<{ id: number, name: string }> = [
+  //   { id: 1, name: 'Division 1' },
+  //   { id: 2, name: 'Division 2' },
+  //   { id: 3, name: 'Division 3' },
+  // ];
+  // districtWithDivisionList: Array<{id: number, name: string, divisionId: number}> = [
+  //   { id: 1, name: 'district 11', divisionId: 1 },
+  //   { id: 2, name: 'district 12', divisionId: 1 },
+  //   { id: 3, name: 'district 13', divisionId: 1 },
+  //   { id: 4, name: 'district 21', divisionId: 2 },
+  //   { id: 5, name: 'district 22', divisionId: 2 },
+  //   { id: 6, name: 'district 22', divisionId: 2 },
+  //   { id: 7, name: 'district 31', divisionId: 3 },
+  //   { id: 8, name: 'district 32', divisionId: 3 },
+  //   { id: 9, name: 'district 33', divisionId: 3 },
+  // ];
+  // districtList: Array<{ id: number, name: string }> = [];
+  // upozilaWithDistrictList: Array<{id: number, name: string, districtId: number}> = [
+  //   { id: 1, name: 'upozila 11', districtId: 1 },
+  //   { id: 2, name: 'upozila 12', districtId: 1 },
+  //   { id: 3, name: 'upozila 21', districtId: 2 },
+  //   { id: 4, name: 'upozila 22', districtId: 2 },
+  //   { id: 5, name: 'upozila 31', districtId: 3 },
+  //   { id: 6, name: 'upozila 32', districtId: 3 },
+  //   { id: 7, name: 'upozila 41', districtId: 4 },
+  //   { id: 8, name: 'upozila 42', districtId: 4 },
+  //   { id: 9, name: 'upozila 51', districtId: 5 },
+  //   { id: 10, name: 'upozila 52', districtId: 5 },
+  //   { id: 11, name: 'upozila 61', districtId: 6 },
+  //   { id: 12, name: 'upozila 62', districtId: 6 },
+  //   { id: 13, name: 'upozila 71', districtId: 7 },
+  //   { id: 14, name: 'upozila 72', districtId: 7 },
+  //   { id: 15, name: 'upozila 81', districtId: 8 },
+  //   { id: 16, name: 'upozila 82', districtId: 8 },
+  //   { id: 17, name: 'upozila 91', districtId: 9 },
+  //   { id: 18, name: 'upozila 92', districtId: 9 },
+  //   { id: 19, name: 'upozila 93', districtId: 9 },
+  // ];
+
+  // upozilaList: Array<{ id: number, name: string }> = [];
+
   constructor(
     public employeeController: EmployeeController,
     public divisionController: DivisionController,
     public districtController: DistrictController,
-    public upozilaController: UpozilaController,   
+    public upozilaController: UpozilaController,
     public rxFormBuilder: RxFormBuilder,
-
   ) {
   }
 
   ngOnInit() {
     this.search();
-    this.divisionList$ = this.divisionController.search(new DivisionSearchDto({"idList": []}))
-    this.districtList$ = this.districtController.search(new DistrictSearchDto({"idList": []}))
-    this.upozilaList$ = this.upozilaController.search(new UpozilaSearchDto({"idList": []}))    
-    this.breadCrumbItems = [{label: 'employee'}, {label: 'employee', active: true}];
+    this.divisionList$ = this.divisionController.search(new DivisionSearchDto({ "idList": [] }))
+    // this.districtList$ = this.districtController.search(new DistrictSearchDto({"idList": []}))
+    // this.upozilaList$ = this.upozilaController.search(new UpozilaSearchDto({"idList": []}))    
+    this.breadCrumbItems = [{ label: 'employee' }, { label: 'employee', active: true }];
+  }
+
+  onSelectDivision(division: Division) {
+    this.employeeFg.patchValue({
+      divisionName: division.name
+    });
+
+    //console.log(division);
+    this.districtList$ = this.districtController.search(new DistrictSearchDto({ "idList": [] }))
+      .pipe(
+        map(e => e.filter(district => district.divisionId = division.id))
+      ).subscribe(e => console.log(e))
+    console.log(this.districtList$);
+  }
+
+  onSelectDistrict($event: { id: number, name: string }) {
+    this.employeeFg.patchValue({
+      districtName: $event.name
+
+    });
+
+    // console.log($event);
+    // console.log(this.upozilaWithDistrictList);
+    // this.upozilaList = this.upozilaWithDistrictList.filter((e) => e.districtId == $event.id);
+    // console.log(this.upozilaList);
   }
 
   save() {
@@ -73,7 +131,7 @@ export class EmployeeSetupComp implements OnInit {
 
   update() {
     this.employeeController.update(this.employeeFg.value)
-    .subscribe((e) => {
+      .subscribe((e) => {
         this.search();
       });
   }
@@ -94,33 +152,6 @@ export class EmployeeSetupComp implements OnInit {
   }
 
   reset() {
-   // this.employeeFg.reset();
-  }
-
-  onSelectDivision(division: Division) {
-    this.employeeFg.patchValue({
-      divisionName: division.name
-    });
-    
-    this.districtList$ =  this.districtController.search(new DistrictSearchDto({"idList": []}))
-    .pipe(
-      filter((e:Array<District>) => {
-        return  e.find((t: District) => t.divisionId == division.id));
-      }).subscribe();
-
-
-  
-
-   
-  onSelectDistrict($event: { id: number, name: string }) {
-    this.employeeFg.patchValue({
-      districtName: $event.name
-
-    });
-
-    console.log($event);
-    console.log(this.thanaWithDistrictList);
-    this.thanaList = this.thanaWithDistrictList.filter((e) => e.districtId == $event.id);
-    console.log(this.thanaList);
+    // this.employeeFg.reset();
   }
 }
