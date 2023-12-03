@@ -14,7 +14,6 @@ export class Floor extends AuditLog{
   roomList: Array<Room> = [];
   roomListSerde: Array<Room> = [];
 
-  
   constructor(o?: Partial<Floor>) {
     super();
     Object.assign(this, o);

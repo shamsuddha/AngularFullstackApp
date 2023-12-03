@@ -27,8 +27,6 @@ public class Product extends AuditLog {
     private Integer unitPrice;
     private Integer unitsInStock;
     private Integer unitsOnOrder;
-    private String reorderLevel;
-    private String discontinued;
     private String description;
 
     // PRODUCT MANY TO ONE CATEGORY
