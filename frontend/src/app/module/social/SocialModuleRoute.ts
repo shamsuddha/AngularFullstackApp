@@ -6,15 +6,14 @@ const routes: Routes = [
   {
     path: '', component: SocialModuleComp,
     children: [
-      // {
-      //   path: 'post-setup', loadChildren: () => import('./post/UserInfoSetupModule')
-      //     .then(m => m.UserInfoSetupModule)
-      // },
-      // {
-      //   path: 'comment-setup', loadChildren: () => import('./role_setup/RoleSetupModule')
-      //     .then(m => m.RoleSetupModule)
-      // },
-    
+      {
+        path: 'post-setup', loadChildren: () => import('./post_setup/PostSetupModule')
+          .then(m => m.PostSetupModule)
+      },
+      {
+        path: 'comment-setup', loadChildren: () => import('./comment_setup/CommentSetupModule')
+          .then(m => m.CommentSetupModule)
+      },   
       
     ]
   }

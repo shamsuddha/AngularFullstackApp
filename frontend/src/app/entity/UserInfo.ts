@@ -6,6 +6,7 @@ import { Address } from './Address';
 import { Role } from './Role';
 import { UserInfoRole } from './UserInfoRole';
 import {AuditLog} from "./AuditLog";
+import { Post } from './Post';
 
 export class UserInfo extends AuditLog{  // FormGroup
 
@@ -20,9 +21,20 @@ export class UserInfo extends AuditLog{  // FormGroup
   @prop() email: string | null = null;
   @prop() mobile: number | null = null;
 
+  @propArray(Post, {createBlank: false})
+  postList: Array<Post> = [];
+  postListSerde: Array<Post> = [];
+
+  @propArray(Comment, {createBlank: false})
+  commentList: Array<Comment> = [];
+  commentListSerde: Array<Comment> = [];
+
   @propArray(UserInfoRole, {createBlank: false})
   userInfoRoleList: Array<UserInfoRole> = [];
+  userInfoRoleListSerde: Array<UserInfoRole> = [];
+  
   // @propObject(Brand, { autoCreate: true }) brand: Brand | null = null;
+
   constructor(o?: Partial<UserInfo>) {
     super();
     Object.assign(this, o);

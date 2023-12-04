@@ -310,65 +310,24 @@ export const MENU: MenuItem[] = [
             {
                 id: 53,
                 label: 'Post',
-                link: '/apps/invoice-list',
-                subItems: [
-                    {
-                        id: 54,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 53
-                    },
-                    {
-                        id: 55,
-                        label: 'All Post',
-                        link: '/apps/invoice-detail',
-                        parentId: 53
-                    }                    
-                ]
+                link: '/module/social/post-setup',                
+            },            
+            {
+                id: 54,
+                label: 'Comment',
+                link: '/module/social/comment-setup', 
+                
             },
             {
                 id: 56,
                 label: 'Status',
                 link: '/apps/invoice-detail',
-                subItems: [
-                    {
-                        id: 57,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 56
-                    },
-                    {
-                        id: 58,
-                        label: 'All Status',
-                        link: '/apps/invoice-detail',
-                        parentId: 56
-                    }                    
-                ]
+               
             },
-            {
-                id: 59,
-                label: 'Comment',
-                link: '/apps/invoice-detail',
-                subItems: [
-                    {
-                        id: 60,
-                        label: 'Add New',
-                        link: '/apps/invoice-list',
-                        parentId: 59
-                    },
-                    {
-                        id: 61,
-                        label: 'All Comments',
-                        link: '/apps/invoice-detail',
-                        parentId: 59
-                    }                    
-                ]
-              
-            }
         ]
     },
     {
-        id: 53,
+        id: 60,
         label: 'Only For Admin',
         isTitle: true,
     },

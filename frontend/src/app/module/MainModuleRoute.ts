@@ -15,7 +15,7 @@ const routes: Routes = [
           .then(m => m.EcommerceModule)
       },
       {
-        path: 'social', loadChildren: () => import('./ecommerce/SocialModule')
+        path: 'social', loadChildren: () => import('./social/SocialModule')
           .then(m => m.SocialModule)
       },
     ]
