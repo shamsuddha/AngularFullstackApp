@@ -11,12 +11,13 @@ export class PostController {
   }
 
   save(post: Post): Observable<Post> {
+    console.log(post);
     return this.httpClient.post<Post>('http://localhost:8080/post/save', post);
   }
 
-  saveWithRoom(post: Post): Observable<Post> {
-    return this.httpClient.post<Post>('http://localhost:8080/post/save-with-room', post);
-  }
+  // saveWithRoom(post: Post): Observable<Post> {
+  //   return this.httpClient.post<Post>('http://localhost:8080/post/save-with-room', post);
+  // }
 
   update(post: Post): Observable<Post> {
     return this.httpClient.put<Post>('http://localhost:8080/post/update', post);
