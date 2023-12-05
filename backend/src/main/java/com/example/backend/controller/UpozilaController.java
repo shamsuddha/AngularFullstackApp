@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.controller.search_dto.UpozilaSearchDto;
 import com.example.backend.entity.Upozila;
 import com.example.backend.repository.UpozilaRepository;
 import com.example.backend.service.UpozilaService;
@@ -44,7 +45,12 @@ public class UpozilaController {
     }
 
     @PostMapping(value = "/search-with-district")
-    public @ResponseBody ResponseEntity<?> searchWithDistrict() {
-        return new ResponseEntity<>(this.upozilaService.searchWithDistrict(), HttpStatus.OK);
+    public @ResponseBody ResponseEntity<?> searchWithDistrict(@RequestBody UpozilaSearchDto upozilaSearchDto) {
+        return new ResponseEntity<>(this.upozilaService.searchWithDistrict(upozilaSearchDto), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/search-with-district-with-division")
+    public @ResponseBody ResponseEntity<?> searchWithDistrictWithDivision(@RequestBody UpozilaSearchDto upozilaSearchDto) {
+        return new ResponseEntity<>(this.upozilaService.searchWithDistrictWithDivision(upozilaSearchDto), HttpStatus.OK);
     }
 }

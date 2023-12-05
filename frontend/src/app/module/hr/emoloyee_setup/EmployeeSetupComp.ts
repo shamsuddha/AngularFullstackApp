@@ -1,19 +1,20 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
-import { RxFormBuilder } from "@rxweb/reactive-form-validators";
-import { Observable, Subscription, filter, map, tap } from "rxjs";
-import { toFaGfn } from "../../../../util/MiscUtil";
-import { Employee } from "src/app/entity/Employee";
-import { Division } from "src/app/entity/Division";
-import { District } from "src/app/entity/District";
-import { Upozila } from "src/app/entity/Upozila";
-import { EmployeeController } from "src/app/controller/EmployeeController";
-import { DivisionController } from "src/app/controller/DivisionController";
-import { DistrictController } from "src/app/controller/DistrictController";
-import { UpozilaController } from "src/app/controller/UpozilaController";
-import { DivisionSearchDto } from "src/app/dto/request/DivisionSearchDto";
-import { DistrictSearchDto } from "src/app/dto/request/DisctrictSearchDto";
-import { UpozilaSearchDto } from "src/app/dto/request/UpozilaSearchDto";
+import {Component, OnDestroy, OnInit} from "@angular/core";
+import {FormGroup} from "@angular/forms";
+import {RxFormBuilder} from "@rxweb/reactive-form-validators";
+import {map, Observable, Subscription, tap} from "rxjs";
+import {toFaGfn} from "../../../../util/MiscUtil";
+import {Employee} from "src/app/entity/Employee";
+import {Division} from "src/app/entity/Division";
+import {District} from "src/app/entity/District";
+import {Upozila} from "src/app/entity/Upozila";
+import {EmployeeController} from "src/app/controller/EmployeeController";
+import {DivisionController} from "src/app/controller/DivisionController";
+import {DistrictController} from "src/app/controller/DistrictController";
+import {UpozilaController} from "src/app/controller/UpozilaController";
+import {DivisionSearchDto} from "src/app/dto/request/DivisionSearchDto";
+import {DistrictSearchDto} from "src/app/dto/request/DisctrictSearchDto";
+import {UpozilaSearchDto} from "../../../controller/search_dto/UpozilaSearchDto";
+
 
 @Component({
   selector: 'EmployeeSetupComp',
@@ -90,11 +91,11 @@ export class EmployeeSetupComp implements OnInit, OnDestroy {
     this.search();
     this.divisionList$ = this.divisionController.search(new DivisionSearchDto({ "idList": [] }))
     // this.districtList$ = this.districtController.search(new DistrictSearchDto({"idList": []}))
-    // this.upozilaList$ = this.upozilaController.search(new UpozilaSearchDto({"idList": []}))    
+    // this.upozilaList$ = this.upozilaController.search(new UpozilaSearchDto({"idList": []}))
     this.breadCrumbItems = [{ label: 'employee' }, { label: 'employee', active: true }];
   }
 
-  onSelectDivision(division: Division) {    
+  onSelectDivision(division: Division) {
     this.employeeFg.patchValue({divisionName: division.name});
     // this.subscription1 = this.districtController.search(new DistrictSearchDto({ "idList": [] }))
     //   .pipe(
@@ -116,9 +117,9 @@ export class EmployeeSetupComp implements OnInit, OnDestroy {
     this.subscription1.unsubscribe();
   }
 
-  onSelectDistrict(district: District) {    
+  onSelectDistrict(district: District) {
     this.employeeFg.patchValue({ districtName: district.name});
-    this.upozilaList$ = this.upozilaController.search(new UpozilaSearchDto({ "idList": [] }))
+    this.upozilaList$ = this.upozilaController.search(new UpozilaSearchDto())
     .pipe(
       map(e => e.filter(upozila => upozila.districtId == district.id))
     )

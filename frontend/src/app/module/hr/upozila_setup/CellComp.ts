@@ -1,3 +1,4 @@
+/*
 import {Component} from "@angular/core";
 import {ICellRendererAngularComp} from "ag-grid-angular";
 
@@ -38,3 +39,4 @@ export class CellComp implements ICellRendererAngularComp {
     return false;
   }
 }
+*/
