@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate6.Hibernate6Module;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -43,7 +45,7 @@ public class BackendApplication {
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);  // request => from json to object/entity
     objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);  // response => from object/entity to json
     objectMapper.registerModule(new Hibernate6Module()); //Registering Hibernate6Module to support lazy objects
-
+    objectMapper.registerModule(new JavaTimeModule());
     //objectMapper.configure(MapperFeature.PROPAGATE_TRANSIENT_MARKER, true);
     /*objectMapper.setVisibilityChecker(
       objectMapper.getSerializationConfig()

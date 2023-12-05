@@ -1,22 +1,33 @@
 package com.example.backend.util.transform;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+import java.util.stream.Collectors;
 
 public class SwallowCopyUtil {
 
+  public static <X> List<X> swallowCopyList(List<X> list) {
+    return list.parallelStream().map(e-> swallowCopy(e)).collect(Collectors.toList());
+  }
 
-
-  public static <T> T swallowCopy(T entity) throws IllegalAccessException, InstantiationException {
+  public static <T> T swallowCopy(T entity) {
     Class<?> clazz = entity.getClass();
-    T newEntity = (T) entity.getClass().newInstance();
+    T newEntity = null;
+    try {
+      newEntity = (T) entity.getClass().newInstance();
+    } catch (InstantiationException e) {
+      //throw new RuntimeException(e);
+    } catch (IllegalAccessException e) {
+      //throw new RuntimeException(e);
+    }
     while (clazz != null) {
-      copyFields(entity, newEntity, clazz);
+      try {
+        copyFields(entity, newEntity, clazz);
+      } catch (IllegalAccessException e) {
+        //throw new RuntimeException(e);
+      }
       clazz = clazz.getSuperclass();
     }
     return newEntity;
@@ -47,7 +58,7 @@ public class SwallowCopyUtil {
    * Primitive type, Wrapper type, LocalDate, LocalTime, LocalDateTime, Enum
    * No object or collection
    */
-  public static <T> T swallowCopy2(T x, Class<T> clazz) {
+  public static <T> T swallowCopyB1(T x, Class<T> clazz) {
     if (Objects.isNull(x)) {
       return null;
     }

@@ -2,13 +2,13 @@ package com.example.backend.service;
 
 import com.example.backend.entity.*;
 import com.example.backend.repository.DivisionRepository;
-import com.example.backend.util.serde.TransformUtil;
 import com.querydsl.jpa.impl.JPAQuery;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.example.backend.util.transform.TransformUtil;
 
 import java.util.List;
 

@@ -6,6 +6,7 @@ import com.example.backend.entity.QRoom;
 import com.example.backend.entity.Room;
 import com.example.backend.repository.FloorRepository;
 import com.example.backend.repository.RoomRepository;
+import com.example.backend.util.transform.SwallowCopyUtil;
 import com.querydsl.jpa.impl.JPAQuery;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static com.example.backend.util.transform.SwallowCopyUtil.swallowCopy;
+import static com.example.backend.util.transform.SwallowCopyUtil.swallowCopyList;
 
 @Service
 @RequiredArgsConstructor
@@ -31,9 +34,16 @@ public class FloorService {
   @Autowired
   private RoomRepository roomRepository;
 
+  public Floor save(Floor floor) {
+    floor.setCreatedAt(LocalDateTime.now());
+    Floor floorSaved = this.floorRepository.save(floor);
+    return floorSaved;
+  }
+
   public Floor saveWithRoom(Floor floor) {
-    floor.getRoomList().forEach(e -> System.out.println("from prop " + e.getName()));
-    floor.getRoomListSerde().forEach(e -> System.out.println("from serde " + e.getName()));
+//    floor.getRoomList().forEach(e -> System.out.println("from prop " + e.getName()));
+//    floor.getRoomListSerde().forEach(e -> System.out.println("from serde " + e.getName()));
+    floor.setCreatedAt(LocalDateTime.now());
     Floor floorSaved = this.floorRepository.save(floor);
     List<Room> roomList = floor.getRoomList().stream().map(e -> {
       e.setFloor(new Floor(floorSaved.getId()));
@@ -58,19 +68,7 @@ public class FloorService {
       .fetch();
 
     List<Floor> floorWithRoomList5 = floorWithRoomList.stream().map(f1 -> {
-      List<Room> roomListT1 = f1.getRoomList().parallelStream().map(r1 -> {
-        Room r2 = null;
-        try {
-          r2 = swallowCopy(r1);
-        } catch (IllegalAccessException | InstantiationException e) {
-          throw new RuntimeException(e);
-        }
-        System.out.println(Objects.nonNull(r2.getFloor()) ? r2.getFloor().getId() : null);
-        return r2;
-
-      }).toList();
-      //List<Room> roomListT2 = mapList(f1.getRoomList(), Room.class, toRoom);
-      f1.setRoomListSerde(roomListT1);
+      f1.setRoomListSerde(swallowCopyList(f1.getRoomList()));
       return f1;
     }).toList();
     return floorWithRoomList5;

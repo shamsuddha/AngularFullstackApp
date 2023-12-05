@@ -2,8 +2,44 @@ POST http://localhost:8080/floor/save
 Content-Type: application/json
 
 {
-  "name": "user 502",
-  "code" : "email112@gmail.com",
+  "name": "floor 1",
+  "code" : "floor c1"
+}
+
+###
+POST http://localhost:8080/floor/save-with-room
+Content-Type: application/json
+
+{
+  "name": "floor 3",
+  "code" : "floor c3",
+  "roomList": [
+    {
+      "name": "room 31",
+      "code" : "room c31"
+    },{
+      "name": "room 32",
+      "code" : "room c32"
+    },{
+      "name": "room 33",
+      "code" : "room c33"
+    }
+  ]
+}
+
+###
+POST http://localhost:8080/floor/save-with-room
+Content-Type: application/json
+
+{
+  "name": "floor 2",
+  "code" : "floor c2",
+  "roomList": [
+    {
+      "name": "room 21",
+      "code" : "room c11"
+    }
+  ]
 }
 
 ###

@@ -28,7 +28,7 @@ public class AuditLog {
     @Column(name = "created_by_id", updatable = false)
     protected String createdById;
 
-    @JsonIgnore
+   // @JsonIgnore
     @CreatedDate
     @Column(name = "created_at", updatable = false)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

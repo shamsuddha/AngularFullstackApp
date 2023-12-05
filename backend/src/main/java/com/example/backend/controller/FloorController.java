@@ -26,7 +26,7 @@ public class FloorController {
 
     @PostMapping(value = "/save")
     public @ResponseBody ResponseEntity<?> save(@RequestBody Floor floor) {
-        return new ResponseEntity<>(this.floorRepository.save(floor), HttpStatus.OK);
+        return new ResponseEntity<>(this.floorService.save(floor), HttpStatus.OK);
     }
 
     @PostMapping(value = "/save-with-room")
