@@ -3,15 +3,13 @@ import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import { PostSearchDto } from "../dto/request/PostSearchDto";
 import { Post } from "../entity/Post";
-
 @Injectable({providedIn: 'root'})
 export class PostController {
 
   constructor(private httpClient: HttpClient,) {
   }
 
-  save(post: Post): Observable<Post> {
-    console.log(post);
+  save(post: Post): Observable<Post> {   
     return this.httpClient.post<Post>('http://localhost:8080/post/save', post);
   }
 

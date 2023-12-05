@@ -43,8 +43,8 @@ public class CommentController {
         return new ResponseEntity<>(this.commentService.search(), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/search-with-division")
-    public @ResponseBody ResponseEntity<?> searchWithPost() {
-        return new ResponseEntity<>(this.commentService.searchWithPost(), HttpStatus.OK);
-    }
+//    @PostMapping(value = "/search-with-division")
+//    public @ResponseBody ResponseEntity<?> searchWithPost() {
+//        return new ResponseEntity<>(this.commentService.searchWithPost(), HttpStatus.OK);
+//    }
 }
