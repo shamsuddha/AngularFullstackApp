@@ -22,7 +22,6 @@ public class OrderInfoDetail extends AuditLog {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderInfo_id")
     private OrderInfo orderInfo;
-
     @Column(name = "orderInfo_id", insertable = false, updatable = false)
     private Long orderInfoId;
 

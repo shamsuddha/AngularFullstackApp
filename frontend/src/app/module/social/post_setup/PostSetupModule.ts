@@ -5,19 +5,18 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { UpozilaSetupComp } from './UpozilaSetupComp';
-import { AgGridModule } from 'ag-grid-angular';
+import { PostSetupComp } from './PostSetupComp';
 
 @NgModule({
   declarations:  [
-    UpozilaSetupComp
+    PostSetupComp
   ],
   imports:  [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: UpozilaSetupComp,
+        component: PostSetupComp,
       }
     ]),
     FormsModule,
@@ -25,11 +24,11 @@ import { AgGridModule } from 'ag-grid-angular';
     RxReactiveFormsModule,
     NgSelectModule,
     HttpClientModule,
-    AgGridModule
+    
   ],
 
   providers: [
     
   ],
 })
-export class UpozilaSetupModule {}
+export class PostSetupModule {}

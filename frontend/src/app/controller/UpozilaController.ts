@@ -6,7 +6,7 @@ import { UpozilaSearchDto } from "../dto/request/UpozilaSearchDto";
 
 @Injectable({ providedIn: 'root' })
 export class UpozilaController {
-
+ 
   constructor(private httpClient: HttpClient,) {
   }
 
@@ -30,5 +30,9 @@ export class UpozilaController {
 
   search(upozilaSearchDto: UpozilaSearchDto): Observable<Array<Upozila>> {
     return this.httpClient.post<Array<Upozila>>('http://localhost:8080/upozila/search', upozilaSearchDto);
+  }
+
+  searchWithDistrict(): Observable<Array<Upozila>> {
+    return this.httpClient.post<Array<Upozila>>('http://localhost:8080/upozila/search-with-district', {});
   }
 }

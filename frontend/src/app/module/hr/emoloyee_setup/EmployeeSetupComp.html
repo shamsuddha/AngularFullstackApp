@@ -13,23 +13,33 @@
         <form [formGroup]="employeeFg">
           <div class="mb-4">
             <label class="form-label" for="name">Select a Division</label>            
-            <ng-select [items]="divisionList$ | async" class="form-control" bindLabel="name" bindValue="id"
-              formControlName="divisionId" (change)="onSelectDivision($event)">
+            <ng-select [items]="divisionList$ | async" 
+            class="form-control" 
+            bindLabel="name" 
+            bindValue="id"
+            formControlName="division" 
+            (change)="onSelectDivision($event)">
             </ng-select>
           </div>
           <div class="mb-4">
             <label class="form-label" for="name">Select a District</label>           
-            <ng-select [items]="districtList$ | async" class="form-control" bindLabel="name" bindValue="id"
-              formControlName="districtId" (change)="onSelectDistrict($event)">
+            <ng-select [items]="districtList$ | async" 
+            class="form-control" 
+            bindLabel="name" 
+            bindValue="id"
+            formControlName="district"
+            (change)="onSelectDistrict($event)">
             </ng-select>
           </div>
           <div class="mb-4">
             <label class="form-label" for="name">Select a Upozila</label>            
-            <ng-select [items]="districtList$ | async" class="form-control" bindLabel="name" bindValue="id"
-              formControlName="districtId" (change)="onSelectUpozila($event)">
+            <ng-select [items]="upozilaList$ | async" 
+            class="form-control" 
+            bindLabel="name" 
+            bindValue="id"
+            formControlName="upozila">
             </ng-select>
           </div>
-
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-3 mx-1">
             Save
           </button>

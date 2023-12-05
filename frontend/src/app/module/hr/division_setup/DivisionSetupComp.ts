@@ -60,4 +60,8 @@ export class DivisionSetupComp {
   searchWithDistrictList() {
     this.divisionWithDistrictList$ = this.divisionController.searchWithDistrictList();
   }
+
+  openDialog(){
+    
+  }
 }
