@@ -44,8 +44,6 @@ public class Employee extends AuditLog {
     @Column(name = "upozila_id", insertable = false, updatable = false)
     private Long upozilaId;
     private String address;
-    private String city;
-    private String region;
     private String postalCode;
     private String homePhone;
     private String extension;

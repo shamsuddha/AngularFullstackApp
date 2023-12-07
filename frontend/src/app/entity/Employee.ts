@@ -6,8 +6,8 @@ import { Upozila } from "./Upozila";
 export class Employee {
 
   @prop() id: number | null = null;
-  @prop() lastName: string | null = null;
   @prop() firstName: string | null = null;
+  @prop() lastName: string | null = null;
   @prop() title: string | null = null;
   @prop() birthDate: Date | null = null;
   @prop() hireDate: Date | null = null;
@@ -19,9 +19,7 @@ export class Employee {
   @prop() districtId: number | null = null;
   @prop() upozila: Upozila | null = null;
   @prop() upozilaId: number | null = null;
-  @prop() address: string | null = null;
-  @prop() city: string | null = null;
-  @prop() region: string | null = null;
+  @prop() address: string | null = null;  
   @prop() postalCode: string | null = null;
   @prop() homePhone: string | null = null;
   @prop() extension: string | null = null;
