@@ -66,35 +66,35 @@
       </div>
     </div>
   </div>
-  <div _ngcontent-ng-c352282610="" class="col-xl-8">
-    <div _ngcontent-ng-c352282610="" class="card">
-      <div _ngcontent-ng-c352282610="" class="card-header">
-        <h4 _ngcontent-ng-c352282610="" class="card-title">Floor List</h4>
+  <div class="col-xl-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Floor List</h4>
         <button (click)="searchWithFloor()">Search</button>
       </div>
-      <div _ngcontent-ng-c352282610="" class="card-body">
-        <div _ngcontent-ng-c352282610="" class="table-responsive">
-          <table _ngcontent-ng-c352282610="" class="table mb-0">
-            <thead _ngcontent-ng-c352282610="" class="table-light">
-              <tr _ngcontent-ng-c352282610="">
-                <th _ngcontent-ng-c352282610="">Floor id</th>
-                <th _ngcontent-ng-c352282610="">Floor Name</th>
-                <th _ngcontent-ng-c352282610="">Floor Code</th>
-                <th _ngcontent-ng-c352282610="">Room id</th>
-                <th _ngcontent-ng-c352282610="">Room Name</th>
-                <th _ngcontent-ng-c352282610="">Room Code</th>
-                <th _ngcontent-ng-c352282610="">Action</th>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Floor id</th>
+                <th>Floor Name</th>
+                <th>Floor Code</th>
+                <th>Room id</th>
+                <th>Room Name</th>
+                <th>Room Code</th>
+                <th>Action</th>
               </tr>
             </thead>
-            <tbody _ngcontent-ng-c352282610="">
-              <tr _ngcontent-ng-c352282610="" *ngFor="let room of roomList$ | async; let i = index">
-                <td _ngcontent-ng-c352282610="">{{room.floor?.id}}</td>
-                <td _ngcontent-ng-c352282610="">{{room.floor?.name}}</td>
-                <td _ngcontent-ng-c352282610="">{{room.floor?.code}}</td>
-                <th _ngcontent-ng-c352282610="" scope="row">{{room.id}}</th>
-                <td _ngcontent-ng-c352282610="">{{room.name}}</td>
-                <td _ngcontent-ng-c352282610="">{{room.code}}</td>
-                <td _ngcontent-ng-c352282610="">
+            <tbody>
+              <tr *ngFor="let room of roomList$ | async; let i = index">
+                <td>{{room.floor?.id}}</td>
+                <td>{{room.floor?.name}}</td>
+                <td>{{room.floor?.code}}</td>
+                <th scope="row">{{room.id}}</th>
+                <td>{{room.name}}</td>
+                <td>{{room.code}}</td>
+                <td>
                   <button type="button" (click)="onUpdateClick(room)"
                     class="btn btn-info waves-effect waves-light mx-1">
                     Edit

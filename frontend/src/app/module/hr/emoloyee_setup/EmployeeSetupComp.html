@@ -113,21 +113,21 @@
           <table class="table mb-0">
             <thead class="table-light">
               <tr>
-                <th>id</th>
-                <th>Employee Id</th>
-                <th>Role Name</th>
-                <th>User Info Id</th>
-                <th>User Info NAme</th>
+                <th>id</th>                
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Hiring Date</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let employee of employeeList$ | async; let i = index">
                 <td>{{employee.id}}</td>
-                <td>{{employee.id}}</td>
-                <td>{{employee.id}}</td>
-                <td>{{employee.division?.id}}</td>
-                <td>{{employee.division?.name}}</td>
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.birthDate}}</td>
+                <td>{{employee.hireDate}}</td>
                 <td>
                   <button type="button" (click)="onUpdateClick(employee)"
                     class="btn btn-info waves-effect waves-light mx-1">Edit

@@ -10,23 +10,23 @@ export class EmployeeController {
   constructor(private httpClient: HttpClient,) { }
 
   save(employee: Employee): Observable<Employee> {
-    return this.httpClient.post<Employee>('http://localhost:8080/user-info-role/save', employee);
+    return this.httpClient.post<Employee>('http://localhost:8080/employee/save', employee);
   }
 
   update(employee: Employee): Observable<Employee> {
-    return this.httpClient.put<Employee>('http://localhost:8080/user-info-role/update', employee);
+    return this.httpClient.put<Employee>('http://localhost:8080/employee/update', employee);
   }
 
   delete(employee: Employee): Observable<boolean> {
-    return this.httpClient.delete<boolean>('http://localhost:8080/user-info-role/delete', { body: employee })
+    return this.httpClient.delete<boolean>('http://localhost:8080/employee/delete', { body: employee })
     //.subscribe((e)=>{ });
   }
 
   search(employeeSearchDto: EmployeeSearchDto): Observable<Array<Employee>> {
-    return this.httpClient.post<Array<Employee>>('http://localhost:8080/user-info-role/search', employeeSearchDto);
+    return this.httpClient.post<Array<Employee>>('http://localhost:8080/employee/search', employeeSearchDto);
   }
 
   searchWithEmployee(): Observable<Array<Employee>> {
-    return this.httpClient.post<Array<Employee>>('http://localhost:8080/user-info-role/search-with-user-info-role',{});
+    return this.httpClient.post<Array<Employee>>('http://localhost:8080/employee/search-with-employee',{});
   }
 }

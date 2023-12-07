@@ -14,6 +14,7 @@ import {UpozilaController} from "src/app/controller/UpozilaController";
 import {DivisionSearchDto} from "src/app/dto/request/DivisionSearchDto";
 import {DistrictSearchDto} from "src/app/dto/request/DisctrictSearchDto";
 import {UpozilaSearchDto} from "../../../controller/search_dto/UpozilaSearchDto";
+import { EmployeeSearchDto } from "src/app/dto/request/EmployeeSearchDto";
 
 
 @Component({
@@ -156,7 +157,7 @@ export class EmployeeSetupComp implements OnInit, OnDestroy {
 
   search() {
     //this.employeeList$ = this.employeeSetupController.search(new EmployeeSearchDto({"idList": []}));
-    this.employeeList$ = this.employeeController.searchWithEmployee();
+    this.employeeList$ = this.employeeController.search(new EmployeeSearchDto({"idList":[]}));
 
     /*.subscribe((e:Array<Role>)=>{
     console.log(e)
