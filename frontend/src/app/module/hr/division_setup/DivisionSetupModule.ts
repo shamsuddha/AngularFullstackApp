@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { DivisionSetupComp } from './DivisionSetupComp';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { DistrictDialogComp } from './dialog/DistrictDialogComp';
+import { AgGridModule } from 'ag-grid-angular'; // Angular Grid Logic
 
 @NgModule({
   declarations:  [
@@ -27,7 +28,8 @@ import { DistrictDialogComp } from './dialog/DistrictDialogComp';
     RxReactiveFormsModule,
     NgSelectModule,
     HttpClientModule,    
-    MatDialogModule
+    MatDialogModule,
+    AgGridModule
   
   ],
 

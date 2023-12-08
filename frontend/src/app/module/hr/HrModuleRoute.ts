@@ -49,7 +49,8 @@ const routes: Routes = [
       {
         path: 'employee-setup', loadChildren: () => import('./emoloyee_setup/EmployeeSetupModule')
           .then(m => m.EmployeeSetupModule)
-      }
+      },
+      
     ]
   }
 ];

@@ -11,7 +11,13 @@ const routes: Routes = [
   },
   { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] },
   { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule), canActivate: [AuthGuard] },
-  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) }
+  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
+  {
+    path: 'ag-grid-setup', loadChildren: () => import('./module/hr/ag-grid-example/AgGridExampleComp')
+      .then(m => m.AgGridExampleComp)
+  },
+  {path: 'ag-grid-setup', loadComponent: () => import('./module/login/LoginComp').then(m => m.LoginComp)},
+
 ];
 
 @NgModule({
