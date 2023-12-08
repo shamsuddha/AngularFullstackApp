@@ -13,15 +13,14 @@ export class Product {
   @prop() unitPrice: number | null = null;
   @prop() unitsInStock: number | null = null;
   @prop() unitsOnOrder: number | null = null;
-  @prop() reorderLevel: string | null = null;
-  @prop() discontinued: string | null = null;
-  @propObject(Category, { autoCreate: true }) category: Category | null = null;
-  @propArray(OrderInfoDetail, {createBlank: false})
-  orderInfoDetailList: Array<OrderInfoDetail> = [];
-  orderInfoDetailListSerde: Array<OrderInfoDetail> = [];
-  @propObject(UserInfo, { autoCreate: true }) userInfo: UserInfo | null = null;
-  @propObject(Supplier, { autoCreate: true }) supplier: Supplier | null = null;
   @prop() description: string | null = null;
+  @prop() coverImage: string | null = null;
+
+  @prop() category: Category | null = null;
+  @prop() categoryId: number | null = null;
+
+  // @propObject(UserInfo, { autoCreate: true }) userInfo: UserInfo | null = null;
+  // @propObject(Supplier, { autoCreate: true }) supplier: Supplier | null = null;
   // @prop() 
   // @maxLength({value:10, message: 'Maximum 10 characters allowed'})
   // @minLength({value:3, message: 'Minimum 3 characters needed'})

@@ -23,6 +23,8 @@ public class Category extends AuditLog {
     private String categoryName;
     private String image;
     private String code;
+
+
     // CATEGORY ONE TO MANY PRODUCT
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
@@ -30,6 +32,8 @@ public class Category extends AuditLog {
     @Transient
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private List<Product> productListSerde = new ArrayList<>();
+
+
     // CATEGORY ONE TO MANY BRAND
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)

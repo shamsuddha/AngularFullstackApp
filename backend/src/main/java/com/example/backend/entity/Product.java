@@ -28,18 +28,24 @@ public class Product extends AuditLog {
     private Integer unitsInStock;
     private Integer unitsOnOrder;
     private String description;
+    private String coverImage;
 
     // PRODUCT MANY TO ONE CATEGORY
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    // PRODUCT ONE TO MANY ORDER INFO DETAIL
+    // PRODUCT MANY TO ONE USER INFO
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    //PRODUCT ONE TO MANY GALLEY IMAGE
     @JsonIgnore
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<OrderInfoDetail> orderInfoDetailList = new ArrayList<>();
+    private List<GalleryImage> galleryImageList = new ArrayList<>();
     @Transient
-    private List<OrderInfoDetail> orderInfoDetailListForSerde = new ArrayList<>();
+    private List<GalleryImage> galleryImageListForSerde = new ArrayList<>();
 
     // PRODUCT MANY TO ONE USER INFO
     @ManyToOne(fetch = FetchType.LAZY)

@@ -14,47 +14,14 @@
         <form [formGroup]="productFg">
           <div class="mb-4">
             <label class="form-label" for="name">Product Name</label>
-            <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter product name" />
-            {{productFg.controls['name'].errors | json}}
-            <div *ngIf="productFg.controls['name'].touched
-                      && productFg.controls['name'].errors?.['maxLength']" style="color: red">
-              {{productFg.controls['name'].errors?.maxLength.message}}
-            </div>
-            <div *ngIf="productFg.controls['name'].touched
-                      && productFg.controls['name'].errors?.['minLength']" style="color: red">
-              {{productFg.controls['name'].errors?.minLength}}
-            </div>
-            <div *ngIf="productFg.controls['name'].touched
-                  && productFg.controls['name'].errors?.['required']" style="color: red">
-              This field is required
-            </div>
+            <input formControlName="productName" class="form-control" type="text" id="name" placeholder="Enter product name" />
+            {{productFg.controls['productName'].errors | json}}           
           </div>
           <div class="mb-4">
             <label class="form-label" for="code">Product Code</label>
-            <input class="form-control" formControlName="code" type="text" id="code"
+            <input class="form-control" formControlName="productCode" type="text" id="productCode"
               placeholder="Enter product code" />
-          </div>
-          <div class="mb-4">
-            <label class="form-label" for="code">Unit Price</label>
-            <input class="form-control" formControlName="code" type="number" id="code"
-              placeholder="Enter product code" />
-          </div>
-          <div class="mb-4">
-            <label class="form-label" for="code">Units In Stock</label>
-            <input class="form-control" formControlName="code" type="number" id="code"
-              placeholder="Enter product code" />
-          </div>
-          <div class="mb-4">
-            <label class="form-label" for="code">Units On Order</label>
-            <input class="form-control" formControlName="code" type="number" id="code"
-              placeholder="Enter product code" />
-          </div>
-          <div class="mb-4">
-            <label class="form-label" for="code">Description</label>
-            <textarea class="form-control" formControlName="code" type="number" id="code"
-              placeholder="Enter product code"> </textarea>
-          </div>
-   
+          </div>   
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Submit
           </button>
@@ -62,31 +29,31 @@
       </div>
     </div>
   </div>
-  <div _ngcontent-ng-c352282610="" class="col-xl-8">
-    <div _ngcontent-ng-c352282610="" class="card">
-      <div _ngcontent-ng-c352282610="" class="card-header">
-        <h4 _ngcontent-ng-c352282610="" class="card-title">Product List</h4>
-        <p _ngcontent-ng-c352282610="" class="card-title-desc">
-          Here you will get all the product list
+  <div class="col-xl-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Product List</h4>
+        <p class="card-title-desc">
+          Here you will get all the Product list
         </p>
       </div>
-      <div _ngcontent-ng-c352282610="" class="card-body">
-        <div _ngcontent-ng-c352282610="" class="table-responsive">
-          <table _ngcontent-ng-c352282610="" class="table mb-0">
-            <thead _ngcontent-ng-c352282610="" class="table-light">
-              <tr _ngcontent-ng-c352282610="">
-                <th _ngcontent-ng-c352282610="">#</th>
-                <th _ngcontent-ng-c352282610="">Name</th>
-                <th _ngcontent-ng-c352282610="">Code</th>               
-                <th _ngcontent-ng-c352282610="">Action</th>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Code</th>               
+                <th>Action</th>
               </tr>
             </thead>
-            <tbody _ngcontent-ng-c352282610="">
-              <tr _ngcontent-ng-c352282610="" *ngFor="let product of productList$ | async; let i = index">
-                <th _ngcontent-ng-c352282610="" scope="row">{{product.id}}</th>
-                <td _ngcontent-ng-c352282610="">{{product.productName}}</td>
-                <td _ngcontent-ng-c352282610="">{{product.productCode}}</td>                
-                <td _ngcontent-ng-c352282610="">
+            <tbody>
+              <tr *ngFor="let product of productList$ | async; let i = index">
+                <th scope="row">{{product.id}}</th>
+                <td>{{product.productName}}</td>
+                <td>{{product.productCode}}</td>                
+                <td>
                   <button type="button" (click)="onUpdateClick(product)"
                     class="btn btn-info waves-effect waves-light mx-1">
                     Edit

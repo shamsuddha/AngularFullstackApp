@@ -1,10 +1,14 @@
 package com.example.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -28,11 +32,6 @@ public class OrderInfoDetail extends AuditLog {
     private Double quantity;
     private Double unitPrice;
     private Double discount;
-
-    // ORDER INFO DETAIL MANY TO ONE PRODUCT
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
 
     public OrderInfoDetail(Long id) {
         this.id = id;
