@@ -6,10 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { DivisionSetupComp } from './DivisionSetupComp';
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { DistrictDialogComp } from './dialog/DistrictDialogComp';
 
 @NgModule({
   declarations:  [
-    DivisionSetupComp
+    DivisionSetupComp,
+    DistrictDialogComp
   ],
   imports:  [
     CommonModule,
@@ -23,7 +26,9 @@ import { DivisionSetupComp } from './DivisionSetupComp';
     ReactiveFormsModule,
     RxReactiveFormsModule,
     NgSelectModule,
-    HttpClientModule,
+    HttpClientModule,    
+    MatDialogModule
+  
   ],
 
   providers: [

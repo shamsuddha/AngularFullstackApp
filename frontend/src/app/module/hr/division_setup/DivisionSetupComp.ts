@@ -6,6 +6,8 @@ import { DivisionController } from "src/app/controller/DivisionController";
 import { DivisionSearchDto } from "src/app/dto/request/DivisionSearchDto";
 import { Division } from "src/app/entity/Division";
 import { toFaGfn } from "src/util/MiscUtil";
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { DistrictDialogComp } from "./dialog/DistrictDialogComp";
 
 @Component({
   selector: 'DivisionSetupComp',
@@ -19,11 +21,12 @@ export class DivisionSetupComp {
   divisionFg: FormGroup = this.rxFormBuilder.formGroup(Division);
   toFaGfn = toFaGfn;
   divisionList$: Observable<Array<Division>> = new Observable<Array<Division>>();
-  divisionWithDistrictList$: Observable<Array<Division>> = new Observable<Array<Division>>;
+  divisionWithDistrictList$: Observable<Array<Division>> = new Observable<Array<Division>>();
   
   constructor(
     public divisionController: DivisionController,
-    public rxFormBuilder: RxFormBuilder
+    public rxFormBuilder: RxFormBuilder,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -40,6 +43,8 @@ export class DivisionSetupComp {
 
   onUpdateClick(division: Division) {
     this.divisionFg.patchValue(division);
+    this.divisionFg.patchValue({updateMode:true});
+
     console.log(this.divisionFg.value);
   }
 
@@ -61,7 +66,17 @@ export class DivisionSetupComp {
     this.divisionWithDistrictList$ = this.divisionController.searchWithDistrictList();
   }
 
-  openDialog(){
+  openDialog(division: Division){
+    this.divisionWithDistrictList$ = this.divisionController.searchWithDistrictList();
+   
+      this.dialog.open(DistrictDialogComp, {
+        width: '250px',
+        data: division
+       
+      }).afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
     
+  
   }
 }
