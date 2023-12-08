@@ -22,6 +22,22 @@
             <input class="form-control" formControlName="productCode" type="text" id="productCode"
               placeholder="Enter product code" />
           </div>   
+          <div class="mb-4">
+            <label class="form-label" for="code">Cover Image</label>
+            <input class="form-control" formControlName="coverImage" type="file" id="coverImage"/>
+          </div> 
+          <div class="mb-4">
+            <label class="form-label" for="code">Gallery Image 01</label>
+            <input class="form-control" formControlName="galleryImage1" type="file" id="galleryImage01"/>
+          </div> 
+          <div class="mb-4">
+            <label class="form-label" for="code">Gallery Image 02</label>
+            <input class="form-control" formControlName="galleryImage2" type="file" id="galleryImage02"/>
+          </div> 
+          <div class="mb-4">
+            <label class="form-label" for="code">Gallery Image 03</label>
+            <input class="form-control" formControlName="galleryImage3" type="file" id="galleryImage03"/>
+          </div> 
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-2 mx-1">
             Submit
           </button>

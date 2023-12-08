@@ -1,9 +1,5 @@
 import { NumericValueType, maxLength, minLength, numeric, prop, propArray, propObject, required, trim } from "@rxweb/reactive-form-validators";
-import { Brand } from "./Brand";
 import { Category } from "./Category";
-import { OrderInfoDetail } from "./OrderInfoDetail";
-import { UserInfo } from "./UserInfo";
-import { Supplier } from "./Supplier";
 
 export class Product {
 
@@ -15,6 +11,9 @@ export class Product {
   @prop() unitsOnOrder: number | null = null;
   @prop() description: string | null = null;
   @prop() coverImage: string | null = null;
+  @prop() galleryImage1: string | null = null;
+  @prop() galleryImage2: string | null = null;
+  @prop() galleryImage3: string | null = null;
 
   @prop() category: Category | null = null;
   @prop() categoryId: number | null = null;

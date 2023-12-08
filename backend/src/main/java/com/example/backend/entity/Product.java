@@ -29,6 +29,9 @@ public class Product extends AuditLog {
     private Integer unitsOnOrder;
     private String description;
     private String coverImage;
+    private String galleryImage1;
+    private String galleryImage2;
+    private String galleryImage3;
 
     // PRODUCT MANY TO ONE CATEGORY
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,13 +42,6 @@ public class Product extends AuditLog {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
-
-    //PRODUCT ONE TO MANY GALLEY IMAGE
-    @JsonIgnore
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<GalleryImage> galleryImageList = new ArrayList<>();
-    @Transient
-    private List<GalleryImage> galleryImageListForSerde = new ArrayList<>();
 
     // PRODUCT MANY TO ONE USER INFO
     @ManyToOne(fetch = FetchType.LAZY)
