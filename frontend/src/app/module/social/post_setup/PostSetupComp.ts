@@ -64,6 +64,7 @@ export class PostSetupComp implements OnInit {
   }
 
   reset() {
+    this.postFg.reset();
 
   }
 }

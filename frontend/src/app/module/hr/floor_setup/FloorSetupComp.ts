@@ -54,6 +54,7 @@ export class FloorSetupComp implements OnInit {
     if (room && room.floor) {
       this.floorFg.patchValue(room.floor);
     }
+    this.floorFg.patchValue({updateMode:true});
     //this.floorFg.patchValue({id:floor.id,name:floor.name});
     console.log(this.floorFg.value);
   }

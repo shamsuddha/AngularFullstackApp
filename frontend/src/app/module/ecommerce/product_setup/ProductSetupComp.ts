@@ -43,6 +43,7 @@ export class ProductSetupComp {
 
   onUpdateClick(userInfo: Product) {
     this.productFg.patchValue(userInfo);
+    this.productFg.patchValue({updateMode:true});
     //this.productFg.patchValue({id:userInfo.id,name:userInfo.name});
     console.log(this.productFg.value);
   }

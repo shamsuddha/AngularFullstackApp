@@ -47,6 +47,7 @@ export class BrandSetupComp{
 
   onUpdateClick(userInfo: Brand) {
     this.brandFg.patchValue(userInfo);
+    this.brandFg.patchValue({updateMode:true});
     //this.brandFg.patchValue({id:userInfo.id,name:userInfo.name});
     console.log(this.brandFg.value);
   }

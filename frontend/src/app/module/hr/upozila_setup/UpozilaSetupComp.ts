@@ -49,6 +49,7 @@ export class UpozilaSetupComp {
 
   onUpdateClick(upozila: Upozila) {
     this.upozilaFg.patchValue(upozila);
+    this.upozilaFg.patchValue({updateMode:true});
     //this.roleFg.patchValue({id:role.id,name:role.name});
     console.log(this.upozilaFg.value);
   }

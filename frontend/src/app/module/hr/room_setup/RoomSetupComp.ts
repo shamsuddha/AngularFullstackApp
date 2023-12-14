@@ -48,6 +48,7 @@ export class RoomSetupComp implements OnInit {
 
   onUpdateClick(room: Room) {
     this.roomFg.patchValue(room);
+    this.roomFg.patchValue({updateMode:true});
     //this.roomFg.patchValue({id:room.id,name:room.name});
     console.log(this.roomFg.value);
   }

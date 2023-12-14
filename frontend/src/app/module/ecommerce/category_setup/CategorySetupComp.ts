@@ -48,6 +48,7 @@ save() {
 
 onUpdateClick(userInfo: Category) {
   this.categoryFg.patchValue(userInfo);
+  this.categoryFg.patchValue({updateMode:true});
   //this.categoryFg.patchValue({id:userInfo.id,name:userInfo.name});
   console.log(this.categoryFg.value);
 }

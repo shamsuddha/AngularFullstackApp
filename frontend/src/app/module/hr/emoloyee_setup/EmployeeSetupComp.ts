@@ -138,6 +138,7 @@ export class EmployeeSetupComp implements OnInit, OnDestroy {
 
   onUpdateClick(employee: Employee) {
     this.employeeFg.patchValue(employee);
+    this.employeeFg.patchValue({updateMode:true});
     //this.employeeFg.patchValue({id:role.id, name:employee.name});
     console.log(this.employeeFg.value);
   }
@@ -165,6 +166,6 @@ export class EmployeeSetupComp implements OnInit, OnDestroy {
   }
 
   reset() {
-    // this.employeeFg.reset();
+     this.employeeFg.reset();
   }
 }

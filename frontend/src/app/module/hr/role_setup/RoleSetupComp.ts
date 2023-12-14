@@ -41,6 +41,7 @@ export class RoleSetupComp implements OnInit {
 
   onUpdateClick(role: Role) {
     this.roleFg.patchValue(role);
+    this.roleFg.patchValue({updateMode:true});
     //this.roleFg.patchValue({id:role.id,name:role.name});
     console.log(this.roleFg.value);
   }

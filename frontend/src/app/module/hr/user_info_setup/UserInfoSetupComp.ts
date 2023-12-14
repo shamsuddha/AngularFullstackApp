@@ -48,6 +48,7 @@ export class UserInfoSetupComp implements OnInit {
 
   onUpdateClick(userInfo: UserInfo) {
     this.userInfoFg.patchValue(userInfo);
+    this.userInfoFg.patchValue({updateMode:true});
     //this.userInfoFg.patchValue({id:userInfo.id,name:userInfo.name});
     console.log(this.userInfoFg.value);
   }
