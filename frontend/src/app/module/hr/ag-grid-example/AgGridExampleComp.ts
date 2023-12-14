@@ -24,7 +24,6 @@ export class AgGridExampleComp {
     private http: HttpClient
   ) {}
 
-
   public columnDefs: ColDef[] = [
     {field: 'make'},
     {field: 'model'},
