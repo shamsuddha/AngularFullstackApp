@@ -41,6 +41,7 @@ export class PostSetupComp implements OnInit {
 
   onUpdateClick(post: Post) {
     this.postFg.patchValue(post);
+    this.postFg.patchValue({updateMode:true});
     console.log(this.postFg.value);
   }
 

@@ -1,6 +1,7 @@
 import { NumericValueType, maxLength, minLength, numeric, prop, propArray, propObject, required, trim } from "@rxweb/reactive-form-validators";
 import { UserInfo } from "./UserInfo";
-export class Post {
+import { AuditLog } from "./AuditLog";
+export class Post extends AuditLog {
 
   @prop() id: number | null = null;
   @prop() title: string | null = null;
@@ -23,6 +24,7 @@ export class Post {
   //  name: string | null = null;
 
   constructor(o?: Partial<Post>) {
+    super();
     Object.assign(this, o);
   }
 }

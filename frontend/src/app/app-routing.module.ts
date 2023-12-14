@@ -16,7 +16,7 @@ const routes: Routes = [
     path: 'ag-grid-setup', loadChildren: () => import('./module/hr/ag-grid-example/AgGridExampleComp')
       .then(m => m.AgGridExampleComp)
   },
-  {path: 'ag-grid-setup', loadComponent: () => import('./module/login/LoginComp').then(m => m.LoginComp)},
+  // {path: 'ag-grid-setup', loadComponent: () => import('./module/login/LoginComp').then(m => m.LoginComp)},
 
 ];
 

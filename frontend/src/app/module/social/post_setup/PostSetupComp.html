@@ -36,8 +36,11 @@
             <!-- {{postFg.controls['body'].errors | json}} -->         
           </div>         
           <!-- {{postFg.value['addressList'] | json}} -->
+          <button *ngIf="postFg.controls['']" type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-1 mx-1">
+             Submit
+          </button>
           <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-1 mx-1">
-            Submit
+            Update 
           </button>
         </form>
       </div>
