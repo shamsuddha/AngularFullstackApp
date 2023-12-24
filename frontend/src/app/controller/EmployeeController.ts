@@ -1,8 +1,9 @@
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Employee } from "../entity/Employee";
-import { EmployeeSearchDto } from "../dto/request/EmployeeSearchDto";
+import {Employee} from "../entity/Employee";
+import {EmployeeSearchDto} from "../dto/EmployeeSearchDto";
+
 
 @Injectable({ providedIn: 'root' })
 export class EmployeeController {
@@ -18,6 +19,7 @@ export class EmployeeController {
   }
 
   delete(employee: Employee): Observable<boolean> {
+    //console.log(employee);
     return this.httpClient.delete<boolean>('http://localhost:8080/employee/delete', { body: employee })
     //.subscribe((e)=>{ });
   }
@@ -26,7 +28,4 @@ export class EmployeeController {
     return this.httpClient.post<Array<Employee>>('http://localhost:8080/employee/search', employeeSearchDto);
   }
 
-  searchWithEmployee(): Observable<Array<Employee>> {
-    return this.httpClient.post<Array<Employee>>('http://localhost:8080/employee/search-with-employee',{});
-  }
 }
