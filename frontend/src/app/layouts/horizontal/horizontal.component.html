@@ -1,0 +1,12 @@
+<div id="layout-wrapper">
+    <app-horizontaltopbar (mobileMenuButtonClicked)="onToggleMobileMenu()" (settingsButtonClicked)="onSettingsButtonClicked()"></app-horizontaltopbar>
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>
+<app-rightsidebar></app-rightsidebar>
