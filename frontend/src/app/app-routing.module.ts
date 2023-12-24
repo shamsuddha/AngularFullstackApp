@@ -6,16 +6,16 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: '', component: MainModuleComp,
+    path: '', component: AppComponent,
     children: [
-      {
-        path: 'hr', loadChildren: () => import('./module/hr/HrModule')
-          .then(m => m.HrModule)
-      },
-      {
-        path: 'ecommerce', loadChildren: () => import('./module/ecommerce/EcommerceModule')
-          .then(m => m.EcommerceModule)
-      },
+      // {
+      //   path: 'hr', loadChildren: () => import('./module/hr/HrModule')
+      //     .then(m => m.HrModule)
+      // },
+      // {
+      //   path: 'ecommerce', loadChildren: () => import('./module/ecommerce/EcommerceModule')
+      //     .then(m => m.EcommerceModule)
+      // },
       {
         path: 'social', loadChildren: () => import('./module/social/SocialModule')
           .then(m => m.SocialModule)

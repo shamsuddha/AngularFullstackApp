@@ -18,11 +18,11 @@
             <!-- {{postFg.controls['title'].errors | json}} -->
             <div *ngIf="postFg.controls['title'].touched
                       && postFg.controls['title'].errors?.['maxLength']" style="color: red">
-              {{postFg.controls['title'].errors?.maxLength.message}}
+              <!-- {{postFg.controls['title'].errors?.maxLength.message}} -->
             </div>
             <div *ngIf="postFg.controls['title'].touched
                       && postFg.controls['title'].errors?.['minLength']" style="color: red">
-              {{postFg.controls['title'].errors?.minLength}}
+              <!-- {{postFg.controls['title'].errors?.minLength}} -->
             </div>
             <div *ngIf="postFg.controls['title'].touched
                   && postFg.controls['title'].errors?.['required']" style="color: red">

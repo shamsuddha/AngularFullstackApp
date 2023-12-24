@@ -6,14 +6,14 @@ const routes: Routes = [
   {
     path: '', component: MainModuleComp,
     children: [
-      {
-        path: 'hr', loadChildren: () => import('./hr/HrModule')
-          .then(m => m.HrModule)
-      },
-      {
-        path: 'ecommerce', loadChildren: () => import('./ecommerce/EcommerceModule')
-          .then(m => m.EcommerceModule)
-      },
+      // {
+      //   path: 'hr', loadChildren: () => import('./hr/HrModule')
+      //     .then(m => m.HrModule)
+      // },
+      // {
+      //   path: 'ecommerce', loadChildren: () => import('./ecommerce/EcommerceModule')
+      //     .then(m => m.EcommerceModule)
+      // },
       {
         path: 'social', loadChildren: () => import('./social/SocialModule')
           .then(m => m.SocialModule)
