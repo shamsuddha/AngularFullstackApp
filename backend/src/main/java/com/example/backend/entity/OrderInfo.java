@@ -22,25 +22,34 @@ public class OrderInfo extends AuditLog{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private Date orderDate;
-  private String shipName;
-  private String shipAddress;
-  private String shipCity;
-  private String shipRegion;
-  private String shipPostalCode;
-  private String shipCountry;
+  // ORDER INFO MANY TO ONE CUSTOMER
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "customer_id")
+  private Customer customer;
+
+  // ORDER INFO MANY TO ONE Employee
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "employee_id")
+  private Employee employee;
+
+  private Date order_date;
+  private Date required_date;
+  private Date shipped_date;
+  private Integer ship_via;
+  private Integer freight;
+  private String ship_name;
+  private String ship_address;
+  private String ship_city;
+  private String ship_region;
+  private String ship_postal_code;
+  private String ship_country;
 
   // ORDER INFO ONE TO MANY ORDER INFO DETAIL
   @JsonIgnore
   @OneToMany(mappedBy = "orderInfo", fetch = FetchType.LAZY)
   private List<OrderInfoDetail> orderInfoDetailList = new ArrayList<>();
   @Transient
-  private List<OrderInfoDetail> orderInfoDetailListForSerde = new ArrayList<>();
-
-  // ORDER INFO MANY TO ONE CUSTOMER
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "customer_id")
-  private Customer customer;
+  private List<OrderInfoDetail> orderInfoDetailListSerde = new ArrayList<>();
 
   // ORDER INFO MANY TO ONE SHIPPER
   @ManyToOne(fetch = FetchType.LAZY)

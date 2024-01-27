@@ -23,7 +23,13 @@ export class DivisionSetupComp {
   toFaGfn = toFaGfn;
   divisionList$: Observable<Array<Division>> = new Observable<Array<Division>>();
   divisionWithDistrictList$: Observable<Array<Division>> = new Observable<Array<Division>>();
-  
+  totalItems = 64;
+  currentPage = 4;
+ 
+
+
+
+
   constructor(
     public divisionController: DivisionController,
     public rxFormBuilder: RxFormBuilder,
@@ -34,6 +40,10 @@ export class DivisionSetupComp {
     this.breadCrumbItems = [{ label: 'Division' }, { label: 'Division', active: true }];
     this.searchWithDistrictList();
     this.search();
+  }
+  
+  setPage(pageNo: number): void {
+    this.currentPage = pageNo;
   }
 
   save() {

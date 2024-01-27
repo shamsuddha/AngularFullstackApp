@@ -20,10 +20,9 @@ public class Category extends AuditLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String categoryName;
-    private String image;
-    private String code;
-
+    private String category_name;
+    private String description;
+    private String picture;
 
     // CATEGORY ONE TO MANY PRODUCT
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -32,7 +31,6 @@ public class Category extends AuditLog {
     @Transient
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private List<Product> productListSerde = new ArrayList<>();
-
 
     // CATEGORY ONE TO MANY BRAND
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

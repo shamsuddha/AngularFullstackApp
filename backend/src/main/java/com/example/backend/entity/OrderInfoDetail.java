@@ -29,8 +29,14 @@ public class OrderInfoDetail extends AuditLog {
     @Column(name = "orderInfo_id", insertable = false, updatable = false)
     private Long orderInfoId;
 
+    // ORDER INFO DETAIL MANY TO ONE PRODUCT
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
+    @Column(name = "product_id", insertable = false, updatable = false)
+    private Long productId;
+    private Double unit_price;
     private Double quantity;
-    private Double unitPrice;
     private Double discount;
 
     public OrderInfoDetail(Long id) {

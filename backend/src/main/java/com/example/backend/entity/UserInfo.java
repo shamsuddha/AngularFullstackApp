@@ -25,11 +25,11 @@ public class UserInfo extends AuditLog {
     private String name;
     private String email;
     private Integer mobile;
-    //@JsonSerialize(using = ListSerialize.class)
-    // USER INFO ONE TO MANY USER INFO ROLE
+
+    // USERINFO ONE TO MANY USERINFO ROLE
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
-    private List<UserInfoRole> userInfoRoleList = new ArrayList<>();
+    private List<UserInfoRole> userInfoRoleList  = new ArrayList<>();
     @Transient
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private List<UserInfoRole> userInfoRoleListSerde = new ArrayList<>();

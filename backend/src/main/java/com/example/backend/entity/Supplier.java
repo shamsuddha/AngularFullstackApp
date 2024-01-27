@@ -21,16 +21,17 @@ public class Supplier extends AuditLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String companyName;
-    private String contactTitle;
+    private String company_name;
+    private String contact_name;
+    private String contact_title;
     private String address;
     private String city;
-    private String region;
-    private String postalCode;
+    private String region; // connection to region table
+    private String postal_code;
     private String country;
     private String phone;
     private String fax;
-    private String homePage;
+    private String homepage;
 
     // SUPPLIER ONE TO MANY PRODUCT
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

@@ -22,36 +22,28 @@ public class Product extends AuditLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String productName;
-    private String productCode;
-    private Integer unitPrice;
-    private Integer unitsInStock;
-    private Integer unitsOnOrder;
-    private String description;
-    private String coverImage;
-    private String galleryImage1;
-    private String galleryImage2;
-    private String galleryImage3;
-
-    // PRODUCT MANY TO ONE CATEGORY
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
-
-    // PRODUCT MANY TO ONE USER INFO
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
-
-    // PRODUCT MANY TO ONE USER INFO
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userInfo_id")
-    private UserInfo userInfo;
+    private String product_name;
 
     // PRODUCT MANY TO ONE SUPPLIER
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
+
+    // PRODUCT MANY TO ONE CATEGORY
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+    private String quantity_per_unit; // string or DOUBLE???
+    private Double unit_price;
+    private Double unit_in_stock;
+    private Double unit_on_order;
+    private Integer reorder_level;
+    private Integer discontinued;
+
+    // PRODUCT MANY TO ONE USER INFO
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userInfo_id")
+    private UserInfo userInfo;
 
     public Product(Long id) {
         this.id = id;

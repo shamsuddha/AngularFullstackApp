@@ -21,14 +21,14 @@ public class Shipper extends AuditLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String companyName;
+    private String company_name;
     private String phone;
     // SHIPPER ONE TO MANY ORDER INFO
     @JsonIgnore
     @OneToMany(mappedBy = "shipper", fetch = FetchType.LAZY)
     private List<OrderInfo> orderInfoList = new ArrayList<>();
     @Transient
-    private List<OrderInfo> orderInfoListForSerde = new ArrayList<>();
+    private List<OrderInfo> orderInfoListSerde = new ArrayList<>();
 
     public Shipper(Long id) {
         this.id = id;

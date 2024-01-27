@@ -9,6 +9,7 @@ import { DivisionSetupComp } from './DivisionSetupComp';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { DistrictDialogComp } from './dialog/DistrictDialogComp';
 import { AgGridModule } from 'ag-grid-angular'; // Angular Grid Logic
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations:  [
@@ -29,7 +30,8 @@ import { AgGridModule } from 'ag-grid-angular'; // Angular Grid Logic
     NgSelectModule,
     HttpClientModule,    
     MatDialogModule,
-    AgGridModule
+    AgGridModule,
+    PaginationModule.forRoot(),
   
   ],
 
