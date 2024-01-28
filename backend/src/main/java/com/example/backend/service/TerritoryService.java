@@ -21,6 +21,10 @@ public class TerritoryService {
     @Autowired
     private TerritoryRepository territoryRepository;
 
+    public Object search() {
+        return this.territoryRepository.findAll();
+    }
+
     public List<Territory> searchWithEmployee() {
         return this.territoryRepository.findAll();
     }

@@ -1,0 +1,52 @@
+POST http://localhost:8080/order-info/save
+Content-Type: application/json
+
+{
+"customer": {
+  "id": 1
+},
+"employee": {
+    "id":1
+  },
+"order_date": null,
+"required_date": null,
+"shipped_date": null,
+"ship_via": null,
+"freight": null,
+"ship_name": null
+}
+
+###
+PUT http://localhost:8080/employee/update
+Content-Type: application/json
+
+{
+  "id": 41,
+  "name": "user 12345",
+  "email" : "email13@gmail13.com"
+
+}
+
+###
+DELETE http://localhost:8080/employee/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+###
+POST http://localhost:8080/employee/search
+Content-Type: application/json
+
+{
+  "idList": []
+}
+
+###
+POST http://localhost:8080/employee/search
+Content-Type: application/json
+
+{
+"idList": []
+}

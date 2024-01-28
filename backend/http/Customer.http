@@ -1,8 +1,50 @@
+POST http://localhost:8080/customer/save
+Content-Type: application/json
+
+{
+  "company_name": "company_1",
+  "customer_name": "customer_name_1",
+  "contact_title": "contact_title_1",
+  "address": "address_1",
+  "city": "city_1",
+  "region": "region_1",
+  "postal_code": 1900,
+  "country": "country_1"
+  
+}
+
+
 ###
-POST http://localhost:8080/territory/customer-with-order-orderdetail
+PUT http://localhost:8080/customer/update
+Content-Type: application/json
+
+{
+  "id": 41,
+  "name": "user 12345",
+  "email" : "email13@gmail13.com"
+
+}
+
+###
+DELETE http://localhost:8080/customer/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+###
+POST http://localhost:8080/customer/search
 Content-Type: application/json
 
 {
   "idList": []
 }
 
+###
+POST http://localhost:8080/customer/search-with-order-orderdetail
+Content-Type: application/json
+
+{
+  "idList": []
+}

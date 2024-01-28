@@ -11,6 +11,4 @@ import lombok.Setter;
 @Setter
 public class TerritorySearchDto extends SearchDto {
     private String name;
-
-
 }

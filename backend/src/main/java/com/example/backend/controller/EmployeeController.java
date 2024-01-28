@@ -22,18 +22,13 @@ public class EmployeeController {
         return new ResponseEntity<>(this.employeeRepository.save(employee), HttpStatus.OK);
     }
 
-    // @PathParam: "/update/{id}"
-    // @RequestParam: /update?id=3&name=abc @RequestParam Long id, @RequestParam String name
-    // @RequestBody Employee employee
     @PutMapping(value = "/update")
-    public @ResponseBody
-    ResponseEntity<?> update(@RequestBody Employee employee) {
+    public @ResponseBody ResponseEntity<?> update(@RequestBody Employee employee) {
         return new ResponseEntity<>(this.employeeRepository.save(employee), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/delete")
-    public @ResponseBody
-    ResponseEntity<?> delete(@RequestBody Employee employee) {
+    public @ResponseBody ResponseEntity<?> delete(@RequestBody Employee employee) {
         this.employeeRepository.delete(employee);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
@@ -42,8 +37,9 @@ public class EmployeeController {
     public @ResponseBody ResponseEntity<?> search() {
         return new ResponseEntity<>(this.employeeService.search(), HttpStatus.OK);
     }
-//    @PostMapping(value = "/search-with-districtList")
-//    public @ResponseBody ResponseEntity<?> searchWithDistrictList() {
-//        return new ResponseEntity<>(this.employeeService.searchWithDistrictList(), HttpStatus.OK);
-//    }
+    @PostMapping(value = "/search-with-territory")
+    public @ResponseBody ResponseEntity<?> searchWithTerritory() {
+        return new ResponseEntity<>(this.employeeService.search(), HttpStatus.OK);
+    }
+
 }

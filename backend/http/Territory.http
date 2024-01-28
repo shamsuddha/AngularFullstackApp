@@ -1,8 +1,42 @@
+POST http://localhost:8080/territory/save
+Content-Type: application/json
+
+{
+  "territory_description": "description 1",
+}
+
+
 ###
-POST http://localhost:8080/territory/search-with-employee
+PUT http://localhost:8080/territory/update
+Content-Type: application/json
+
+{
+  "id": 41,
+  "name": "user 12345",
+  "email" : "email13@gmail13.com"
+
+}
+
+###
+DELETE http://localhost:8080/territory/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+###
+POST http://localhost:8080/territory/search
 Content-Type: application/json
 
 {
   "idList": []
 }
 
+###
+POST http://localhost:8080/territory/search
+Content-Type: application/json
+
+{
+"idList": []
+}
