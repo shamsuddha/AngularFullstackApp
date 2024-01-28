@@ -24,12 +24,8 @@ export class DivisionSetupComp {
   divisionList$: Observable<Array<Division>> = new Observable<Array<Division>>();
   divisionWithDistrictList$: Observable<Array<Division>> = new Observable<Array<Division>>();
   totalItems = 64;
-  currentPage = 4;
+  currentPage = 1;
  
-
-
-
-
   constructor(
     public divisionController: DivisionController,
     public rxFormBuilder: RxFormBuilder,

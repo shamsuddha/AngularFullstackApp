@@ -14,6 +14,12 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 3,
+        label: 'Customer',
+        icon: 'user',
+        link: '/module/hr/customer-with-order-orderdetail',
+    },
+    {
+        id: 3,
         label: 'University',
         icon: 'grid',
         subItems: [

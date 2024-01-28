@@ -50,6 +50,10 @@ const routes: Routes = [
         path: 'employee-setup', loadChildren: () => import('./emoloyee_setup/EmployeeSetupModule')
           .then(m => m.EmployeeSetupModule)
       },
+      {
+        path: 'customer-with-order-orderdetail', loadChildren: () => import('./customer/CustomerModule')
+          .then(m => m.CustomerModule)
+      },
       
     ]
   }

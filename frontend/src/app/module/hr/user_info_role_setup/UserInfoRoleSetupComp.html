@@ -13,7 +13,7 @@
         <form [formGroup]="userInfoRoleFg">
           <div class="mb-4">
             <label class="form-label" for="name">Select a user</label>           
-             {{userInfoList$ | async | json}}
+             <!-- {{userInfoList$ | async | json}} -->
             <ng-select [items]="userInfoList$ | async"
                        bindLabel="name"
                        formControlName="userInfo">
@@ -45,7 +45,7 @@
       <div class="card-header">
         <h4 class="card-title">User Info Role List</h4>
         <button (click)="search()">Search</button>
-        <pre>{{userInfoRoleList$ | async | json}}</pre>
+        <!-- <pre>{{userInfoRoleList$ | async | json}}</pre> -->
       </div>
       <div class="card-body">
         <div class="table-responsive">

@@ -10,7 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SearchDto {
-
   Integer page = 0;
   Integer size = 10;
 }
