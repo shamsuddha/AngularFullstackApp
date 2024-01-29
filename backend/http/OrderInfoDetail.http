@@ -3,13 +3,13 @@ Content-Type: application/json
 
 {
 "orderInfo": {
-  "id":1
+  "id": 3
 },
-  "orderInfoId": 1,
+  "orderInfoId": 3,
   "product": {
-    "id":1
+    "id": 3
   },
-  "productId": 1,
+  "productId": 3,
   "unit_price": 100,
   "quantity": 10,
   "discount": null

@@ -1,0 +1,41 @@
+POST http://localhost:8080/product/save
+Content-Type: application/json
+
+{
+  "product_name": "product_name_2",
+  "supplier": null,
+  "category": null,
+  "quantity_per_unit": 20,
+  "unit_price": 200,
+  "unit_in_stock": 20,
+  "unit_on_order": 20,
+  "reorder_level": null,
+  "discontinued": null,
+  "userInfo": null
+}
+
+
+###
+PUT http://localhost:8080/product/update
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "admin 124"
+}
+
+###
+DELETE http://localhost:8080/product/delete
+Content-Type: application/json
+
+{
+  "id": 2
+}
+
+###
+POST http://localhost:8080/product/search
+Content-Type: application/json
+
+{
+  "idList": []
+}

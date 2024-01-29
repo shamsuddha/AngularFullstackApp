@@ -26,42 +26,18 @@ public class TerritoryService {
     }
 
     public List<Territory> searchWithEmployee() {
-        return this.territoryRepository.findAll();
+        final QEmployee qEmployee = QEmployee.employee;
+        final QTerritory qTerritory = QTerritory.territory;
+        final QEmployeeTerritory qEmployeeTerritory = QEmployeeTerritory.employeeTerritory;
+
+        final JPAQuery<Territory> query = new JPAQuery<>(entityManager);
+        List<Territory> territoryList = query.from(qTerritory)
+                .leftJoin(qEmployeeTerritory.employeeTerritory, qEmployeeTerritory).fetchJoin()
+                .leftJoin(qEmployee.employee, qEmployee).fetchJoin()
+               // .where()
+                .fetch();
+        return territoryList;
     }
-
-//    public List<Territory> searchWithEmployee() {
-//        final QEmployee qEmployee = QEmployee.employee;
-//        final QTerritory qTerritory = QTerritory.territory;
-//        final QEmployeeTerritory qEmployeeTerritory = QEmployeeTerritory.employeeTerritory;
-//        final JPAQuery<Territory> query = new JPAQuery<>(entityManager);
-//
-////        List<UserInfoRole> userInfoRoleList1 = query.from(qUserInfoRole)
-////                .leftJoin(qUserInfoRole.userInfo, qUserInfo).fetchJoin()
-////                .leftJoin(qUserInfoRole.role, qRole).fetchJoin()
-////                .where(qUserInfoRole.id.ne(111l))
-////                .fetch();
-//        return userInfoRoleList1;
-//
-//    }
-
-//
-//    public List<Territory> searchWithEmployee(TerritorySearchDto territorySearchDto) {
-//        final QDivision qDivision = QDivision.division;
-//        final QDistrict qDistrict = QDistrict.district;
-//        final QUpozila qUpozila = QUpozila.upozila;
-//
-////        BooleanBuilder bb = new BooleanBuilder();
-////        if (Objects.nonNull(territorySearchDto.getName())) {
-////            bb.and(qUpozila.name.containsIgnoreCase(territorySearchDto.getName()));  // like '% %'
-////        }
-//
-//
-//        final JPAQuery<Territory> query = new JPAQuery<>(entityManager);
-//        List<Territory> upozilaList = query.from(qUpozila)
-//                .leftJoin(qUpozila.district, qDistrict).fetchJoin()
-//                .leftJoin(qDistrict.division, qDivision).fetchJoin()
-//              //  .where(bb)
-//                .fetch();
-//        return upozilaList;
-//    }
 }
+
+

@@ -3,21 +3,22 @@ Content-Type: application/json
 
 {
 "customer": {
-  "id": 1
+  "id": 2
 },
 "employee": {
-    "id":1
-  },
-"order_date": null,
-"required_date": null,
-"shipped_date": null,
+    "id":2
+},
+
+"order_date": "2023-12-12",
+"required_date": "2023-12-12",
+"shipped_date": "2023-12-12",
 "ship_via": null,
 "freight": null,
-"ship_name": null
+"ship_name": "ship 2"
 }
 
 ###
-PUT http://localhost:8080/employee/update
+PUT http://localhost:8080/order-info/update
 Content-Type: application/json
 
 {
@@ -28,7 +29,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/employee/delete
+DELETE http://localhost:8080/order-info/delete
 Content-Type: application/json
 
 {
@@ -36,17 +37,9 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/employee/search
+POST http://localhost:8080/order-info/search
 Content-Type: application/json
 
 {
   "idList": []
-}
-
-###
-POST http://localhost:8080/employee/search
-Content-Type: application/json
-
-{
-"idList": []
 }

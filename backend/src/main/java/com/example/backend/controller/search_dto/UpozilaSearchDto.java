@@ -14,5 +14,4 @@ public class UpozilaSearchDto extends SearchDto {
   private String name;
   private Long districtId;
   private Long divisionId;
-
 }

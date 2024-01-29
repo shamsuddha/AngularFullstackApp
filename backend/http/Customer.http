@@ -2,17 +2,15 @@ POST http://localhost:8080/customer/save
 Content-Type: application/json
 
 {
-  "company_name": "company_1",
-  "customer_name": "customer_name_1",
-  "contact_title": "contact_title_1",
-  "address": "address_1",
-  "city": "city_1",
-  "region": "region_1",
-  "postal_code": 1900,
-  "country": "country_1"
-  
+  "company_name": "company_3",
+  "customer_name": "customer_name_3",
+  "contact_title": "contact_title_3",
+  "address": "address_3",
+  "city": "city_3",
+  "region": "region_3",
+  "postal_code": 3900,
+  "country": "country_3"
 }
-
 
 ###
 PUT http://localhost:8080/customer/update
@@ -42,7 +40,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/customer/search-with-order-orderdetail
+POST http://localhost:8080/customer/search-with-order-with-orderdetail
 Content-Type: application/json
 
 {

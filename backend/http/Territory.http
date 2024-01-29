@@ -30,11 +30,11 @@ POST http://localhost:8080/territory/search
 Content-Type: application/json
 
 {
-  "idList": []
+  "idList": [1,2]
 }
 
 ###
-POST http://localhost:8080/territory/search
+POST http://localhost:8080/territory/search-with-employee
 Content-Type: application/json
 
 {

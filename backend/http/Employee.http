@@ -2,14 +2,14 @@ POST http://localhost:8080/employee/save
 Content-Type: application/json
 
 {
-  "first_name": "first_name_6",
-  "last_name" : "last_name_6",
-  "title": "title_6",
-  "title_of_courtesy": "courtesy_6",
+  "first_name": "first_name_2",
+  "last_name" : "last_name_2",
+  "title": "title_2",
+  "title_of_courtesy": "courtesy_2",
   "birth_date": "2002-12-30",
   "hire_date": "2022-12-30",
-  "address": "address_6",
-  "city": "city_6",
+  "address": "address_2",
+  "city": "city_2",
   "postal_code" : "600",
   "region" : "dhaka"
 }

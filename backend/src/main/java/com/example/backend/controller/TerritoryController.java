@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.controller.search_dto.TerritorySearchDto;
+import com.example.backend.controller.search_dto.UpozilaSearchDto;
 import com.example.backend.entity.Territory;
 import com.example.backend.repository.TerritoryRepository;
 import com.example.backend.service.TerritoryService;
@@ -38,4 +39,8 @@ public class TerritoryController {
         return new ResponseEntity<>(this.territoryService.search(), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/search-with-employee")
+    public @ResponseBody ResponseEntity<?> searchWithEmployee() {
+        return new ResponseEntity<>(this.territoryService.searchWithEmployee(), HttpStatus.OK);
+    }
 }

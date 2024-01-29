@@ -46,8 +46,8 @@ public class CustomerController {
 
 
     @PostMapping(value = "/search-with-order-with-orderdetail")
-    public @ResponseBody ResponseEntity<?> searchWithDistrictWithDivision(@RequestBody CustomerSearchDto customerSearchDto) {
-        return new ResponseEntity<>(this.customerService.searchWithDistrictWithDivision(customerSearchDto), HttpStatus.OK);
+    public @ResponseBody ResponseEntity<?> searchWithOrderWithOrderDetail(@RequestBody CustomerSearchDto customerSearchDto) {
+        return new ResponseEntity<>(this.customerService.searchWithOrderWithOrderDetail(customerSearchDto), HttpStatus.OK);
     }
 
 
