@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderInfo extends AuditLog{
+public class OrderInfo{
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

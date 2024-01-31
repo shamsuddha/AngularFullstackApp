@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderInfoDetail extends AuditLog {
+public class OrderInfoDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
