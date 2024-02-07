@@ -33,14 +33,18 @@ public class CustomerService {
         final QOrderInfo qOrderInfo = QOrderInfo.orderInfo;
         final QOrderInfoDetail qOrderInfoDetail = QOrderInfoDetail.orderInfoDetail;
 
-//        BooleanBuilder bb = new BooleanBuilder();
-//
-//        if (Objects.nonNull(customerSearchDto.getCustomerId())) {
-//            bb.and(qCustomer..eq(customerSearchDto.getDistrictId()));
-//        }
-//        if (Objects.nonNull(customerSearchDto.getDivisionId())) {
-//            bb.and(qDistrict.division.id.eq(customerSearchDto.getDivisionId()));
-//        }
+        BooleanBuilder bb = new BooleanBuilder();
+
+        if (Objects.nonNull(customerSearchDto.getCustomerId())) {
+            bb.and(qCustomer.id.in(customerSearchDto.getCustomerId()));
+           // bb.and(qCustomer.id.eq(""));
+        }
+        if (Objects.nonNull(customerSearchDto.getOrderInfoId())) {
+            bb.and(qOrderInfo.id.eq(customerSearchDto.getOrderInfoId()));
+        }
+        if (Objects.nonNull(customerSearchDto.getOrderInfoDetailId())) {
+            bb.and(qOrderInfoDetail.id.eq(customerSearchDto.getOrderInfoDetailId()));
+        }
 
 //        select * from customer
 //        left join orderinfo
@@ -51,8 +55,8 @@ public class CustomerService {
         final JPAQuery<OrderInfo> query = new JPAQuery<>(entityManager);
         List<OrderInfo> orderInfoDetailList = query.from(qOrderInfoDetail)
                 .leftJoin(qOrderInfoDetail.orderInfo, qOrderInfo).fetchJoin()
-                .leftJoin(qOrderInfo.customer, qCustomer).fetchJoin()
-                //.where(bb)
+                //.leftJoin(qOrderInfo.customer, qCustomer).fetchJoin()
+                .where(bb)
                 .fetch();
         return orderInfoDetailList;
     }

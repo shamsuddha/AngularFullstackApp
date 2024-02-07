@@ -15,7 +15,7 @@ import { ColDef } from 'ag-grid-community';
   templateUrl: './DivisionSetupComp.html',
   styleUrls: ['./DivisionSetupComp.scss'],
 })
-export class DivisionSetupComp implements ngOnInit {
+export class DivisionSetupComp{
 
   breadCrumbItems!: Array<{}>;
   title!: string;

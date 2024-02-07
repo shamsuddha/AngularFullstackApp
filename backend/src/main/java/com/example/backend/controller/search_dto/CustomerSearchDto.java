@@ -11,4 +11,6 @@ import lombok.Setter;
 @Setter
 public class CustomerSearchDto extends SearchDto{
     private Long customerId;
+    private Long orderInfoId;
+    private Long orderInfoDetailId;
 }

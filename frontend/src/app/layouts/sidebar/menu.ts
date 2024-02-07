@@ -334,18 +334,18 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 60,
-        label: 'Only For Admin',
+        label: 'Only For Tutorial',
         isTitle: true,
     },
     {
         id: 35,
-        label: 'Social',
+        label: 'Component',
         icon: 'briefcase',
         subItems: [
             {
                 id: 36,
-                label: 'MENUITEMS.COMPONENTS.LIST.ALERTS',
-                link: '/ui/alerts',
+                label: '',
+                link: '/module/container/product',      
                 parentId: 35
             },
             {
