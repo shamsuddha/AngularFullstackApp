@@ -7,8 +7,16 @@ const routes: Routes = [
     path: '', component: MainModuleComp,
     children: [
       {
-        path: 'user-info-setup', loadChildren: () => import('./hr/HrModule')
+        path: 'hr', loadChildren: () => import('./hr/HrModule')
           .then(m => m.HrModule)
+      },
+      {
+        path: 'ecommerce', loadChildren: () => import('./ecommerce/EcommerceModule')
+          .then(m => m.EcommerceModule)
+      },
+      {
+        path: 'container', loadChildren: () => import('./container/ContainerModule')
+          .then(m => m.ContainerModule)
       },
      
       

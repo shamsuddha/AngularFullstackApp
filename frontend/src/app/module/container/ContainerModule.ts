@@ -1,13 +1,21 @@
 import { NgModule } from "@angular/core";
-import { ContainerComp } from "./ContainerComp";
 import { CommonModule } from "@angular/common";
+import { ContainerModuleRoute } from "./ContainerModuleRoute";
+import { ContainerModuleComp } from "./ContainerModuleComp";
+import { HeaderComp } from "./header/HeaderComp";
+import { TopMenuComp } from "./header/top_menu/TopMenuComp";
+import { MainMenuComp } from "./header/main_menu/MainMenuComp";
 
 @NgModule({
   declarations: [
-    ContainerComp
+    ContainerModuleComp,
+    HeaderComp,
+    TopMenuComp,
+    MainMenuComp
   ],
   imports: [
     CommonModule, 
+    ContainerModuleRoute
   ],
   providers: [],
 })
