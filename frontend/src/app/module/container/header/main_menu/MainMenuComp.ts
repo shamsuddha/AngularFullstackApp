@@ -7,6 +7,8 @@ import { Component } from "@angular/core";
 })
 export class MainMenuComp{
 
+  mainMenuItems: string[] = ['home', 'products','cart','checkout','profile']
+
   constructor(){
 
   }

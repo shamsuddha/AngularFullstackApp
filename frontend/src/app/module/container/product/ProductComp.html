@@ -1,20 +1,27 @@
 <div class="row">
-  <div class="col-md-6">
+  <SearchComp></SearchComp>
+  <div class="col-md-3" *ngFor="let product of productList">
     <img [src]="product.image" style="width: 350px; height: 450px;">
     <p>Product Name: {{product.name}}</p>
     <p>Product Price: {{product.price}}</p>
     <p>Product Color: {{product.color}}</p>
-    <p>Discounted Price: {{getDiscountedPrice().toFixed(2)}}</p>
+    <!-- <p>Discounted Price: {{getDiscountedPrice().toFixed(2)}}</p> -->
     <p>Stock: {{product.stock > 0 ? product.stock + " Items Left":"Out of Stock"}}</p>
     <p style="font-size: 30px;">
-      <button class="btn btn-warning" (click)="decrementCart()">-</button>
+      <!-- <button class="btn btn-warning" (click)="decrementCart()">-</button>
       {{addToCart}} 
-      <button class="btn btn-success" (click)="incrementCart()">+</button>
+      <button class="btn btn-success" (click)="incrementCart()">+</button> -->
     </p>
     <button class="btn btn-primary" [disabled]="product.stock == 0">Buy Now</button>
   </div>
-  <div class="col-md-6">
-    <input type="text" [value]="name" (input)="onInputChange($event)"><br />
-    Name: {{name}}
-  </div>
 </div>
+
+<!-- <div class="row">
+  <input type="text" [value]="name" (input)="onInputChange($event)" class="form-control"><br />
+  Name: {{name}}
+
+  <p *ngFor="let llist of listOfString">
+    {{llist}}
+  </p>
+
+</div> -->

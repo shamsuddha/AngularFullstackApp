@@ -6,6 +6,8 @@ import { HeaderComp } from "./header/HeaderComp";
 import { TopMenuComp } from "./header/top_menu/TopMenuComp";
 import { MainMenuComp } from "./header/main_menu/MainMenuComp";
 import { ProductComp } from "./product/ProductComp";
+import { SearchComp } from "./product/search/SearchComp";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import { ProductComp } from "./product/ProductComp";
     HeaderComp,
     TopMenuComp,
     MainMenuComp,
-    ProductComp
+    ProductComp,
+    SearchComp
   ],
   imports: [
     CommonModule, 
-    ContainerModuleRoute
+    ContainerModuleRoute,
+    FormsModule
   ],
   providers: [],
 })
