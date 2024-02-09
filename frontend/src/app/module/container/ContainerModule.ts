@@ -8,6 +8,7 @@ import { MainMenuComp } from "./header/main_menu/MainMenuComp";
 import { ProductComp } from "./product/ProductComp";
 import { SearchComp } from "./product/search/SearchComp";
 import { FormsModule } from "@angular/forms";
+import { FilterComp } from "./product/filter/FilterComp";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from "@angular/forms";
     TopMenuComp,
     MainMenuComp,
     ProductComp,
-    SearchComp
+    SearchComp,
+    FilterComp
   ],
   imports: [
     CommonModule, 
