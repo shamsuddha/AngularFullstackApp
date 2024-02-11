@@ -7,10 +7,9 @@ const routes: Routes = [
     path: '', component: PosModuleComp,
     children: [
       {
-        path: 'category', loadChildren: () => import('./category_setup/CategorySetupComp')
-          .then(m => m.CategorySetupComp)
+        path: 'category', loadChildren: () => import('./category_setup/CategorySetupModule')
+          .then(m => m.CategorySetupModule)
       }
-      
     ]
   }
 ];

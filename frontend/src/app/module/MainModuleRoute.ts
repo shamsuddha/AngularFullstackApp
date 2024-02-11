@@ -4,7 +4,8 @@ import { MainModuleComp } from './MainModuleComp';
 
 const routes: Routes = [
   {
-    path: '', component: MainModuleComp,
+    path: '', 
+    component: MainModuleComp,
     children: [
       {
         path: 'pos', loadChildren: () => import('./pos/PosModule')

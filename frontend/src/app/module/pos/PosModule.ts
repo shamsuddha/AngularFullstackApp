@@ -8,7 +8,6 @@ import { PosModuleRoute } from './PosModuleRoute';
 @NgModule({
   declarations: [
     PosModuleComp
-    
   ],
   imports: [
     CommonModule, 

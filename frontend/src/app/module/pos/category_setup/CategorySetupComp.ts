@@ -6,32 +6,33 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { HttpClientModule } from "@angular/common/http";
 
-
 @Component({
-  selector:'CategorySetupComp',
-  templateUrl:'./CategorySetupComp.html',
-  styleUrls:['./CategorySetupComp.scss'],
-  standalone:true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RxReactiveFormsModule,
-    NgSelectModule,
-    HttpClientModule
-  ],
+  selector: 'CategorySetupComp',
+  templateUrl: './CategorySetupComp.html',
+  styleUrls: ['./CategorySetupComp.scss'],
   
+  // standalone:true,
+  // imports: [
+  //   CommonModule,
+  //   FormsModule,
+  //   ReactiveFormsModule,
+  //   RxReactiveFormsModule,
+  //   NgSelectModule,
+  //   HttpClientModule
+  // ],
+
 })
 
 export class CategorySetupComp implements OnInit {
 
-constructor(
-  public categoryController: CategoryController,
-  public rxFormBuilder: RxFormBuilder
-) { }
+  constructor() { }
 
-ngOnInit() {
- 
-}
-
+  ngOnInit() { 
+    this.helloWorld()
+   }
+  
+   helloWorld()
+   {
+    console.log("category comming");
+   }
 }
