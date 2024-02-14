@@ -1,0 +1,135 @@
+
+<div class="row">
+  <div class="col-xs-12 col-12">
+    <pagination [totalItems]="totalItems" [(ngModel)]="currentPage"></pagination>
+  </div>
+</div>
+ 
+<button type="button" class="btn btn-info" (click)="setPage(3)">Set current page to: 3</button>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Add New Division</h4>
+        <p class="card-title-desc">
+          To add or update division fill the form and submit.
+        </p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="divisionFg">
+          {{divisionFg.value | json }}
+          <div class="mb-4">
+            <label class="form-label" for="name">Division Name</label>
+            <input formControlName="name" class="form-control" type="text" id="name" placeholder="Enter division name" />
+            <!-- {{divisionFg.controls['name'].errors | json}} -->
+            <div *ngIf="divisionFg.controls['name'].touched
+                      && divisionFg.controls['name'].errors?.['maxLength']" style="color: red">
+              {{divisionFg.controls['name'].errors?.maxLength.message}}
+            </div>
+            <div *ngIf="divisionFg.controls['name'].touched
+                      && divisionFg.controls['name'].errors?.['minLength']" style="color: red">
+              {{divisionFg.controls['name'].errors?.minLength}}
+            </div>
+            <div *ngIf="divisionFg.controls['name'].touched
+                  && divisionFg.controls['name'].errors?.['required']" style="color: red">
+              This field is required
+            </div>
+          </div>         
+          <!-- {{divisionFg.value['addressList'] | json}} -->
+          <button type="button" (click)="save()" class="btn btn-outline-primary waves-effect waves-light mt-1 mx-1">
+            Submit
+          </button>
+         
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">DivisionList</h4>
+        <p class="card-title-desc">
+          Here you will get all the division list
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th>Division Name</th>               
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let division of divisionList$ | async; let i = index">
+                <th scope="row">{{division.id}}</th>
+                <td>{{division.name}}</td>
+                <td>
+                  <button type="button" (click)="onUpdateClick(division)"
+                    class="btn btn-info waves-effect waves-light mx-1">
+                    Edit
+                  </button>
+                  <button type="button" (click)="delete(division)"
+                    class="btn btn-danger waves-effect waves-light mx-1">
+                    Delete
+                  </button>
+                  <button mat-button (click)="openDialog(division)" class="btn btn-primary waves-effect waves-light mx-1">Show districtList</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Division With DistrictList</h4>
+        <p class="card-title-desc">
+          Here you will get all the divisions with district list
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th>Division Name</th>
+                <th>District Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let division of divisionWithDistrictList$ | async">
+                <th scope="row">{{division.id}}</th>
+                <td>{{division.name}}</td>
+                <td>
+                  <button type="button" (click)="onUpdateClick(division)"
+                    class="btn btn-info waves-effect waves-light mx-1">
+                    Edit
+                  </button>
+                  <button type="button" (click)="delete(division)"
+                    class="btn btn-danger waves-effect waves-light mx-1">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- The AG Grid component -->
+ <ag-grid-angular
+ style="width: 100%; height: 100%"
+ class="ag-theme-alpine"
+ [columnDefs]="columnDefs"
+
+ [rowData]="rowData"
+></ag-grid-angular>

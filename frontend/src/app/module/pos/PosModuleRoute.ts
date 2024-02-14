@@ -6,10 +6,20 @@ const routes: Routes = [
   {
     path: '', component: PosModuleComp,
     children: [
-      {
-        path: 'category', loadChildren: () => import('./category_setup/CategorySetupModule')
-          .then(m => m.CategorySetupModule)
-      }
+      // {
+      //   path: 'hr', loadChildren: () => import('./pos/Module')
+      //     .then(m => m.HrModule)
+      // },
+      // {
+      //   path: 'ecommerce', loadChildren: () => import('./ecommerce/EcommerceModule')
+      //     .then(m => m.EcommerceModule)
+      // },
+      // {
+      //   path: 'container', loadChildren: () => import('./container/ContainerModule')
+      //     .then(m => m.ContainerModule)
+      // },
+     
+      
     ]
   }
 ];

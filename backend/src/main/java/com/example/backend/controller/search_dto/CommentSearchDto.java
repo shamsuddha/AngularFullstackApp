@@ -1,4 +1,14 @@
 package com.example.backend.controller.search_dto;
 
-public class CommentSearchDto {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class CommentSearchDto extends SearchDto{
+    private Long commentId;
 }

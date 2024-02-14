@@ -1,0 +1,7 @@
+<div class="d-flex" style="margin-top: 20px; margin-bottom: 20px;">
+  <input class="form-control me-2" 
+  type="search" placeholder="Search" [(ngModel)] = "searchText">
+  <button class="btn btn-success" type="submit" [disabled]="searchText.length == 0">Search</button>
+</div>
+
+<p *ngIf="searchText.length > 0">Search Result For: {{searchText}} </p>

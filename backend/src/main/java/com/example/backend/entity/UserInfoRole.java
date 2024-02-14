@@ -19,12 +19,14 @@ public class UserInfoRole extends AuditLog {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   // USER INFO ROLE MANY TO ONE USER INFO
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "userInfo_id")
   private UserInfo userInfo;
   @Column(name = "userInfo_id", insertable = false, updatable = false)
   private Long userInfoId;
+
   // USER INFO ROLE MANY TO ONE ROLE
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "role_id")
